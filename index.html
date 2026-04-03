@@ -841,6 +841,55 @@
     }
     .done-btn:hover { background: var(--terra-dark); }
 
+    /* ============================================================
+       LIGHTBOX
+    ============================================================ */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(13,13,13,0.92);
+      z-index: 2000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s;
+      padding: 1.5rem;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+
+    .lightbox-img {
+      max-width: 90vw; max-height: 88vh;
+      object-fit: contain; border-radius: 4px;
+      transform: scale(0.88);
+      transition: transform 0.4s cubic-bezier(0.34,1.2,0.64,1);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    }
+    .lightbox.open .lightbox-img { transform: scale(1); }
+
+    .lightbox-close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(245,240,232,0.12);
+      color: var(--cream); font-size: 1.4rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(245,240,232,0.25); }
+
+    /* Talla badge */
+    .size-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border: 1px solid var(--light-line);
+      border-radius: 2px;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Cursor zoom en imagen */
+    .product-img-wrap { cursor: zoom-in; }
+
     @media (max-width: 480px) {
       .form-row { grid-template-columns: 1fr; }
       .payment-opts { grid-template-columns: 1fr; }
@@ -1058,6 +1107,14 @@
     </div>
   </div>
 </footer>
+
+<!-- ============================================================
+     LIGHTBOX
+============================================================ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">✕</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+</div>
 
 <!-- ============================================================
      CART DRAWER
@@ -1332,7 +1389,7 @@ const PRODUCTS = [
   },
   {
     id: 16, name: 'Tank Top Nike Dri-FIT', category: 'mujer', type: 'reciclada',
-    price: 18, image: 'images/nike-tank-reciclada.png',
+    price: 89, size: 'S', image: 'images/nike-tank-reciclada.png',
     desc: 'Tank top deportivo Nike Dri-FIT en excelente condición. Coral con detalles gris.',
   },
 ];
@@ -1452,13 +1509,14 @@ function renderProducts() {
 
   grid.innerHTML = filtered.map((p, i) => `
     <article class="product-card" style="animation-delay:${i * 0.04}s">
-      <div class="product-img-wrap">
+      <div class="product-img-wrap" onclick="openLightbox('${p.image}', '${p.name}')">
         <img src="${p.image}" alt="${p.name}" loading="lazy">
         <span class="product-badge badge-${p.type}">${p.type === 'reciclada' ? '♻ Reciclada' : '✦ Nueva'}</span>
       </div>
       <div class="product-info">
         <p class="product-cat">${catLabel(p.category)}</p>
         <h3 class="product-name">${p.name}</h3>
+        ${p.size ? `<span class="size-badge">Talla ${p.size}</span>` : ''}
         <p class="product-desc">${p.desc}</p>
         <div class="product-footer">
           <div class="product-price"><sup>$</sup>${p.price}</div>
@@ -1565,6 +1623,19 @@ function renderCartItems() {
       <span class="ci-price">$${item.product.price * item.qty}</span>
     </div>
   `).join('');
+}
+
+/* ─── LIGHTBOX ───────────────────────────────────────────────── */
+function openLightbox(src, alt) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = alt;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
 }
 
 /* ─── CART DRAWER OPEN/CLOSE ────────────────────────────────── */
@@ -1734,6 +1805,10 @@ function toggleMobileMenu() {
 
 /* ─── EVENT BINDINGS ─────────────────────────────────────────── */
 function bindEvents() {
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox').addEventListener('click', e => {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  });
   document.getElementById('cart-btn').addEventListener('click', openCart);
   document.getElementById('cart-close').addEventListener('click', closeCart);
   document.getElementById('cart-overlay').addEventListener('click', closeCart);
