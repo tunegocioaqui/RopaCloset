@@ -890,6 +890,184 @@
     /* Cursor zoom en imagen */
     .product-img-wrap { cursor: zoom-in; }
 
+    /* ============================================================
+       AUTH - NAV BUTTONS
+    ============================================================ */
+    .nav-auth { display: flex; align-items: center; gap: 0.6rem; }
+
+    .btn-login {
+      padding: 0.5rem 1.1rem;
+      border: 1px solid var(--light-line); border-radius: 2px;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--charcoal);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-login:hover { border-color: var(--terra); color: var(--terra); }
+
+    .nav-user {
+      display: none; align-items: center; gap: 0.75rem;
+    }
+    .nav-user.visible { display: flex; }
+
+    .nav-user-name {
+      font-size: 0.78rem; font-weight: 600; color: var(--charcoal);
+      max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .btn-account {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--light-line); border-radius: 2px;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--charcoal);
+      transition: 0.2s;
+    }
+    .btn-account:hover { border-color: var(--forest); color: var(--forest); }
+    .btn-logout {
+      font-size: 0.72rem; font-weight: 500; color: var(--warm-gray);
+      text-decoration: underline; text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+    .btn-logout:hover { color: #C0392B; }
+
+    /* ============================================================
+       AUTH MODAL (Login / Register)
+    ============================================================ */
+    .auth-overlay {
+      position: fixed; inset: 0;
+      background: rgba(13,13,13,0.72);
+      z-index: 1400;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .auth-overlay.open { opacity: 1; pointer-events: all; }
+
+    .auth-modal {
+      background: var(--cream); width: 100%;
+      max-width: 420px; border-radius: 4px;
+      overflow: hidden;
+      transform: scale(0.94) translateY(16px);
+      transition: transform 0.35s var(--ease);
+    }
+    .auth-overlay.open .auth-modal { transform: scale(1) translateY(0); }
+
+    .auth-tabs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--light-line);
+    }
+    .auth-tab {
+      padding: 1rem; text-align: center;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--warm-gray); background: var(--cream-dark);
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+    .auth-tab.active {
+      color: var(--terra); background: var(--cream);
+      border-bottom-color: var(--terra);
+    }
+    .auth-body { padding: 1.75rem; }
+
+    .auth-title {
+      font-family: var(--serif); font-size: 1.6rem;
+      font-weight: 700; margin-bottom: 0.4rem;
+    }
+    .auth-sub { font-size: 0.82rem; color: var(--warm-gray); margin-bottom: 1.5rem; line-height: 1.5; }
+
+    .auth-form { display: none; flex-direction: column; gap: 0; }
+    .auth-form.active { display: flex; }
+
+    .auth-err {
+      background: rgba(192,57,43,0.08); border: 1px solid rgba(192,57,43,0.25);
+      border-radius: 2px; padding: 0.6rem 0.9rem;
+      font-size: 0.78rem; color: #C0392B; margin-bottom: 1rem;
+      display: none;
+    }
+    .auth-err.show { display: block; }
+
+    .auth-submit {
+      width: 100%; padding: 0.9rem;
+      background: var(--terra); color: #fff;
+      font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 2px; margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .auth-submit:hover { background: var(--terra-dark); }
+
+    .auth-footer-text {
+      text-align: center; font-size: 0.78rem;
+      color: var(--warm-gray); margin-top: 1rem;
+    }
+    .auth-footer-text a {
+      color: var(--terra); font-weight: 600; cursor: pointer;
+      text-decoration: underline; text-underline-offset: 2px;
+    }
+
+    /* ============================================================
+       ACCOUNT DRAWER (Mis pedidos)
+    ============================================================ */
+    .account-drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(460px, 100vw);
+      background: var(--cream); z-index: 1200;
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.4s var(--ease);
+      box-shadow: -24px 0 64px rgba(13,13,13,0.15);
+    }
+    .account-drawer.open { transform: translateX(0); }
+
+    .account-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 1.5rem;
+      border-bottom: 1px solid var(--light-line);
+    }
+    .account-head-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; }
+    .account-head-sub { font-size: 0.75rem; color: var(--warm-gray); margin-top: 0.1rem; }
+
+    .account-body { flex: 1; overflow-y: auto; padding: 1.5rem; }
+
+    .account-empty {
+      text-align: center; padding: 3rem 1rem; color: var(--warm-gray);
+    }
+    .account-empty p { font-family: var(--serif); font-style: italic; font-size: 1.2rem; }
+    .account-empty small { font-size: 0.82rem; display: block; margin-top: 0.4rem; }
+
+    .order-card {
+      background: #fff; border-radius: 3px;
+      border: 1px solid var(--light-line);
+      padding: 1.25rem; margin-bottom: 1rem;
+    }
+    .order-card-head {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    .order-num-label { font-size: 0.78rem; font-weight: 700; color: var(--black); }
+    .order-date { font-size: 0.7rem; color: var(--warm-gray); }
+
+    .order-status {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.25rem 0.75rem; border-radius: 50px;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .status-proceso { background: rgba(196,98,45,0.1); color: var(--terra); }
+    .status-enviado { background: rgba(45,80,22,0.1); color: var(--forest); }
+    .status-entregado { background: rgba(45,80,22,0.15); color: var(--forest); }
+
+    .order-items-list { font-size: 0.82rem; color: var(--charcoal); line-height: 1.8; }
+    .order-total-row {
+      display: flex; justify-content: space-between;
+      font-size: 0.9rem; font-weight: 700;
+      padding-top: 0.75rem; margin-top: 0.75rem;
+      border-top: 1px solid var(--light-line);
+    }
+
     @media (max-width: 480px) {
       .form-row { grid-template-columns: 1fr; }
       .payment-opts { grid-template-columns: 1fr; }
@@ -911,6 +1089,16 @@
   </ul>
 
   <div class="nav-actions">
+    <!-- Sin sesión -->
+    <button class="btn-login" id="btn-login">Iniciar sesión</button>
+
+    <!-- Con sesión -->
+    <div class="nav-user" id="nav-user">
+      <span class="nav-user-name" id="nav-user-name"></span>
+      <button class="btn-account" id="btn-account">Mis pedidos</button>
+      <button class="btn-logout" id="btn-logout">Salir</button>
+    </div>
+
     <button class="cart-btn" id="cart-btn" aria-label="Abrir carrito">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
       Carrito
@@ -1111,6 +1299,79 @@
 <!-- ============================================================
      LIGHTBOX
 ============================================================ -->
+<!-- ============================================================
+     AUTH MODAL
+============================================================ -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-modal">
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Iniciar sesión</button>
+      <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Registrarse</button>
+    </div>
+
+    <div class="auth-body">
+      <!-- LOGIN -->
+      <form class="auth-form active" id="form-login" onsubmit="handleLogin(event)">
+        <h2 class="auth-title">Bienvenida de vuelta</h2>
+        <p class="auth-sub">Inicia sesión para comprar y revisar tus pedidos.</p>
+        <div class="auth-err" id="login-err"></div>
+        <div class="form-group">
+          <label class="form-label" for="l-email">Correo electrónico</label>
+          <input class="form-input" type="email" id="l-email" placeholder="tu@correo.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="l-pass">Contraseña</label>
+          <input class="form-input" type="password" id="l-pass" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="auth-submit">Iniciar sesión</button>
+        <p class="auth-footer-text">¿No tienes cuenta? <a onclick="switchAuthTab('register')">Regístrate aquí</a></p>
+      </form>
+
+      <!-- REGISTER -->
+      <form class="auth-form" id="form-register" onsubmit="handleRegister(event)">
+        <h2 class="auth-title">Crea tu cuenta</h2>
+        <p class="auth-sub">Regístrate para comprar y dar seguimiento a tus pedidos.</p>
+        <div class="auth-err" id="register-err"></div>
+        <div class="form-group">
+          <label class="form-label" for="r-name">Nombre completo</label>
+          <input class="form-input" type="text" id="r-name" placeholder="María González" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="r-email">Correo electrónico</label>
+          <input class="form-input" type="email" id="r-email" placeholder="tu@correo.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="r-pass">Contraseña</label>
+          <input class="form-input" type="password" id="r-pass" placeholder="Mínimo 6 caracteres" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="r-pass2">Confirmar contraseña</label>
+          <input class="form-input" type="password" id="r-pass2" placeholder="Repite tu contraseña" required>
+        </div>
+        <button type="submit" class="auth-submit">Crear cuenta</button>
+        <p class="auth-footer-text">¿Ya tienes cuenta? <a onclick="switchAuthTab('login')">Inicia sesión</a></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ACCOUNT DRAWER (Mis pedidos)
+============================================================ -->
+<div class="cart-overlay" id="account-overlay"></div>
+<aside class="account-drawer" id="account-drawer">
+  <div class="account-head">
+    <div>
+      <h2 class="account-head-title">Mis pedidos</h2>
+      <p class="account-head-sub" id="account-head-sub"></p>
+    </div>
+    <button class="icon-btn" id="account-close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="account-body" id="account-body"></div>
+</aside>
+
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">✕</button>
   <img class="lightbox-img" id="lightbox-img" src="" alt="">
@@ -1571,6 +1832,14 @@ function closeCart() {
 
 /* ─── CHECKOUT ───────────────────────────────────────────────── */
 function openCheckout() {
+  // Requiere login
+  if (!currentUser) {
+    window._pendingCheckout = true;
+    closeCart();
+    openAuthModal();
+    return;
+  }
+
   // Reset to form view
   document.getElementById('checkout-form-view').classList.remove('hide');
   document.getElementById('order-success').classList.remove('show');
@@ -1696,6 +1965,8 @@ function initCheckoutForm() {
       const orderNum = '#AW-' + String(Math.floor(10000 + Math.random() * 90000));
       document.getElementById('success-order-num').textContent = orderNum;
 
+      saveOrderToUser(orderNum);
+
       document.getElementById('checkout-form-view').classList.add('hide');
       document.getElementById('order-success').classList.add('show');
 
@@ -1715,6 +1986,199 @@ function initNavScroll() {
   }, { passive: true });
 }
 
+/* ─── AUTH SYSTEM ────────────────────────────────────────────── */
+let currentUser = null;
+
+function initAuth() {
+  const session = localStorage.getItem('vc_session');
+  if (session) {
+    try {
+      currentUser = JSON.parse(session);
+      updateNavAuth();
+    } catch(e) { localStorage.removeItem('vc_session'); }
+  }
+}
+
+function getUsers() {
+  try { return JSON.parse(localStorage.getItem('vc_users') || '{}'); } catch(e) { return {}; }
+}
+
+function saveUsers(users) {
+  localStorage.setItem('vc_users', JSON.stringify(users));
+}
+
+function updateNavAuth() {
+  const loggedIn = !!currentUser;
+  document.getElementById('btn-login').style.display = loggedIn ? 'none' : '';
+  document.getElementById('nav-user').classList.toggle('visible', loggedIn);
+  if (loggedIn) {
+    document.getElementById('nav-user-name').textContent = currentUser.name.split(' ')[0];
+  }
+}
+
+function switchAuthTab(tab) {
+  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+  document.getElementById('form-login').classList.toggle('active', tab === 'login');
+  document.getElementById('form-register').classList.toggle('active', tab === 'register');
+  document.getElementById('login-err').classList.remove('show');
+  document.getElementById('register-err').classList.remove('show');
+}
+
+function openAuthModal() {
+  document.getElementById('auth-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAuthModal() {
+  document.getElementById('auth-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('l-email').value.trim().toLowerCase();
+  const pass  = document.getElementById('l-pass').value;
+  const errEl = document.getElementById('login-err');
+
+  const users = getUsers();
+  if (!users[email] || users[email].password !== pass) {
+    errEl.textContent = 'Correo o contraseña incorrectos.';
+    errEl.classList.add('show');
+    return;
+  }
+
+  currentUser = { name: users[email].name, email };
+  localStorage.setItem('vc_session', JSON.stringify(currentUser));
+  updateNavAuth();
+  closeAuthModal();
+  e.target.reset();
+
+  // Si había intención de ir al checkout, abrirlo
+  if (window._pendingCheckout) {
+    window._pendingCheckout = false;
+    openCheckout();
+  }
+}
+
+function handleRegister(e) {
+  e.preventDefault();
+  const name  = document.getElementById('r-name').value.trim();
+  const email = document.getElementById('r-email').value.trim().toLowerCase();
+  const pass  = document.getElementById('r-pass').value;
+  const pass2 = document.getElementById('r-pass2').value;
+  const errEl = document.getElementById('register-err');
+
+  if (pass.length < 6) {
+    errEl.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+    errEl.classList.add('show'); return;
+  }
+  if (pass !== pass2) {
+    errEl.textContent = 'Las contraseñas no coinciden.';
+    errEl.classList.add('show'); return;
+  }
+
+  const users = getUsers();
+  if (users[email]) {
+    errEl.textContent = 'Ya existe una cuenta con ese correo.';
+    errEl.classList.add('show'); return;
+  }
+
+  users[email] = { name, email, password: pass, orders: [] };
+  saveUsers(users);
+
+  currentUser = { name, email };
+  localStorage.setItem('vc_session', JSON.stringify(currentUser));
+  updateNavAuth();
+  closeAuthModal();
+  e.target.reset();
+
+  if (window._pendingCheckout) {
+    window._pendingCheckout = false;
+    openCheckout();
+  }
+}
+
+function logout() {
+  currentUser = null;
+  localStorage.removeItem('vc_session');
+  updateNavAuth();
+  closeAccount();
+}
+
+function saveOrderToUser(orderNum) {
+  if (!currentUser) return;
+  const users = getUsers();
+  const user  = users[currentUser.email];
+  if (!user) return;
+
+  user.orders = user.orders || [];
+  user.orders.unshift({
+    num: orderNum,
+    date: new Date().toLocaleDateString('es-MX', { day:'2-digit', month:'short', year:'numeric' }),
+    items: cart.map(i => `${i.product.name} × ${i.qty}`),
+    total: getCartTotal(),
+    status: 'proceso',
+  });
+  saveUsers(users);
+}
+
+/* ─── ACCOUNT DRAWER ─────────────────────────────────────────── */
+function openAccount() {
+  renderOrders();
+  document.getElementById('account-drawer').classList.add('open');
+  document.getElementById('account-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAccount() {
+  document.getElementById('account-drawer').classList.remove('open');
+  document.getElementById('account-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderOrders() {
+  const body = document.getElementById('account-body');
+  const sub  = document.getElementById('account-head-sub');
+
+  if (!currentUser) return;
+
+  const users = getUsers();
+  const user  = users[currentUser.email];
+  const orders = (user && user.orders) ? user.orders : [];
+
+  sub.textContent = currentUser.name;
+
+  if (!orders.length) {
+    body.innerHTML = `
+      <div class="account-empty">
+        <p>Sin pedidos aún</p>
+        <small>Tus compras aparecerán aquí</small>
+      </div>`;
+    return;
+  }
+
+  const statusLabel = { proceso: 'En proceso', enviado: 'Enviado', entregado: 'Entregado' };
+  const statusClass = { proceso: 'status-proceso', enviado: 'status-enviado', entregado: 'status-entregado' };
+
+  body.innerHTML = orders.map(o => `
+    <div class="order-card">
+      <div class="order-card-head">
+        <span class="order-num-label">${o.num}</span>
+        <span class="order-date">${o.date}</span>
+      </div>
+      <span class="order-status ${statusClass[o.status]}">● ${statusLabel[o.status]}</span>
+      <div class="order-items-list" style="margin-top:0.75rem">
+        ${o.items.map(i => `<div>· ${i}</div>`).join('')}
+      </div>
+      <div class="order-total-row">
+        <span>Total</span>
+        <span>$${o.total}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
 /* ─── MOBILE MENU ────────────────────────────────────────────── */
 function toggleMobileMenu() {
   // Simple scroll to categories on mobile
@@ -1723,6 +2187,17 @@ function toggleMobileMenu() {
 
 /* ─── EVENT BINDINGS ─────────────────────────────────────────── */
 function bindEvents() {
+  // Auth
+  document.getElementById('btn-login').addEventListener('click', openAuthModal);
+  document.getElementById('btn-logout').addEventListener('click', logout);
+  document.getElementById('btn-account').addEventListener('click', openAccount);
+  document.getElementById('auth-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('auth-overlay')) closeAuthModal();
+  });
+  document.getElementById('account-close').addEventListener('click', closeAccount);
+  document.getElementById('account-overlay').addEventListener('click', closeAccount);
+
+  // Lightbox
   document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
   document.getElementById('lightbox').addEventListener('click', e => {
     if (e.target === document.getElementById('lightbox')) closeLightbox();
@@ -1744,6 +2219,8 @@ function bindEvents() {
     if (e.key === 'Escape') {
       closeCart();
       closeCheckout();
+      closeAuthModal();
+      closeAccount();
     }
   });
 }
@@ -1759,6 +2236,7 @@ function init() {
   initCheckoutForm();
   initNavScroll();
   bindEvents();
+  initAuth();
   updateCartUI();
 }
 
