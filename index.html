@@ -1568,7 +1568,7 @@
 const PRODUCTS = [
   {
     id: 16, name: 'Tank Top Nike Dri-FIT', category: 'mujer', type: 'reciclada',
-    price: 89, size: 'S', image: 'images/nike-tank-reciclada.png',
+    price: 89, size: 'S', stock: 1, image: 'images/nike-tank-reciclada.png',
     desc: 'Tank top deportivo Nike Dri-FIT en excelente condición. Coral con detalles gris.',
   },
 ];
@@ -1699,8 +1699,9 @@ function renderProducts() {
         <p class="product-desc">${p.desc}</p>
         <div class="product-footer">
           <div class="product-price"><sup>$</sup>${p.price}</div>
-          <button class="add-btn" id="add-${p.id}" onclick="addToCart(${p.id})">
-            + Añadir
+          <button class="add-btn" id="add-${p.id}" onclick="addToCart(${p.id})"
+            ${p.stock <= 0 ? 'disabled style="background:var(--warm-gray);cursor:not-allowed"' : ''}>
+            ${p.stock <= 0 ? 'Agotado' : '+ Añadir'}
           </button>
         </div>
       </div>
@@ -1716,39 +1717,56 @@ function catLabel(cat) {
 function addToCart(productId) {
   const product = PRODUCTS.find(p => p.id === productId);
   if (!product) return;
+  if (product.stock <= 0) return; // sin stock
 
   const existing = cart.find(i => i.product.id === productId);
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ product, qty: 1 });
-  }
+  if (existing) return; // ya está en carrito (stock 1)
 
-  // Button feedback
-  const btn = document.getElementById(`add-${productId}`);
-  if (btn) {
-    btn.textContent = '✓ Añadido';
-    btn.classList.add('added');
-    setTimeout(() => {
-      btn.textContent = '+ Añadir';
-      btn.classList.remove('added');
-    }, 1500);
-  }
+  product.stock = 0;
+  cart.push({ product, qty: 1 });
 
+  // Botón pasa a "Agotado"
+  updateAddBtn(productId);
   updateCartUI();
   openCart();
 }
 
 function removeFromCart(productId) {
+  const product = PRODUCTS.find(p => p.id === productId);
+  if (product) product.stock = 1; // devuelve stock
   cart = cart.filter(i => i.product.id !== productId);
+  updateAddBtn(productId);
   updateCartUI();
 }
 
 function updateQty(productId, delta) {
+  // Stock de 1: no permite aumentar cantidad
+  if (delta > 0) return;
   const item = cart.find(i => i.product.id === productId);
   if (!item) return;
-  item.qty = Math.max(1, item.qty + delta);
+  if (item.qty + delta < 1) {
+    removeFromCart(productId);
+    return;
+  }
+  item.qty = item.qty + delta;
   updateCartUI();
+}
+
+function updateAddBtn(productId) {
+  const btn = document.getElementById(`add-${productId}`);
+  if (!btn) return;
+  const product = PRODUCTS.find(p => p.id === productId);
+  if (product && product.stock <= 0) {
+    btn.textContent = 'Agotado';
+    btn.disabled = true;
+    btn.style.background = 'var(--warm-gray)';
+    btn.style.cursor = 'not-allowed';
+  } else {
+    btn.textContent = '+ Añadir';
+    btn.disabled = false;
+    btn.style.background = '';
+    btn.style.cursor = '';
+  }
 }
 
 function getCartCount() {
@@ -1795,8 +1813,11 @@ function renderCartItems() {
         <div class="ci-controls">
           <button class="qty-btn" onclick="updateQty(${item.product.id}, -1)">−</button>
           <span class="qty-num">${item.qty}</span>
-          <button class="qty-btn" onclick="updateQty(${item.product.id}, 1)">+</button>
+          <button class="qty-btn" disabled style="opacity:0.3;cursor:not-allowed">+</button>
           <span class="ci-remove" onclick="removeFromCart(${item.product.id})">Eliminar</span>
+        </div>
+        <div style="font-size:0.65rem;color:var(--terra);margin-top:0.3rem;letter-spacing:0.05em">
+          Última unidad disponible
         </div>
       </div>
       <span class="ci-price">$${item.product.price * item.qty}</span>
