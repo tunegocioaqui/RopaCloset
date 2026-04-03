@@ -891,6 +891,178 @@
     .product-img-wrap { cursor: zoom-in; }
 
     /* ============================================================
+       ADMIN PANEL
+    ============================================================ */
+    .admin-screen {
+      position: fixed; inset: 0; z-index: 3000;
+      background: #0F1117;
+      display: flex; flex-direction: column;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+      overflow: hidden;
+    }
+    .admin-screen.open { opacity: 1; pointer-events: all; }
+
+    /* Admin login */
+    .admin-login {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .admin-login-box {
+      background: #1A1D27; border: 1px solid #2A2D3A;
+      border-radius: 8px; padding: 2.5rem;
+      width: 100%; max-width: 360px;
+    }
+    .admin-login-logo {
+      font-family: var(--serif); font-size: 1.4rem; font-weight: 900;
+      color: #fff; margin-bottom: 0.3rem;
+    }
+    .admin-login-logo em { color: var(--terra); font-style: normal; }
+    .admin-login-sub { font-size: 0.78rem; color: #6B7280; margin-bottom: 2rem; }
+    .admin-input {
+      width: 100%; padding: 0.75rem 1rem;
+      background: #0F1117; border: 1px solid #2A2D3A;
+      border-radius: 6px; font-family: var(--sans); font-size: 0.88rem;
+      color: #fff; outline: none; margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+    .admin-input:focus { border-color: var(--terra); }
+    .admin-input-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #6B7280; margin-bottom: 0.4rem; display: block; }
+    .admin-login-btn {
+      width: 100%; padding: 0.85rem;
+      background: var(--terra); color: #fff;
+      font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 6px; transition: background 0.2s;
+    }
+    .admin-login-btn:hover { background: var(--terra-dark); }
+    .admin-login-err {
+      font-size: 0.75rem; color: #F87171;
+      margin-bottom: 0.75rem; display: none;
+    }
+    .admin-login-err.show { display: block; }
+
+    /* Admin dashboard */
+    .admin-dash { display: none; flex-direction: column; height: 100%; }
+    .admin-dash.show { display: flex; }
+
+    .admin-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.75rem;
+      background: #1A1D27; border-bottom: 1px solid #2A2D3A;
+      flex-shrink: 0;
+    }
+    .admin-topbar-brand {
+      font-family: var(--serif); font-size: 1.2rem; font-weight: 900; color: #fff;
+    }
+    .admin-topbar-brand em { color: var(--terra); font-style: normal; }
+    .admin-topbar-right { display: flex; align-items: center; gap: 1rem; }
+    .admin-badge {
+      padding: 0.25rem 0.75rem;
+      background: rgba(196,98,45,0.15); color: var(--terra);
+      border-radius: 50px; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .admin-logout-btn {
+      font-size: 0.75rem; color: #6B7280;
+      text-decoration: underline; text-underline-offset: 2px;
+      transition: color 0.2s;
+    }
+    .admin-logout-btn:hover { color: #F87171; }
+
+    /* Stats row */
+    .admin-stats {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: #2A2D3A;
+      border-bottom: 1px solid #2A2D3A; flex-shrink: 0;
+    }
+    .admin-stat {
+      background: #1A1D27; padding: 1.1rem 1.5rem;
+    }
+    .admin-stat-num {
+      font-family: var(--serif); font-size: 2rem;
+      font-weight: 900; color: #fff; line-height: 1;
+    }
+    .admin-stat-label { font-size: 0.65rem; color: #6B7280; margin-top: 0.3rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .admin-stat-accent { color: var(--terra); }
+
+    /* Filter bar */
+    .admin-filter-bar {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 1.75rem;
+      background: #1A1D27; border-bottom: 1px solid #2A2D3A;
+      flex-shrink: 0; flex-wrap: wrap;
+    }
+    .admin-filter-label { font-size: 0.68rem; color: #6B7280; letter-spacing: 0.15em; text-transform: uppercase; margin-right: 0.25rem; }
+    .admin-f-btn {
+      padding: 0.3rem 0.85rem;
+      border: 1px solid #2A2D3A; border-radius: 50px;
+      font-size: 0.72rem; font-weight: 500; color: #9CA3AF;
+      background: transparent; cursor: pointer; transition: 0.2s;
+    }
+    .admin-f-btn:hover { border-color: var(--terra); color: var(--terra); }
+    .admin-f-btn.active { background: var(--terra); border-color: var(--terra); color: #fff; }
+
+    /* Orders list */
+    .admin-orders { flex: 1; overflow-y: auto; padding: 1.25rem 1.75rem; }
+
+    .admin-empty {
+      text-align: center; padding: 4rem 2rem;
+      color: #6B7280; font-family: var(--serif);
+      font-style: italic; font-size: 1.2rem;
+    }
+
+    .admin-order-card {
+      background: #1A1D27; border: 1px solid #2A2D3A;
+      border-radius: 8px; padding: 1.25rem 1.5rem;
+      margin-bottom: 0.85rem;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 1rem; align-items: start;
+      transition: border-color 0.2s;
+    }
+    .admin-order-card:hover { border-color: #3A3D4A; }
+
+    .admin-order-num { font-size: 0.75rem; font-weight: 700; color: var(--terra); margin-bottom: 0.25rem; }
+    .admin-order-client { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.15rem; }
+    .admin-order-email { font-size: 0.75rem; color: #6B7280; margin-bottom: 0.75rem; }
+
+    .admin-order-items { font-size: 0.8rem; color: #9CA3AF; line-height: 1.7; margin-bottom: 0.6rem; }
+    .admin-order-delivery { font-size: 0.75rem; color: #9CA3AF; }
+    .admin-order-delivery span { color: var(--terra-light); }
+
+    .admin-order-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; }
+    .admin-order-total { font-family: var(--serif); font-size: 1.5rem; font-weight: 900; color: #fff; }
+    .admin-order-date { font-size: 0.7rem; color: #6B7280; text-align: right; }
+
+    .admin-status-sel {
+      padding: 0.4rem 0.75rem;
+      border-radius: 50px; border: 1px solid #2A2D3A;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; outline: none;
+      transition: 0.2s;
+    }
+    .admin-status-sel.proceso { background: rgba(196,98,45,0.12); color: var(--terra); border-color: rgba(196,98,45,0.3); }
+    .admin-status-sel.enviado { background: rgba(59,130,246,0.12); color: #60A5FA; border-color: rgba(59,130,246,0.3); }
+    .admin-status-sel.entregado { background: rgba(45,80,22,0.2); color: var(--leaf); border-color: rgba(143,190,85,0.3); }
+
+    @media (max-width: 600px) {
+      .admin-stats { grid-template-columns: repeat(2, 1fr); }
+      .admin-order-card { grid-template-columns: 1fr; }
+      .admin-order-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+      .admin-topbar { padding: 0.9rem 1rem; }
+      .admin-orders { padding: 1rem; }
+    }
+
+    /* Admin link in footer */
+    .admin-footer-link {
+      font-size: 0.68rem; color: rgba(245,240,232,0.15);
+      cursor: pointer; transition: color 0.2s;
+      text-decoration: none;
+    }
+    .admin-footer-link:hover { color: var(--terra); }
+
+    /* ============================================================
        DELIVERY OPTIONS
     ============================================================ */
     .delivery-opts { display: flex; flex-direction: column; gap: 0.65rem; }
@@ -1314,7 +1486,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 La vuelta al clóset. Todos los derechos reservados.</p>
+      <p class="footer-copy">© 2025 La vuelta al clóset. Todos los derechos reservados. <span class="admin-footer-link" onclick="openAdminScreen()">·</span></p>
       <p class="footer-sustain">
         <svg class="leaf-ico" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17 8C8 10 5.9 16.17 3.82 19.25c.39.13.8.25 1.22.25 4 0 8-3 8-8 0 0 2 3 2 8 0 0 4-4 4-8 0-3.5-2.04-6-2.04-6L17 8z"/></svg>
         Comprometidos con el medio ambiente
@@ -1398,6 +1570,66 @@
   </div>
   <div class="account-body" id="account-body"></div>
 </aside>
+
+<!-- ============================================================
+     ADMIN PANEL
+============================================================ -->
+<div class="admin-screen" id="admin-screen">
+
+  <!-- Login -->
+  <div class="admin-login" id="admin-login">
+    <div class="admin-login-box">
+      <div class="admin-login-logo">La vuelta al <em>clóset</em></div>
+      <p class="admin-login-sub">Panel de administración</p>
+      <div class="admin-login-err" id="admin-login-err">Contraseña incorrecta</div>
+      <label class="admin-input-label" for="admin-pass">Contraseña</label>
+      <input class="admin-input" type="password" id="admin-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter') adminLogin()">
+      <button class="admin-login-btn" onclick="adminLogin()">Entrar al panel</button>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="admin-dash" id="admin-dash">
+
+    <div class="admin-topbar">
+      <div class="admin-topbar-brand">La vuelta al <em>clóset</em></div>
+      <div class="admin-topbar-right">
+        <span class="admin-badge">Administrador</span>
+        <button class="admin-logout-btn" onclick="adminLogout()">Cerrar panel</button>
+      </div>
+    </div>
+
+    <div class="admin-stats">
+      <div class="admin-stat">
+        <div class="admin-stat-num admin-stat-accent" id="stat-total">0</div>
+        <div class="admin-stat-label">Pedidos totales</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat-num admin-stat-accent" id="stat-proceso">0</div>
+        <div class="admin-stat-label">En proceso</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat-num" id="stat-enviado">0</div>
+        <div class="admin-stat-label">Enviados</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat-num" id="stat-ingresos">$0</div>
+        <div class="admin-stat-label">Ingresos totales</div>
+      </div>
+    </div>
+
+    <div class="admin-filter-bar">
+      <span class="admin-filter-label">Filtrar</span>
+      <button class="admin-f-btn active" data-filter="all" onclick="adminFilter(this)">Todos</button>
+      <button class="admin-f-btn" data-filter="proceso" onclick="adminFilter(this)">En proceso</button>
+      <button class="admin-f-btn" data-filter="enviado" onclick="adminFilter(this)">Enviados</button>
+      <button class="admin-f-btn" data-filter="entregado" onclick="adminFilter(this)">Entregados</button>
+    </div>
+
+    <div class="admin-orders" id="admin-orders"></div>
+
+  </div>
+</div>
 
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">✕</button>
@@ -2083,6 +2315,113 @@ function initNavScroll() {
   }, { passive: true });
 }
 
+/* ─── ADMIN PANEL ────────────────────────────────────────────── */
+const ADMIN_PASSWORD = 'lavuelta2026';
+let adminFilterActive = 'all';
+
+function openAdminScreen() {
+  document.getElementById('admin-screen').classList.add('open');
+  document.getElementById('admin-login').style.display = '';
+  document.getElementById('admin-dash').classList.remove('show');
+  document.getElementById('admin-pass').value = '';
+  document.getElementById('admin-login-err').classList.remove('show');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('admin-pass').focus(), 300);
+}
+
+function adminLogin() {
+  const pass = document.getElementById('admin-pass').value;
+  if (pass !== ADMIN_PASSWORD) {
+    document.getElementById('admin-login-err').classList.add('show');
+    document.getElementById('admin-pass').value = '';
+    return;
+  }
+  document.getElementById('admin-login').style.display = 'none';
+  document.getElementById('admin-dash').classList.add('show');
+  renderAdminOrders();
+}
+
+function adminLogout() {
+  document.getElementById('admin-screen').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function adminFilter(btn) {
+  document.querySelectorAll('.admin-f-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  adminFilterActive = btn.dataset.filter;
+  renderAdminOrders();
+}
+
+function getAllOrders() {
+  const users = getUsers();
+  const all = [];
+  Object.values(users).forEach(user => {
+    (user.orders || []).forEach(order => {
+      all.push({ ...order, clientName: user.name, clientEmail: user.email });
+    });
+  });
+  return all.sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+
+function renderAdminOrders() {
+  const all = getAllOrders();
+  const filtered = adminFilterActive === 'all'
+    ? all
+    : all.filter(o => o.status === adminFilterActive);
+
+  // Stats
+  document.getElementById('stat-total').textContent   = all.length;
+  document.getElementById('stat-proceso').textContent  = all.filter(o => o.status === 'proceso').length;
+  document.getElementById('stat-enviado').textContent  = all.filter(o => o.status === 'enviado').length;
+  document.getElementById('stat-ingresos').textContent = '$' + all.reduce((s, o) => s + (o.total || 0), 0);
+
+  const container = document.getElementById('admin-orders');
+
+  if (!filtered.length) {
+    container.innerHTML = `<div class="admin-empty">Sin pedidos${adminFilterActive !== 'all' ? ' con este estado' : ' aún'}</div>`;
+    return;
+  }
+
+  const delivLabel = { encinos: '📍 Los Encinos · 6pm–9pm', piedad: '💊 Farmacia Guadalajara, La Piedad · 10am–3pm', acordado: '🤝 Punto acordado' };
+
+  container.innerHTML = filtered.map((o, idx) => `
+    <div class="admin-order-card">
+      <div>
+        <div class="admin-order-num">${o.num}</div>
+        <div class="admin-order-client">${o.clientName}</div>
+        <div class="admin-order-email">${o.clientEmail}</div>
+        <div class="admin-order-items">${(o.items || []).map(i => `· ${i}`).join('<br>')}</div>
+        <div class="admin-order-delivery">Entrega: <span>${delivLabel[o.delivery] || o.delivery || '—'}</span></div>
+      </div>
+      <div class="admin-order-right">
+        <div>
+          <div class="admin-order-total">$${o.total}</div>
+          <div class="admin-order-date">${o.date}</div>
+        </div>
+        <select class="admin-status-sel ${o.status}" onchange="updateOrderStatus('${o.clientEmail}', '${o.num}', this)">
+          <option value="proceso"   ${o.status==='proceso'   ? 'selected' : ''}>● En proceso</option>
+          <option value="enviado"   ${o.status==='enviado'   ? 'selected' : ''}>● Enviado</option>
+          <option value="entregado" ${o.status==='entregado' ? 'selected' : ''}>● Entregado</option>
+        </select>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateOrderStatus(email, orderNum, selectEl) {
+  const newStatus = selectEl.value;
+  const users = getUsers();
+  const user  = users[email];
+  if (!user) return;
+  const order = (user.orders || []).find(o => o.num === orderNum);
+  if (!order) return;
+  order.status = newStatus;
+  saveUsers(users);
+  selectEl.className = `admin-status-sel ${newStatus}`;
+  renderAdminOrders();
+}
+
 /* ─── AUTH SYSTEM ────────────────────────────────────────────── */
 let currentUser = null;
 
@@ -2215,6 +2554,7 @@ function saveOrderToUser(orderNum) {
     date: new Date().toLocaleDateString('es-MX', { day:'2-digit', month:'short', year:'numeric' }),
     items: cart.map(i => `${i.product.name} × ${i.qty}`),
     total: getCartTotal(),
+    delivery: selectedDelivery,
     status: 'proceso',
   });
   saveUsers(users);
