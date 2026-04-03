@@ -891,6 +891,33 @@
     .product-img-wrap { cursor: zoom-in; }
 
     /* ============================================================
+       DELIVERY OPTIONS
+    ============================================================ */
+    .delivery-opts { display: flex; flex-direction: column; gap: 0.65rem; }
+
+    .delivery-opt {
+      display: flex; align-items: flex-start; gap: 0.9rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--light-line); border-radius: 3px;
+      cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    }
+    .delivery-opt:hover { border-color: var(--terra); }
+    .delivery-opt.selected {
+      border-color: var(--terra);
+      background: rgba(196,98,45,0.04);
+    }
+    .delivery-opt input[type=radio] { display: none; }
+
+    .delivery-opt-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    .delivery-opt-name {
+      font-size: 0.88rem; font-weight: 600; color: var(--black); margin-bottom: 0.2rem;
+    }
+    .delivery-opt-info {
+      font-size: 0.75rem; color: var(--warm-gray); line-height: 1.4;
+    }
+
+    /* ============================================================
        AUTH - NAV BUTTONS
     ============================================================ */
     .nav-auth { display: flex; align-items: center; gap: 0.6rem; }
@@ -1456,25 +1483,45 @@
 
           <hr class="divider">
 
-          <!-- Address -->
-          <p class="form-section-title">Dirección de envío</p>
-          <div class="form-group">
-            <label class="form-label" for="f-address">Calle y número</label>
-            <input class="form-input" type="text" id="f-address" placeholder="Av. Reforma 123, Col. Centro">
-            <span class="field-err" id="err-address"></span>
+          <!-- Delivery -->
+          <p class="form-section-title">Opción de entrega</p>
+          <div class="delivery-opts" id="delivery-opts">
+
+            <label class="delivery-opt selected" id="del-opt-1">
+              <input type="radio" name="delivery" value="encinos" checked>
+              <div class="delivery-opt-icon">📍</div>
+              <div class="delivery-opt-body">
+                <div class="delivery-opt-name">Los Encinos</div>
+                <div class="delivery-opt-info">Miércoles a domingo · 6:00 pm – 9:00 pm</div>
+              </div>
+            </label>
+
+            <label class="delivery-opt" id="del-opt-2">
+              <input type="radio" name="delivery" value="piedad">
+              <div class="delivery-opt-icon">💊</div>
+              <div class="delivery-opt-body">
+                <div class="delivery-opt-name">La Piedad — Farmacia Guadalajara</div>
+                <div class="delivery-opt-info">Miércoles a domingo · 10:00 am – 3:00 pm</div>
+              </div>
+            </label>
+
+            <label class="delivery-opt" id="del-opt-3">
+              <input type="radio" name="delivery" value="acordado">
+              <div class="delivery-opt-icon">🤝</div>
+              <div class="delivery-opt-body">
+                <div class="delivery-opt-name">Punto acordado</div>
+                <div class="delivery-opt-info">Coordinamos lugar y horario por mensaje</div>
+              </div>
+            </label>
+
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="f-city">Ciudad</label>
-              <input class="form-input" type="text" id="f-city" placeholder="Ciudad de México">
-              <span class="field-err" id="err-city"></span>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="f-cp">Código postal</label>
-              <input class="form-input" type="text" id="f-cp" placeholder="06600">
-              <span class="field-err" id="err-cp"></span>
-            </div>
+
+          <!-- Nota punto acordado -->
+          <div class="form-group" id="punto-acordado-note" style="display:none; margin-top:0.75rem">
+            <label class="form-label" for="f-nota">Escribe tu zona o colonia</label>
+            <input class="form-input" type="text" id="f-nota" placeholder="Ej. Col. Centro, cerca del parque...">
           </div>
+          <span class="field-err" id="err-delivery"></span>
 
           <hr class="divider">
 
@@ -1880,14 +1927,18 @@ function closeCheckout() {
 
 function renderOrderSummary() {
   const container = document.getElementById('order-summary-items');
-  const totalEl = document.getElementById('order-total-amount');
+  const totalEl   = document.getElementById('order-total-amount');
 
   container.innerHTML = cart.map(item => `
     <div class="os-item">
       <span>${item.product.name} × ${item.qty}</span>
       <span>$${item.product.price * item.qty}</span>
     </div>
-  `).join('');
+  `).join('') + `
+    <div class="os-item">
+      <span>📍 Entrega</span>
+      <span style="color:var(--terra);font-size:0.78rem">${DELIVERY_LABELS[selectedDelivery] || selectedDelivery}</span>
+    </div>`;
 
   totalEl.textContent = `$${getCartTotal()}`;
 }
@@ -1920,14 +1971,17 @@ function validateForm() {
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   valid = setErr('f-email', 'err-email', emailOk ? '' : 'Correo inválido') && valid;
 
-  const address = document.getElementById('f-address').value.trim();
-  valid = setErr('f-address', 'err-address', address ? '' : 'Campo requerido') && valid;
-
-  const city = document.getElementById('f-city').value.trim();
-  valid = setErr('f-city', 'err-city', city ? '' : 'Campo requerido') && valid;
-
-  const cp = document.getElementById('f-cp').value.trim();
-  valid = setErr('f-cp', 'err-cp', /^\d{4,6}$/.test(cp) ? '' : 'Código postal inválido') && valid;
+  // Validar nota si eligió punto acordado
+  if (selectedDelivery === 'acordado') {
+    const nota = document.getElementById('f-nota').value.trim();
+    const errDel = document.getElementById('err-delivery');
+    if (!nota) {
+      errDel.textContent = 'Escribe tu zona o punto de referencia.';
+      valid = false;
+    } else {
+      errDel.textContent = '';
+    }
+  }
 
   if (paymentMethod === 'card') {
     const card = document.getElementById('f-card').value.replace(/\s/g, '');
@@ -1942,6 +1996,28 @@ function validateForm() {
 
   return valid;
 }
+
+/* ─── DELIVERY OPTION TOGGLE ─────────────────────────────────── */
+let selectedDelivery = 'encinos';
+
+function initDeliveryToggle() {
+  document.querySelectorAll('#delivery-opts .delivery-opt').forEach(lbl => {
+    lbl.addEventListener('click', () => {
+      selectedDelivery = lbl.querySelector('input').value;
+      document.querySelectorAll('#delivery-opts .delivery-opt').forEach(l => l.classList.remove('selected'));
+      lbl.classList.add('selected');
+      lbl.querySelector('input').checked = true;
+      document.getElementById('punto-acordado-note').style.display =
+        selectedDelivery === 'acordado' ? '' : 'none';
+    });
+  });
+}
+
+const DELIVERY_LABELS = {
+  encinos:  'Los Encinos · Mié–Dom 6pm–9pm',
+  piedad:   'Farmacia Guadalajara La Piedad · Mié–Dom 10am–3pm',
+  acordado: 'Punto acordado',
+};
 
 /* ─── PAYMENT METHOD TOGGLE ─────────────────────────────────── */
 function initPaymentToggle() {
@@ -2253,6 +2329,7 @@ function init() {
   renderProducts();
   initFilters();
   initPaymentToggle();
+  initDeliveryToggle();
   initCardFormatting();
   initCheckoutForm();
   initNavScroll();
