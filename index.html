@@ -375,6 +375,16 @@
       font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
       text-transform: uppercase; color: rgba(255,255,255,0.4);
     }
+    @media (max-width: 640px) {
+      .stats-section { padding: 2.5rem 1.25rem; }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 2px;
+      }
+      .stat-item { padding: 1.75rem 1rem; }
+      .stat-num { font-size: 2.2rem; }
+      .stat-label { font-size: 0.65rem; letter-spacing: 0.06em; }
+    }
 
     /* ═══ ABOUT / SPLIT ═══ */
     .about-section { background: var(--offwhite); }
