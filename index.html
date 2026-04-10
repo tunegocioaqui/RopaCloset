@@ -3,1588 +3,1061 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Negocios Tula de Allende — El directorio de tu ciudad</title>
+  <title>Dental Marqués — Querétaro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* ============================================================
-       RESET & BASE
-    ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --terra:        #C4622D;
-      --terra-dark:   #A0501F;
-      --terra-light:  #E8845A;
-      --cream:        #F5F0E8;
-      --cream-dark:   #EDE8DC;
-      --forest:       #2D5016;
-      --forest-light: #3D6B20;
-      --leaf:         #8FBE55;
-      --black:        #0D0D0D;
-      --charcoal:     #1A1A1A;
-      --warm-gray:    #8C8279;
-      --light-line:   #D9D4C9;
-      --serif:        'Playfair Display', Georgia, serif;
-      --sans:         'Inter', system-ui, -apple-system, sans-serif;
-      --nav-h:        72px;
-      --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+      --blue:        #1A6FBF;
+      --blue-dark:   #124E8A;
+      --blue-light:  #3A8FDF;
+      --sky:         #EAF4FF;
+      --sky-dark:    #D4EAFF;
+      --white:       #FFFFFF;
+      --cream:       #F8FBFF;
+      --gray:        #6B7A8D;
+      --gray-light:  #E2EAF2;
+      --dark:        #0D1B2A;
+      --charcoal:    #1C2B3A;
+      --green-wapp:  #25D366;
+      --serif:       'Playfair Display', Georgia, serif;
+      --sans:        'Inter', system-ui, sans-serif;
+      --nav-h:       70px;
+      --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+      --radius:      12px;
     }
 
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: var(--sans);
       background: var(--cream);
-      color: var(--black);
+      color: var(--charcoal);
       overflow-x: hidden;
       opacity: 0;
-      animation: pageLoad 0.7s ease 0.1s forwards;
+      animation: fadeIn 0.6s ease 0.1s forwards;
     }
-    @keyframes pageLoad { to { opacity: 1; } }
+    @keyframes fadeIn { to { opacity: 1; } }
     img { display: block; max-width: 100%; }
     button { font-family: var(--sans); cursor: pointer; border: none; background: none; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
     ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--cream); }
-    ::-webkit-scrollbar-thumb { background: var(--light-line); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: var(--gray-light); border-radius: 3px; }
 
-    /* ============================================================
-       NAVIGATION
-    ============================================================ */
+    /* ── NAV ── */
     .nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 1000;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
       height: var(--nav-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 2.5rem;
-      background: rgba(245,240,232,0.96);
+      background: rgba(255,255,255,0.96);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--light-line);
+      border-bottom: 1px solid var(--gray-light);
       transition: box-shadow 0.3s;
     }
-    .nav.scrolled { box-shadow: 0 4px 24px rgba(13,13,13,0.06); }
+    .nav.scrolled { box-shadow: 0 4px 24px rgba(26,111,191,0.1); }
 
-    .nav-brand {
-      font-family: var(--serif);
-      font-size: 1.5rem; font-weight: 900;
-      letter-spacing: -0.02em; color: var(--black);
-      line-height: 1.1;
+    .nav-brand { display: flex; align-items: center; gap: 0.6rem; }
+    .nav-logo {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
     }
-    .nav-brand em { font-style: normal; color: var(--terra); }
-    .nav-brand span { display: block; font-size: 0.65rem; font-family: var(--sans); font-weight: 400; color: var(--warm-gray); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--dark); }
+    .nav-name span { color: var(--blue); }
 
-    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center;
+    }
     .nav-links a {
-      font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--charcoal); position: relative;
-      transition: color 0.25s;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--gray);
+      transition: color 0.2s; position: relative;
     }
     .nav-links a::after {
-      content: ''; position: absolute; bottom: -3px; left: 0;
-      width: 0; height: 1px; background: var(--terra);
-      transition: width 0.3s var(--ease);
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--blue);
+      border-radius: 2px; transition: width 0.3s var(--ease);
     }
-    .nav-links a:hover { color: var(--terra); }
+    .nav-links a:hover { color: var(--blue); }
     .nav-links a:hover::after { width: 100%; }
 
-    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
-
-    .btn-register-nav {
-      padding: 0.55rem 1.25rem;
-      background: var(--terra); color: #fff;
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border-radius: 3px;
-      transition: background 0.25s;
+    .nav-cta {
+      padding: 0.55rem 1.4rem;
+      background: var(--blue); color: #fff;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 100px;
+      transition: background 0.2s, transform 0.2s;
     }
-    .btn-register-nav:hover { background: var(--terra-dark); }
+    .nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
 
-    .auth-btn {
-      font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--charcoal); padding: 0.55rem 1rem;
-      border: 1px solid var(--light-line); border-radius: 3px;
-      transition: border-color 0.25s, color 0.25s;
-    }
-    .auth-btn:hover { border-color: var(--terra); color: var(--terra); }
-
-    #nav-user-name {
-      font-size: 0.72rem; font-weight: 500; color: var(--charcoal);
-      letter-spacing: 0.05em; cursor: pointer;
-      padding: 0.4rem 0.75rem;
-      border: 1px solid var(--light-line); border-radius: 3px;
-      transition: border-color 0.25s;
-    }
-    #nav-user-name:hover { border-color: var(--terra); }
-
-    .nav-admin-link {
-      font-size: 0.65rem; color: var(--warm-gray);
-      letter-spacing: 0.08em; text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-admin-link:hover { color: var(--terra); }
-
-    /* ============================================================
-       HERO
-    ============================================================ */
+    /* ── HERO ── */
     .hero {
-      min-height: 520px;
+      min-height: 100vh;
       padding-top: var(--nav-h);
-      background: linear-gradient(135deg, var(--charcoal) 0%, #2a1f14 60%, var(--terra-dark) 100%);
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1A3A5C 50%, #1A6FBF 100%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-left: 7vw; padding-right: 5vw;
+      gap: 3rem;
       position: relative;
       overflow: hidden;
     }
     .hero::before {
       content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      position: absolute; top: -30%; right: -10%;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(58,143,223,0.15), transparent 70%);
     }
-    .hero-inner {
-      position: relative; z-index: 1;
-      max-width: 720px; padding: 3rem 2rem;
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -20%; left: 20%;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
     }
+
+    .hero-text { position: relative; z-index: 1; }
     .hero-tag {
-      display: inline-block;
-      font-size: 0.65rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--terra-light); margin-bottom: 1.25rem;
-      border: 1px solid rgba(196,98,45,0.4);
-      padding: 0.3rem 1rem; border-radius: 2px;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: #7EC8FF;
+      margin-bottom: 1.25rem;
+    }
+    .hero-tag::before {
+      content: ''; width: 24px; height: 2px; background: #7EC8FF;
     }
     .hero h1 {
       font-family: var(--serif);
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
       font-weight: 700; color: #fff;
-      line-height: 1.15; margin-bottom: 1rem;
+      line-height: 1.15; margin-bottom: 1.25rem;
     }
-    .hero h1 em { font-style: italic; color: var(--terra-light); }
-    .hero p {
+    .hero h1 em { font-style: italic; color: #7EC8FF; }
+    .hero-desc {
       font-size: 1rem; color: rgba(255,255,255,0.65);
-      margin-bottom: 2.5rem; line-height: 1.7;
+      line-height: 1.75; margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-wapp {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
+      background: var(--green-wapp); color: #fff;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 100px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    }
+    .btn-wapp:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.45); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.85rem 1.75rem;
+      border: 1px solid rgba(255,255,255,0.3); color: #fff;
+      font-size: 0.85rem; font-weight: 500;
+      border-radius: 100px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
+
+    .hero-stats {
+      display: flex; gap: 2rem; margin-top: 3rem;
+      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat-num {
+      font-family: var(--serif); font-size: 1.8rem; font-weight: 700;
+      color: #fff; line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.72rem; color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em; margin-top: 0.25rem;
     }
 
-    .search-box {
-      display: flex; gap: 0;
-      background: #fff; border-radius: 4px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-      max-width: 540px; margin: 0 auto;
+    .hero-img-side {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; gap: 1.25rem;
     }
-    .search-box input {
-      flex: 1; padding: 0.9rem 1.25rem;
-      font-family: var(--sans); font-size: 0.9rem;
-      border: none; outline: none;
-      color: var(--black);
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+      transition: transform 0.3s;
     }
-    .search-box input::placeholder { color: var(--warm-gray); }
-    .search-box button {
-      padding: 0.9rem 1.5rem;
-      background: var(--terra); color: #fff;
-      font-size: 0.8rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      transition: background 0.2s;
+    .hero-card:hover { transform: translateX(-4px); }
+    .hero-card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
     }
-    .search-box button:hover { background: var(--terra-dark); }
+    .hero-card-text strong {
+      display: block; font-size: 0.9rem; color: #fff; font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .hero-card-text span { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
 
-    /* ============================================================
-       CATEGORIES BAR
-    ============================================================ */
-    .cats-section {
-      background: var(--cream-dark);
-      border-bottom: 1px solid var(--light-line);
-      padding: 1.5rem 2.5rem;
-    }
-    .cats-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; gap: 0.75rem; flex-wrap: wrap;
-      align-items: center;
-    }
-    .cat-pill {
-      padding: 0.45rem 1.1rem;
-      font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border: 1px solid var(--light-line);
-      border-radius: 100px; background: #fff;
-      color: var(--charcoal);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .cat-pill:hover { border-color: var(--terra); color: var(--terra); }
-    .cat-pill.active { background: var(--terra); color: #fff; border-color: var(--terra); }
-
-    /* ============================================================
-       MAIN CONTENT
-    ============================================================ */
-    .main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2.5rem;
-    }
-
-    .section-header {
-      display: flex; justify-content: space-between; align-items: baseline;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--light-line);
+    /* ── SECTION COMMON ── */
+    .section { padding: 5rem 7vw; }
+    .section-tag {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--blue);
+      margin-bottom: 0.6rem;
     }
     .section-title {
-      font-family: var(--serif);
-      font-size: 1.6rem; font-weight: 700;
+      font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700; color: var(--dark); margin-bottom: 0.75rem;
     }
-    .section-count {
-      font-size: 0.75rem; color: var(--warm-gray);
-      letter-spacing: 0.05em;
+    .section-title em { font-style: italic; color: var(--blue); }
+    .section-sub {
+      font-size: 0.95rem; color: var(--gray); line-height: 1.7;
+      max-width: 540px;
     }
+    .section-header { margin-bottom: 3rem; }
 
-    /* ============================================================
-       BUSINESS GRID
-    ============================================================ */
-    .businesses-grid {
+    /* ── SERVICES ── */
+    .services-section { background: var(--white); }
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1.5rem;
     }
-
-    .biz-card {
-      background: #fff;
-      border: 1px solid var(--light-line);
-      border-radius: 6px;
-      overflow: hidden;
-      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
-      cursor: pointer;
+    .service-card {
+      background: var(--cream);
+      border: 1px solid var(--gray-light);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s;
+      cursor: default;
     }
-    .biz-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(13,13,13,0.1);
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(26,111,191,0.1);
+      border-color: var(--blue-light);
     }
-
-    .biz-img-wrap {
-      height: 180px; overflow: hidden; position: relative;
-      background: var(--cream-dark);
-    }
-    .biz-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.4s var(--ease);
-    }
-    .biz-card:hover .biz-img-wrap img { transform: scale(1.04); }
-
-    .biz-cat-badge {
-      position: absolute; top: 0.75rem; left: 0.75rem;
-      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: #fff;
-      background: var(--terra); padding: 0.25rem 0.6rem;
-      border-radius: 2px;
-    }
-
-    .biz-body { padding: 1.25rem 1.25rem 1.5rem; }
-
-    .biz-name {
-      font-family: var(--serif); font-size: 1.1rem; font-weight: 700;
-      margin-bottom: 0.35rem; color: var(--black);
-    }
-    .biz-desc {
-      font-size: 0.8rem; color: var(--warm-gray);
-      line-height: 1.6; margin-bottom: 1rem;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .biz-info { display: flex; flex-direction: column; gap: 0.4rem; }
-    .biz-info-row {
-      display: flex; align-items: flex-start; gap: 0.5rem;
-      font-size: 0.78rem; color: var(--charcoal);
-    }
-    .biz-info-icon {
-      font-size: 0.85rem; flex-shrink: 0; margin-top: 1px;
-      color: var(--terra);
-    }
-
-    .biz-footer {
-      padding: 0.85rem 1.25rem;
-      border-top: 1px solid var(--cream-dark);
-      display: flex; gap: 0.5rem;
-    }
-    .biz-btn {
-      flex: 1; padding: 0.5rem 0.75rem;
-      font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border-radius: 3px; transition: all 0.2s;
-    }
-    .biz-btn-call {
-      background: var(--forest); color: #fff;
-    }
-    .biz-btn-call:hover { background: var(--forest-light); }
-    .biz-btn-detail {
-      background: transparent; color: var(--terra);
-      border: 1px solid var(--terra);
-    }
-    .biz-btn-detail:hover { background: var(--terra); color: #fff; }
-
-    /* no-results */
-    .no-results {
-      text-align: center; padding: 4rem 2rem;
-      color: var(--warm-gray); grid-column: 1 / -1;
-    }
-    .no-results p { font-size: 1rem; }
-
-    /* ============================================================
-       REGISTER BUSINESS SECTION
-    ============================================================ */
-    .register-section {
-      background: linear-gradient(135deg, var(--charcoal), #2a1f14);
-      color: #fff; padding: 5rem 2.5rem;
-      text-align: center;
-    }
-    .register-section h2 {
-      font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.4rem);
-      margin-bottom: 0.75rem;
-    }
-    .register-section h2 em { font-style: italic; color: var(--terra-light); }
-    .register-section p {
-      font-size: 0.95rem; color: rgba(255,255,255,0.6);
-      max-width: 500px; margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-    .btn-open-register {
-      padding: 0.9rem 2.5rem;
-      background: var(--terra); color: #fff;
-      font-size: 0.8rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      border-radius: 3px; transition: background 0.25s;
-    }
-    .btn-open-register:hover { background: var(--terra-light); }
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    .footer {
-      background: var(--charcoal); color: rgba(255,255,255,0.45);
-      padding: 2rem 2.5rem;
-      text-align: center;
-      font-size: 0.75rem; letter-spacing: 0.05em;
-    }
-    .footer a { color: var(--terra-light); }
-
-    /* ============================================================
-       MODAL BASE
-    ============================================================ */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 2000;
-      background: rgba(13,13,13,0.65);
-      backdrop-filter: blur(4px);
+    .service-icon {
+      width: 54px; height: 54px; border-radius: 14px;
+      background: var(--sky); color: var(--blue);
       display: flex; align-items: center; justify-content: center;
-      padding: 1.5rem;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.3s;
+      font-size: 1.5rem; margin-bottom: 1.25rem;
+      transition: background 0.25s;
     }
-    .modal-overlay.open { opacity: 1; pointer-events: auto; }
-
-    .modal-box {
-      background: var(--cream); border-radius: 8px;
-      width: 100%; max-width: 480px;
-      max-height: 90vh; overflow-y: auto;
-      padding: 2.5rem;
-      transform: translateY(20px);
-      transition: transform 0.3s var(--ease);
-      position: relative;
+    .service-card:hover .service-icon { background: var(--blue); filter: grayscale(0); }
+    .service-card:hover .service-icon { color: #fff; }
+    .service-name {
+      font-weight: 700; font-size: 1rem; color: var(--dark);
+      margin-bottom: 0.5rem;
     }
-    .modal-overlay.open .modal-box { transform: translateY(0); }
+    .service-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
 
-    .modal-close {
-      position: absolute; top: 1.25rem; right: 1.25rem;
-      font-size: 1.25rem; color: var(--warm-gray);
-      transition: color 0.2s;
+    /* ── WHY US ── */
+    .why-section {
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+      color: #fff;
     }
-    .modal-close:hover { color: var(--black); }
+    .why-section .section-title { color: #fff; }
+    .why-section .section-title em { color: #7EC8FF; }
+    .why-section .section-sub { color: rgba(255,255,255,0.6); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      transition: background 0.25s;
+    }
+    .why-card:hover { background: rgba(255,255,255,0.14); }
+    .why-num {
+      font-family: var(--serif); font-size: 2.5rem; font-weight: 700;
+      color: rgba(126,200,255,0.3); line-height: 1; margin-bottom: 0.5rem;
+    }
+    .why-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .why-desc { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
 
-    .modal-title {
+    /* ── APPOINTMENT / WHATSAPP BOT ── */
+    .appt-section { background: var(--cream); }
+    .appt-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+
+    /* fake whatsapp chat widget */
+    .wapp-widget {
+      background: #ECE5DD;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+    .wapp-header {
+      background: #075E54;
+      padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .wapp-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), #7EC8FF);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .wapp-header-info strong { display: block; color: #fff; font-size: 0.9rem; }
+    .wapp-header-info span { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
+    .wapp-body {
+      padding: 1.25rem; min-height: 320px;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .wapp-msg {
+      max-width: 82%; padding: 0.65rem 0.9rem;
+      border-radius: 0 10px 10px 10px;
+      background: #fff; font-size: 0.83rem; line-height: 1.5;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+      animation: msgIn 0.3s ease;
+    }
+    .wapp-msg.sent {
+      align-self: flex-end; background: #DCF8C6;
+      border-radius: 10px 0 10px 10px;
+    }
+    .wapp-msg.hidden { display: none; }
+    @keyframes msgIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .wapp-time { font-size: 0.65rem; color: #999; text-align: right; margin-top: 0.2rem; }
+    .wapp-options {
+      display: flex; flex-direction: column; gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+    .wapp-option-btn {
+      background: #fff; border: 1px solid #ddd;
+      border-radius: 8px; padding: 0.5rem 0.9rem;
+      font-size: 0.8rem; font-weight: 500; color: #075E54;
+      text-align: left; transition: background 0.15s;
+    }
+    .wapp-option-btn:hover { background: #f0f0f0; }
+    .wapp-footer {
+      padding: 0.9rem 1.25rem;
+      background: #f0f0f0;
+      display: flex; gap: 0.6rem; align-items: center;
+      border-top: 1px solid #ddd;
+    }
+    .wapp-input {
+      flex: 1; padding: 0.55rem 0.9rem;
+      border-radius: 20px; border: none;
+      font-family: var(--sans); font-size: 0.83rem;
+      background: #fff; outline: none;
+    }
+    .wapp-send-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #075E54; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    /* form side */
+    .appt-form-wrap {}
+    .appt-form-title {
       font-family: var(--serif); font-size: 1.6rem; font-weight: 700;
-      margin-bottom: 0.35rem;
+      color: var(--dark); margin-bottom: 0.5rem;
     }
-    .modal-subtitle { font-size: 0.82rem; color: var(--warm-gray); margin-bottom: 2rem; }
-
-    .form-field { margin-bottom: 1.25rem; }
+    .appt-form-sub {
+      font-size: 0.85rem; color: var(--gray);
+      line-height: 1.6; margin-bottom: 2rem;
+    }
+    .form-field { margin-bottom: 1.1rem; }
     .form-field label {
-      display: block; font-size: 0.7rem; font-weight: 600;
+      display: block; font-size: 0.68rem; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--warm-gray); margin-bottom: 0.4rem;
+      color: var(--gray); margin-bottom: 0.4rem;
     }
     .form-field input,
     .form-field select,
     .form-field textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      font-family: var(--sans); font-size: 0.9rem;
-      background: #fff; color: var(--black);
-      border: 1px solid var(--light-line); border-radius: 4px;
+      width: 100%; padding: 0.75rem 1rem;
+      font-family: var(--sans); font-size: 0.88rem;
+      border: 1.5px solid var(--gray-light); border-radius: 8px;
+      background: #fff; color: var(--dark); outline: none;
       transition: border-color 0.2s;
-      outline: none;
     }
     .form-field input:focus,
     .form-field select:focus,
-    .form-field textarea:focus { border-color: var(--terra); }
-    .form-field textarea { resize: vertical; min-height: 80px; }
-
+    .form-field textarea:focus { border-color: var(--blue); }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-    .form-error {
-      font-size: 0.75rem; color: #c0392b;
-      margin-top: 0.35rem; display: none;
-    }
-    .form-error.show { display: block; }
-
-    .btn-primary {
+    .btn-submit-appt {
       width: 100%; padding: 0.9rem;
-      background: var(--terra); color: #fff;
-      font-size: 0.82rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      border-radius: 4px; transition: background 0.25s;
+      background: var(--green-wapp); color: #fff;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.05em; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
       margin-top: 0.5rem;
     }
-    .btn-primary:hover { background: var(--terra-dark); }
-    .btn-primary:disabled { background: var(--warm-gray); cursor: not-allowed; }
+    .btn-submit-appt:hover { background: #1aab52; transform: translateY(-1px); }
 
-    .form-switch {
-      text-align: center; margin-top: 1.5rem;
-      font-size: 0.8rem; color: var(--warm-gray);
+    /* ── GALLERY ── */
+    .gallery-section { background: var(--white); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 200px 200px;
+      gap: 1rem; border-radius: var(--radius); overflow: hidden;
     }
-    .form-switch button {
-      color: var(--terra); font-weight: 600; font-size: 0.8rem;
-      text-decoration: underline;
+    .gallery-img {
+      overflow: hidden; background: var(--sky-dark);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery-img:first-child { grid-row: 1 / 3; }
+    .gallery-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s var(--ease);
+    }
+    .gallery-img:hover img { transform: scale(1.05); }
+    .gallery-placeholder {
+      font-size: 2.5rem; opacity: 0.3;
     }
 
-    /* ============================================================
-       BUSINESS DETAIL MODAL
-    ============================================================ */
-    #modal-detail .modal-box { max-width: 600px; padding: 0; overflow: hidden; }
-    .detail-img {
-      width: 100%; height: 220px; object-fit: cover;
-      background: var(--cream-dark);
+    /* ── TESTIMONIALS ── */
+    .test-section { background: var(--sky); }
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
-    .detail-body { padding: 2rem; }
-    .detail-cat-badge {
-      display: inline-block;
-      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--terra);
-      border: 1px solid var(--terra); padding: 0.2rem 0.6rem;
-      border-radius: 2px; margin-bottom: 0.75rem;
+    .test-card {
+      background: #fff; border-radius: var(--radius);
+      padding: 1.75rem; border: 1px solid var(--gray-light);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
-    .detail-name {
-      font-family: var(--serif); font-size: 1.6rem; font-weight: 700;
+    .test-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(26,111,191,0.08); }
+    .test-stars { color: #F59E0B; font-size: 0.85rem; margin-bottom: 0.9rem; }
+    .test-text {
+      font-size: 0.88rem; color: var(--gray); line-height: 1.7;
+      margin-bottom: 1.25rem; font-style: italic;
+    }
+    .test-author { display: flex; align-items: center; gap: 0.75rem; }
+    .test-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 0.85rem;
+    }
+    .test-name { font-weight: 600; font-size: 0.85rem; color: var(--dark); }
+    .test-loc { font-size: 0.72rem; color: var(--gray); }
+
+    /* ── INFO / MAP ── */
+    .info-section { background: var(--dark); color: #fff; }
+    .info-inner {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 4rem; align-items: center;
+    }
+    .info-title {
+      font-family: var(--serif); font-size: 1.8rem; font-weight: 700;
       margin-bottom: 0.5rem;
     }
-    .detail-desc {
-      font-size: 0.88rem; color: var(--warm-gray);
-      line-height: 1.7; margin-bottom: 1.5rem;
+    .info-title em { color: #7EC8FF; font-style: italic; }
+    .info-sub { font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-bottom: 2rem; line-height: 1.6; }
+    .info-items { display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem; }
+    .info-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .info-item-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
     }
-    .detail-info { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.75rem; }
-    .detail-info-row {
-      display: flex; align-items: flex-start; gap: 0.75rem;
-      font-size: 0.85rem; color: var(--charcoal);
-    }
-    .detail-info-icon { color: var(--terra); font-size: 1rem; flex-shrink: 0; }
-    .detail-actions { display: flex; gap: 0.75rem; }
-    .detail-btn {
-      flex: 1; padding: 0.75rem;
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border-radius: 4px; transition: all 0.2s;
-    }
-    .detail-btn-call { background: var(--terra); color: #fff; }
-    .detail-btn-call:hover { background: var(--terra-dark); }
-    .detail-btn-wapp { background: #25D366; color: #fff; }
-    .detail-btn-wapp:hover { background: #1aab52; }
-
-    /* ============================================================
-       REGISTER BUSINESS MODAL
-    ============================================================ */
-    #modal-register-biz .modal-box { max-width: 560px; }
-
-    /* ============================================================
-       ACCOUNT DRAWER
-    ============================================================ */
-    .drawer {
-      position: fixed; top: 0; right: 0; bottom: 0;
-      width: 380px; max-width: 95vw;
-      background: var(--cream);
-      z-index: 1500;
-      transform: translateX(100%);
-      transition: transform 0.35s var(--ease);
-      display: flex; flex-direction: column;
-      box-shadow: -8px 0 40px rgba(13,13,13,0.15);
-    }
-    .drawer.open { transform: translateX(0); }
-    .drawer-overlay {
-      position: fixed; inset: 0; z-index: 1499;
-      background: rgba(13,13,13,0.4);
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.35s;
-    }
-    .drawer-overlay.open { opacity: 1; pointer-events: auto; }
-
-    .drawer-header {
-      padding: 1.75rem 1.5rem;
-      border-bottom: 1px solid var(--light-line);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .drawer-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; }
-    .drawer-close { font-size: 1.25rem; color: var(--warm-gray); transition: color 0.2s; }
-    .drawer-close:hover { color: var(--black); }
-    .drawer-body { flex: 1; overflow-y: auto; padding: 1.5rem; }
-
-    .account-info { margin-bottom: 2rem; }
-    .account-info p { font-size: 0.82rem; color: var(--warm-gray); margin-bottom: 0.25rem; }
-    .account-info strong { font-size: 1rem; color: var(--black); }
-
-    .account-section-title {
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--warm-gray);
-      margin-bottom: 0.75rem;
-    }
-    .account-biz-list { display: flex; flex-direction: column; gap: 0.75rem; }
-    .account-biz-item {
-      padding: 0.9rem 1rem; background: #fff;
-      border: 1px solid var(--light-line); border-radius: 4px;
-    }
-    .account-biz-item strong { font-size: 0.9rem; display: block; margin-bottom: 0.25rem; }
-    .account-biz-item span { font-size: 0.75rem; color: var(--warm-gray); }
-    .account-biz-status {
-      display: inline-block; margin-top: 0.4rem;
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px;
-    }
-    .status-pending { background: #fff3cd; color: #856404; }
-    .status-approved { background: #d4edda; color: #155724; }
-    .status-rejected { background: #f8d7da; color: #721c24; }
-
-    .btn-logout {
-      width: 100%; padding: 0.75rem;
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; border-radius: 4px;
-      border: 1px solid var(--light-line); color: var(--warm-gray);
-      transition: all 0.2s; margin-top: 2rem;
-    }
-    .btn-logout:hover { border-color: #c0392b; color: #c0392b; }
-
-    /* ============================================================
-       ADMIN PANEL
-    ============================================================ */
-    #admin-screen {
-      display: none;
-      position: fixed; inset: 0; z-index: 3000;
-      background: var(--cream); overflow-y: auto;
-    }
-    .admin-nav {
-      position: sticky; top: 0;
-      background: var(--charcoal); color: #fff;
+    .info-item-text strong { display: block; font-size: 0.82rem; color: #fff; margin-bottom: 0.2rem; }
+    .info-item-text span { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .btn-wapp-big {
+      display: inline-flex; align-items: center; gap: 0.75rem;
       padding: 1rem 2rem;
+      background: var(--green-wapp); color: #fff;
+      font-size: 0.88rem; font-weight: 700;
+      border-radius: 100px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+    }
+    .btn-wapp-big:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,0.5); }
+
+    .map-wrap {
+      border-radius: var(--radius); overflow: hidden;
+      height: 380px; background: var(--sky-dark);
+      border: 2px solid rgba(255,255,255,0.08);
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #070D14; color: rgba(255,255,255,0.35);
+      padding: 1.75rem 7vw;
       display: flex; justify-content: space-between; align-items: center;
-      z-index: 10;
+      font-size: 0.75rem; flex-wrap: wrap; gap: 0.75rem;
     }
-    .admin-nav-title {
-      font-family: var(--serif); font-size: 1.25rem; font-weight: 700;
-    }
-    .admin-nav-title em { color: var(--terra-light); font-style: normal; }
-    .admin-logout-btn {
-      font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      padding: 0.4rem 0.9rem; border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 3px; transition: all 0.2s;
-    }
-    .admin-logout-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .footer-brand { color: rgba(255,255,255,0.6); font-weight: 500; }
+    .footer a { color: var(--green-wapp); }
 
-    .admin-body { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
+    /* ── WHATSAPP FLOATING BUTTON ── */
+    .wapp-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--green-wapp);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: #fff;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: pulse 2.5s infinite;
+    }
+    .wapp-float:hover { transform: scale(1.1); box-shadow: 0 10px 36px rgba(37,211,102,0.6); animation: none; }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.5); }
+      50% { box-shadow: 0 6px 36px rgba(37,211,102,0.75), 0 0 0 10px rgba(37,211,102,0.1); }
+    }
+    .wapp-float-tooltip {
+      position: absolute; right: 70px; bottom: 50%;
+      transform: translateY(50%);
+      background: var(--dark); color: #fff;
+      font-size: 0.72rem; font-weight: 500; white-space: nowrap;
+      padding: 0.4rem 0.75rem; border-radius: 6px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .wapp-float:hover .wapp-float-tooltip { opacity: 1; }
 
-    .admin-tabs {
-      display: flex; gap: 0.5rem; margin-bottom: 2rem;
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 5rem 6vw 4rem; }
+      .hero-img-side { display: none; }
+      .appt-inner { grid-template-columns: 1fr; }
+      .info-inner { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-img:first-child { grid-row: auto; }
     }
-    .admin-tab {
-      padding: 0.5rem 1.25rem;
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border-radius: 3px; border: 1px solid var(--light-line);
-      background: #fff; color: var(--warm-gray);
-      cursor: pointer; transition: all 0.2s;
-    }
-    .admin-tab.active { background: var(--terra); color: #fff; border-color: var(--terra); }
-
-    .admin-filter-bar {
-      display: flex; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap;
-    }
-    .admin-filter-bar select,
-    .admin-filter-bar input {
-      padding: 0.5rem 0.9rem;
-      font-family: var(--sans); font-size: 0.8rem;
-      border: 1px solid var(--light-line); border-radius: 3px;
-      background: #fff; color: var(--black); outline: none;
-    }
-
-    .admin-table-wrap { overflow-x: auto; }
-    .admin-table {
-      width: 100%; border-collapse: collapse;
-      font-size: 0.82rem;
-    }
-    .admin-table th {
-      text-align: left; padding: 0.75rem 1rem;
-      font-size: 0.65rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--warm-gray);
-      border-bottom: 2px solid var(--light-line);
-    }
-    .admin-table td {
-      padding: 1rem;
-      border-bottom: 1px solid var(--cream-dark);
-      color: var(--charcoal); vertical-align: top;
-    }
-    .admin-table tr:hover td { background: var(--cream-dark); }
-
-    .admin-status-badge {
-      display: inline-block;
-      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px;
-    }
-    .admin-status-select {
-      padding: 0.3rem 0.5rem;
-      font-family: var(--sans); font-size: 0.75rem;
-      border: 1px solid var(--light-line); border-radius: 3px;
-      background: #fff; cursor: pointer;
-    }
-
-    .admin-empty {
-      text-align: center; padding: 3rem;
-      color: var(--warm-gray);
-    }
-
-    /* admin login */
-    #admin-login-wrap { max-width: 400px; margin: 6rem auto; text-align: center; }
-    #admin-login-wrap h2 { font-family: var(--serif); font-size: 1.5rem; margin-bottom: 0.5rem; }
-    #admin-login-wrap p { font-size: 0.82rem; color: var(--warm-gray); margin-bottom: 2rem; }
-    #admin-pw-input {
-      width: 100%; padding: 0.75rem 1rem;
-      font-family: var(--sans); font-size: 0.9rem;
-      border: 1px solid var(--light-line); border-radius: 4px;
-      margin-bottom: 1rem; outline: none;
-    }
-    #admin-pw-input:focus { border-color: var(--terra); }
-    #admin-pw-error { font-size: 0.75rem; color: #c0392b; margin-bottom: 0.5rem; display: none; }
-
-    /* ============================================================
-       TOAST
-    ============================================================ */
-    .toast {
-      position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
-      background: var(--charcoal); color: #fff;
-      padding: 0.85rem 1.75rem; border-radius: 4px;
-      font-size: 0.82rem; letter-spacing: 0.03em;
-      z-index: 9999;
-      transition: transform 0.4s var(--ease), opacity 0.4s;
-      opacity: 0;
-    }
-    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       .nav { padding: 0 1.25rem; }
       .nav-links { display: none; }
-      .nav-brand { font-size: 1.15rem; }
-
-      .hero-inner { padding: 2.5rem 1.25rem; }
-
-      .cats-section { padding: 1rem 1.25rem; }
-
-      .main { padding: 2rem 1.25rem; }
-
-      .businesses-grid { grid-template-columns: 1fr; }
-
+      .section { padding: 3.5rem 5vw; }
+      .gallery-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
-
-      .drawer { width: 100%; }
-
-      .admin-body { padding: 1.5rem 1rem; }
+      .footer { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- ================================================================
-     NAVIGATION
-================================================================ -->
+<!-- ═══════════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════════ -->
 <nav class="nav" id="main-nav">
   <div class="nav-brand">
-    <em>Negocios</em> Tula<br>de Allende
-    <span>El directorio de tu ciudad</span>
+    <div class="nav-logo">🦷</div>
+    <div class="nav-name">Dental <span>Marqués</span></div>
   </div>
   <ul class="nav-links">
-    <li><a href="#directorio">Directorio</a></li>
-    <li><a href="#registrar">Registra tu negocio</a></li>
-    <li><a href="#" class="nav-admin-link" onclick="openAdminScreen(); return false;">Admin</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#cita">Cita</a></li>
+    <li><a href="#testimonios">Opiniones</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <div class="nav-actions" id="nav-actions">
-    <button class="auth-btn" onclick="openAuth('login')">Iniciar sesión</button>
-    <button class="btn-register-nav" onclick="openRegisterBiz()">+ Registrar negocio</button>
-  </div>
+  <a class="nav-cta" href="https://wa.me/524421234567?text=Hola%2C%20me%20gustaría%20agendar%20una%20cita%20en%20Dental%20Marqués" target="_blank">
+    Agendar cita
+  </a>
 </nav>
 
-<!-- ================================================================
+<!-- ═══════════════════════════════════════════════
      HERO
-================================================================ -->
+═══════════════════════════════════════════════ -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">Tula de Allende, Hidalgo</div>
-    <h1>Encuentra los <em>mejores negocios</em> de tu ciudad</h1>
-    <p>El directorio local más completo de Tula de Allende. Restaurantes, servicios, salud, comercios y mucho más.</p>
-    <div class="search-box">
-      <input type="text" id="hero-search" placeholder="Busca un negocio, restaurante, servicio..." oninput="applyFilters()">
-      <button onclick="applyFilters()">Buscar</button>
+  <div class="hero-text">
+    <div class="hero-tag">Querétaro, Qro.</div>
+    <h1>Tu sonrisa en<br>las mejores <em>manos</em></h1>
+    <p class="hero-desc">
+      En Dental Marqués te ofrecemos atención odontológica de calidad, con tecnología moderna y el trato cálido que mereces. Agenda tu cita en segundos.
+    </p>
+    <div class="hero-btns">
+      <a class="btn-wapp"
+         href="https://wa.me/524421234567?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20Dental%20Marqués"
+         target="_blank">
+        💬 Agendar por WhatsApp
+      </a>
+      <a class="btn-outline" href="#servicios">Ver servicios</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">+800</div>
+        <div class="hero-stat-label">Pacientes atendidos</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">Años de experiencia</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Satisfacción</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-img-side">
+    <div class="hero-card">
+      <div class="hero-card-icon">📅</div>
+      <div class="hero-card-text">
+        <strong>Citas disponibles</strong>
+        <span>Lun – Sáb · 9:00 am – 7:00 pm</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">🏥</div>
+      <div class="hero-card-text">
+        <strong>Tecnología de vanguardia</strong>
+        <span>Equipos digitales de última generación</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">💳</div>
+      <div class="hero-card-text">
+        <strong>Planes de pago</strong>
+        <span>Facilidades de pago y tarjetas</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-icon">📍</div>
+      <div class="hero-card-text">
+        <strong>El Marqués, Querétaro</strong>
+        <span>Fácil acceso y estacionamiento</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================================================================
-     CATEGORIES BAR
-================================================================ -->
-<section class="cats-section">
-  <div class="cats-inner" id="cat-pills">
-    <!-- generated by JS -->
-  </div>
-</section>
-
-<!-- ================================================================
-     MAIN DIRECTORY
-================================================================ -->
-<main class="main" id="directorio">
+<!-- ═══════════════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════════════ -->
+<section class="section services-section" id="servicios">
   <div class="section-header">
-    <h2 class="section-title">Directorio de negocios</h2>
-    <span class="section-count" id="result-count"></span>
+    <div class="section-tag">¿Qué hacemos?</div>
+    <h2 class="section-title">Nuestros <em>servicios</em></h2>
+    <p class="section-sub">Ofrecemos tratamientos dentales completos para toda la familia, con el mejor equipo y atención personalizada.</p>
   </div>
-  <div class="businesses-grid" id="biz-grid">
-    <!-- generated by JS -->
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🦷</div>
+      <div class="service-name">Limpieza Dental</div>
+      <div class="service-desc">Eliminamos sarro y manchas para mantener tu boca limpia y sana. Incluye pulido y aplicación de flúor.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <div class="service-name">Blanqueamiento</div>
+      <div class="service-desc">Blanqueamiento dental profesional en consultorio. Resultados visibles desde la primera sesión.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <div class="service-name">Ortodoncia</div>
+      <div class="service-desc">Brackets metálicos, estéticos y alineadores invisibles para corregir tu mordida y alinear tus dientes.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌱</div>
+      <div class="service-name">Implantes Dentales</div>
+      <div class="service-desc">Implantes de titanio de alta calidad. La solución más permanente y natural para dientes perdidos.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👶</div>
+      <div class="service-name">Odontopediatría</div>
+      <div class="service-desc">Atención especializada y amigable para los más pequeños. Creamos una relación positiva con el dentista.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <div class="service-name">Endodoncia</div>
+      <div class="service-desc">Tratamiento de conductos sin dolor. Salvamos tu diente natural con técnicas modernas y anestesia efectiva.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💎</div>
+      <div class="service-name">Carillas y Estética</div>
+      <div class="service-desc">Carillas de porcelana y composite para transformar tu sonrisa. Diseño digital previo al tratamiento.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <div class="service-name">Radiografías Digitales</div>
+      <div class="service-desc">Diagnóstico preciso con radiografías digitales de bajo nivel de radiación. Resultados inmediatos.</div>
+    </div>
   </div>
-</main>
-
-<!-- ================================================================
-     REGISTER BUSINESS CTA
-================================================================ -->
-<section class="register-section" id="registrar">
-  <h2>¿Tienes un negocio<br><em>en Tula de Allende?</em></h2>
-  <p>Regístralo gratis en nuestro directorio y llega a más clientes de la ciudad.</p>
-  <button class="btn-open-register" onclick="openRegisterBiz()">Registrar mi negocio gratis</button>
 </section>
 
-<!-- ================================================================
-     FOOTER
-================================================================ -->
-<footer class="footer">
-  <p>&copy; 2026 Negocios Tula de Allende &mdash; El directorio de tu ciudad</p>
-</footer>
-
-<!-- ================================================================
-     AUTH MODAL
-================================================================ -->
-<div class="modal-overlay" id="modal-auth">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeAuth()">&#x2715;</button>
-    <div id="auth-login-view">
-      <h2 class="modal-title">Iniciar sesión</h2>
-      <p class="modal-subtitle">Accede para registrar o gestionar tu negocio.</p>
-      <div class="form-field">
-        <label>Correo electrónico</label>
-        <input type="email" id="login-email" placeholder="tucorreo@email.com">
-      </div>
-      <div class="form-field">
-        <label>Contraseña</label>
-        <input type="password" id="login-pw" placeholder="••••••••">
-        <span class="form-error" id="login-error"></span>
-      </div>
-      <button class="btn-primary" onclick="handleLogin()">Entrar</button>
-      <div class="form-switch">¿No tienes cuenta? <button onclick="switchAuth('register')">Crear cuenta</button></div>
+<!-- ═══════════════════════════════════════════════
+     WHY US
+═══════════════════════════════════════════════ -->
+<section class="section why-section">
+  <div class="section-header">
+    <div class="section-tag" style="color:#7EC8FF">¿Por qué elegirnos?</div>
+    <h2 class="section-title">Razones para <em>confiar</em> en nosotros</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.55)">Nos comprometemos con tu salud bucal y bienestar desde el primer momento.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <div class="why-title">Equipo certificado</div>
+      <div class="why-desc">Dentistas con especialidades certificadas y actualización constante en las últimas técnicas.</div>
     </div>
-    <div id="auth-register-view" style="display:none">
-      <h2 class="modal-title">Crear cuenta</h2>
-      <p class="modal-subtitle">Regístrate gratis para administrar tu negocio.</p>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <div class="why-title">Sin dolor</div>
+      <div class="why-desc">Usamos anestesia de última generación para garantizar procedimientos completamente indoloros.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <div class="why-title">Precios accesibles</div>
+      <div class="why-desc">Planes de tratamiento con facilidades de pago. Tu salud no debe ser un lujo.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">04</div>
+      <div class="why-title">Atención inmediata</div>
+      <div class="why-desc">Urgencias dentales atendidas el mismo día. Tu dolor no puede esperar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CITA / WHATSAPP BOT
+═══════════════════════════════════════════════ -->
+<section class="section appt-section" id="cita">
+  <div class="appt-inner">
+
+    <!-- Chat Widget Simulado -->
+    <div>
+      <div class="section-tag">Chat rápido</div>
+      <h2 class="section-title" style="margin-bottom:1.5rem">Agenda por <em>WhatsApp</em></h2>
+      <div class="wapp-widget">
+        <div class="wapp-header">
+          <div class="wapp-avatar">🦷</div>
+          <div class="wapp-header-info">
+            <strong>Dental Marqués</strong>
+            <span>🟢 En línea ahora</span>
+          </div>
+        </div>
+        <div class="wapp-body" id="wapp-chat-body">
+          <div class="wapp-msg" id="wm1">
+            ¡Hola! 👋 Bienvenido a <b>Dental Marqués</b>. ¿En qué te podemos ayudar hoy?
+            <div class="wapp-time">Ahora</div>
+            <div class="wapp-options" id="opt1">
+              <button class="wapp-option-btn" onclick="wappStep('agendar')">📅 Agendar una cita</button>
+              <button class="wapp-option-btn" onclick="wappStep('info')">ℹ️ Información y servicios</button>
+              <button class="wapp-option-btn" onclick="wappStep('urgencia')">🚨 Urgencia dental</button>
+            </div>
+          </div>
+        </div>
+        <div class="wapp-footer">
+          <input class="wapp-input" placeholder="Escribe un mensaje..." readonly>
+          <button class="wapp-send-btn">➤</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="appt-form-wrap">
+      <div class="section-tag">Formulario</div>
+      <h2 class="appt-form-title">Solicita tu cita</h2>
+      <p class="appt-form-sub">Llena el formulario y nos pondremos en contacto contigo por WhatsApp para confirmar tu cita.</p>
       <div class="form-row">
         <div class="form-field">
-          <label>Nombre</label>
-          <input type="text" id="reg-name" placeholder="Tu nombre">
+          <label>Nombre *</label>
+          <input type="text" id="f-name" placeholder="Tu nombre">
         </div>
         <div class="form-field">
-          <label>Apellido</label>
-          <input type="text" id="reg-last" placeholder="Tu apellido">
+          <label>Teléfono *</label>
+          <input type="tel" id="f-phone" placeholder="442 000 0000">
         </div>
       </div>
       <div class="form-field">
-        <label>Correo electrónico</label>
-        <input type="email" id="reg-email" placeholder="tucorreo@email.com">
-      </div>
-      <div class="form-field">
-        <label>Contraseña</label>
-        <input type="password" id="reg-pw" placeholder="Mínimo 6 caracteres">
-        <span class="form-error" id="register-error"></span>
-      </div>
-      <button class="btn-primary" onclick="handleRegister()">Crear cuenta</button>
-      <div class="form-switch">¿Ya tienes cuenta? <button onclick="switchAuth('login')">Iniciar sesión</button></div>
-    </div>
-  </div>
-</div>
-
-<!-- ================================================================
-     REGISTER BUSINESS MODAL
-================================================================ -->
-<div class="modal-overlay" id="modal-register-biz">
-  <div class="modal-box" style="max-width:560px">
-    <button class="modal-close" onclick="closeRegisterBiz()">&#x2715;</button>
-    <h2 class="modal-title">Registra tu negocio</h2>
-    <p class="modal-subtitle">Completa los datos de tu negocio. Aparecerá en el directorio tras ser aprobado.</p>
-    <div class="form-field">
-      <label>Nombre del negocio *</label>
-      <input type="text" id="rb-name" placeholder="Ej. Tacos El Güero">
-    </div>
-    <div class="form-row">
-      <div class="form-field">
-        <label>Categoría *</label>
-        <select id="rb-cat">
-          <option value="">Selecciona...</option>
-          <option value="restaurantes">Restaurantes</option>
-          <option value="salud">Salud</option>
-          <option value="servicios">Servicios</option>
-          <option value="comercios">Comercios</option>
-          <option value="educacion">Educación</option>
-          <option value="belleza">Belleza y Estética</option>
-          <option value="automotriz">Automotriz</option>
-          <option value="otros">Otros</option>
+        <label>Servicio de interés</label>
+        <select id="f-service">
+          <option value="">Selecciona un servicio...</option>
+          <option>Limpieza Dental</option>
+          <option>Blanqueamiento</option>
+          <option>Ortodoncia</option>
+          <option>Implantes Dentales</option>
+          <option>Odontopediatría</option>
+          <option>Endodoncia</option>
+          <option>Carillas y Estética</option>
+          <option>Urgencia dental</option>
+          <option>Otro / Consulta general</option>
         </select>
       </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Día preferido</label>
+          <input type="date" id="f-date">
+        </div>
+        <div class="form-field">
+          <label>Horario preferido</label>
+          <select id="f-time">
+            <option>9:00 am</option>
+            <option>10:00 am</option>
+            <option>11:00 am</option>
+            <option>12:00 pm</option>
+            <option>1:00 pm</option>
+            <option>3:00 pm</option>
+            <option>4:00 pm</option>
+            <option>5:00 pm</option>
+            <option>6:00 pm</option>
+          </select>
+        </div>
+      </div>
       <div class="form-field">
-        <label>Teléfono *</label>
-        <input type="tel" id="rb-phone" placeholder="773 000 0000">
+        <label>Notas adicionales</label>
+        <textarea id="f-notes" rows="3" placeholder="¿Tienes alguna molestia o consulta específica?"></textarea>
       </div>
-    </div>
-    <div class="form-field">
-      <label>Dirección *</label>
-      <input type="text" id="rb-address" placeholder="Calle, núm, colonia">
-    </div>
-    <div class="form-field">
-      <label>Horario</label>
-      <input type="text" id="rb-hours" placeholder="Lun–Sáb 9:00 am – 8:00 pm">
-    </div>
-    <div class="form-field">
-      <label>Descripción breve</label>
-      <textarea id="rb-desc" placeholder="Describe brevemente tu negocio, productos o servicios..."></textarea>
-    </div>
-    <div class="form-field">
-      <label>URL de imagen (opcional)</label>
-      <input type="url" id="rb-img" placeholder="https://...">
-    </div>
-    <span class="form-error" id="rb-error"></span>
-    <button class="btn-primary" onclick="submitRegisterBiz()">Enviar solicitud</button>
-  </div>
-</div>
-
-<!-- ================================================================
-     BUSINESS DETAIL MODAL
-================================================================ -->
-<div class="modal-overlay" id="modal-detail">
-  <div class="modal-box" style="max-width:600px;padding:0;overflow:hidden">
-    <button class="modal-close" style="position:absolute;top:0.9rem;right:1rem;z-index:1;background:rgba(0,0,0,0.4);color:#fff;border-radius:50%;width:28px;height:28px;font-size:0.9rem;display:flex;align-items:center;justify-content:center" onclick="closeDetail()">&#x2715;</button>
-    <img id="detail-img" class="detail-img" src="" alt="">
-    <div class="detail-body">
-      <span class="detail-cat-badge" id="detail-cat"></span>
-      <h2 class="detail-name" id="detail-name"></h2>
-      <p class="detail-desc" id="detail-desc"></p>
-      <div class="detail-info" id="detail-info"></div>
-      <div class="detail-actions" id="detail-actions"></div>
+      <button class="btn-submit-appt" onclick="sendApptWhatsapp()">
+        💬 Enviar solicitud por WhatsApp
+      </button>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ================================================================
-     ACCOUNT DRAWER
-================================================================ -->
-<div class="drawer-overlay" id="drawer-overlay" onclick="closeAccount()"></div>
-<div class="drawer" id="account-drawer">
-  <div class="drawer-header">
-    <span class="drawer-title">Mi cuenta</span>
-    <button class="drawer-close" onclick="closeAccount()">&#x2715;</button>
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════════ -->
+<section class="section test-section" id="testimonios">
+  <div class="section-header">
+    <div class="section-tag">Opiniones</div>
+    <h2 class="section-title">Lo que dicen nuestros <em>pacientes</em></h2>
   </div>
-  <div class="drawer-body">
-    <div class="account-info">
-      <p>Sesión iniciada como</p>
-      <strong id="account-user-name"></strong>
-      <p id="account-user-email" style="font-size:0.78rem;color:var(--warm-gray);margin-top:0.2rem"></p>
-    </div>
-    <p class="account-section-title">Mis negocios registrados</p>
-    <div class="account-biz-list" id="account-biz-list">
-      <p style="font-size:0.8rem;color:var(--warm-gray)">Aún no tienes negocios registrados.</p>
-    </div>
-    <button class="btn-logout" onclick="logout()">Cerrar sesión</button>
-  </div>
-</div>
-
-<!-- ================================================================
-     ADMIN PANEL
-================================================================ -->
-<div id="admin-screen">
-  <!-- LOGIN -->
-  <div id="admin-login-wrap">
-    <h2>Panel de Administración</h2>
-    <p>Ingresa la contraseña para acceder al panel.</p>
-    <input type="password" id="admin-pw-input" placeholder="Contraseña" onkeydown="if(event.key==='Enter') adminLogin()">
-    <div id="admin-pw-error">Contraseña incorrecta.</div>
-    <button class="btn-primary" onclick="adminLogin()">Entrar al panel</button>
-  </div>
-
-  <!-- PANEL -->
-  <div id="admin-panel-wrap" style="display:none">
-    <nav class="admin-nav">
-      <span class="admin-nav-title"><em>Negocios</em> Tula — Admin</span>
-      <button class="admin-logout-btn" onclick="adminLogout()">Salir</button>
-    </nav>
-    <div class="admin-body">
-      <div class="admin-tabs">
-        <button class="admin-tab active" onclick="adminShowTab('pending')" id="tab-pending">Pendientes</button>
-        <button class="admin-tab" onclick="adminShowTab('all')" id="tab-all">Todos los negocios</button>
-        <button class="admin-tab" onclick="adminShowTab('users')" id="tab-users">Usuarios</button>
-      </div>
-
-      <!-- Pending -->
-      <div id="admin-tab-pending">
-        <h3 style="font-family:var(--serif);font-size:1.2rem;margin-bottom:1.25rem">Solicitudes pendientes</h3>
-        <div class="admin-table-wrap">
-          <table class="admin-table" id="table-pending">
-            <thead>
-              <tr>
-                <th>Negocio</th>
-                <th>Categoría</th>
-                <th>Propietario</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-pending"></tbody>
-          </table>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"Excelente servicio, muy amables y profesionales. Me hicieron la limpieza y blanqueamiento y quedé muy contenta con los resultados. ¡Totalmente recomendados!"</p>
+      <div class="test-author">
+        <div class="test-avatar">MG</div>
+        <div>
+          <div class="test-name">María González</div>
+          <div class="test-loc">El Marqués, Querétaro</div>
         </div>
       </div>
-
-      <!-- All -->
-      <div id="admin-tab-all" style="display:none">
-        <div class="admin-filter-bar">
-          <select id="admin-cat-filter" onchange="renderAdminAll()">
-            <option value="">Todas las categorías</option>
-            <option value="restaurantes">Restaurantes</option>
-            <option value="salud">Salud</option>
-            <option value="servicios">Servicios</option>
-            <option value="comercios">Comercios</option>
-            <option value="educacion">Educación</option>
-            <option value="belleza">Belleza y Estética</option>
-            <option value="automotriz">Automotriz</option>
-            <option value="otros">Otros</option>
-          </select>
-          <select id="admin-status-filter" onchange="renderAdminAll()">
-            <option value="">Todos los estados</option>
-            <option value="approved">Aprobados</option>
-            <option value="pending">Pendientes</option>
-            <option value="rejected">Rechazados</option>
-          </select>
-          <input type="text" id="admin-search-filter" placeholder="Buscar negocio..." oninput="renderAdminAll()" style="min-width:200px">
-        </div>
-        <div class="admin-table-wrap">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Negocio</th>
-                <th>Categoría</th>
-                <th>Teléfono</th>
-                <th>Dirección</th>
-                <th>Estado</th>
-                <th>Cambiar estado</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-all"></tbody>
-          </table>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"Llevé a mis hijos por primera vez al dentista y la experiencia fue increíble. Los niños salieron contentos y sin miedo. El doctor es muy paciente y explica todo."</p>
+      <div class="test-author">
+        <div class="test-avatar">CR</div>
+        <div>
+          <div class="test-name">Carlos Ramírez</div>
+          <div class="test-loc">Querétaro Centro</div>
         </div>
       </div>
-
-      <!-- Users -->
-      <div id="admin-tab-users" style="display:none">
-        <div class="admin-table-wrap">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Negocios registrados</th>
-              </tr>
-            </thead>
-            <tbody id="tbody-users"></tbody>
-          </table>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-text">"Me pusieron un implante y el proceso fue mucho menos doloroso de lo que esperaba. El resultado es natural y se ve perfecto. Muy profesionales en todo momento."</p>
+      <div class="test-author">
+        <div class="test-avatar">LP</div>
+        <div>
+          <div class="test-name">Laura Pérez</div>
+          <div class="test-loc">Juriquilla, Querétaro</div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+<!-- ═══════════════════════════════════════════════
+     INFO + MAP
+═══════════════════════════════════════════════ -->
+<section class="section info-section" id="contacto">
+  <div class="info-inner">
+    <div>
+      <h2 class="info-title">Visítanos en<br><em>El Marqués</em></h2>
+      <p class="info-sub">Estamos ubicados en una zona de fácil acceso con estacionamiento disponible. También atendemos por WhatsApp.</p>
+      <div class="info-items">
+        <div class="info-item">
+          <div class="info-item-icon">📍</div>
+          <div class="info-item-text">
+            <strong>Dirección</strong>
+            <span>Av. Marqués de la Villa del Villar del Águila<br>Col. Centro, El Marqués, Qro.</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-item-icon">🕐</div>
+          <div class="info-item-text">
+            <strong>Horario de atención</strong>
+            <span>Lunes – Viernes: 9:00 am – 7:00 pm<br>Sábados: 9:00 am – 3:00 pm</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-item-icon">📞</div>
+          <div class="info-item-text">
+            <strong>Teléfono y WhatsApp</strong>
+            <span>442 123 4567</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-item-icon">📧</div>
+          <div class="info-item-text">
+            <strong>Correo electrónico</strong>
+            <span>contacto@dentalmarques.mx</span>
+          </div>
+        </div>
+      </div>
+      <a class="btn-wapp-big"
+         href="https://wa.me/524421234567?text=Hola%2C%20me%20gustaría%20más%20información%20sobre%20Dental%20Marqués"
+         target="_blank">
+        💬 Escribirnos por WhatsApp
+      </a>
+    </div>
 
-<!-- ================================================================
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.0!2d-100.1924!3d20.5888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b7b8fc3e8b5%3A0x5c2b4d0a8b5c2a1!2sEl%20Marqu%C3%A9s%2C%20Quer%C3%A9taro!5e0!3m2!1ses-419!2smx!4v1680000000000"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="footer">
+  <span class="footer-brand">🦷 Dental Marqués — El Marqués, Querétaro</span>
+  <span>© 2026 · Todos los derechos reservados</span>
+  <a href="https://wa.me/524421234567" target="_blank">💬 WhatsApp: 442 123 4567</a>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     WHATSAPP FLOATING BUTTON
+═══════════════════════════════════════════════ -->
+<a class="wapp-float"
+   href="https://wa.me/524421234567?text=Hola%2C%20me%20gustaría%20agendar%20una%20cita%20en%20Dental%20Marqués"
+   target="_blank"
+   aria-label="Contactar por WhatsApp">
+  <span class="wapp-float-tooltip">¿Hablamos por WhatsApp?</span>
+  💬
+</a>
+
+<!-- ═══════════════════════════════════════════════
      JAVASCRIPT
-================================================================ -->
+═══════════════════════════════════════════════ -->
 <script>
-/* ================================================================
-   DATA
-================================================================ */
-const CATEGORIES = [
-  { id: 'restaurantes', label: 'Restaurantes', icon: '🍽️' },
-  { id: 'salud',        label: 'Salud',        icon: '🏥' },
-  { id: 'servicios',    label: 'Servicios',    icon: '🔧' },
-  { id: 'comercios',    label: 'Comercios',    icon: '🛒' },
-  { id: 'educacion',    label: 'Educación',    icon: '📚' },
-  { id: 'belleza',      label: 'Belleza',      icon: '💅' },
-  { id: 'automotriz',   label: 'Automotriz',   icon: '🚗' },
-  { id: 'otros',        label: 'Otros',        icon: '📌' },
-];
+/* ── Nav shadow on scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 10);
+});
 
-const CAT_LABELS = {
-  restaurantes: 'Restaurantes',
-  salud: 'Salud',
-  servicios: 'Servicios',
-  comercios: 'Comercios',
-  educacion: 'Educación',
-  belleza: 'Belleza y Estética',
-  automotriz: 'Automotriz',
-  otros: 'Otros',
-};
+/* ── WhatsApp chat bot simulation ── */
+const WAPP_NUMBER = '524421234567';
 
-// Default sample businesses (shown until real ones are added via admin)
-const DEFAULT_BUSINESSES = [
-  {
-    id: 'b1',
-    name: 'Tacos El Güero',
-    category: 'restaurantes',
-    phone: '7731234567',
-    address: 'Av. Hidalgo 45, Centro, Tula de Allende',
-    hours: 'Mar–Dom 6:00 pm – 11:00 pm',
-    desc: 'Los mejores tacos al pastor de Tula. Más de 20 años sirviendo a la comunidad.',
-    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80',
-    status: 'approved',
-    owner: null,
-  },
-  {
-    id: 'b2',
-    name: 'Farmacia San Rafael',
-    category: 'salud',
-    phone: '7739876543',
-    address: 'Calle Morelos 12, Col. Centro, Tula',
-    hours: 'Lun–Sáb 8:00 am – 9:00 pm',
-    desc: 'Farmacia con amplio surtido de medicamentos genéricos y de patente. Servicio a domicilio.',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',
-    status: 'approved',
-    owner: null,
-  },
-  {
-    id: 'b3',
-    name: 'Papelería y Copias Rápidas',
-    category: 'servicios',
-    phone: '7732223344',
-    address: 'Blvd. Tula–Tepeji km 3, Tula',
-    hours: 'Lun–Vie 8:00 am – 7:00 pm, Sáb 9:00 am – 3:00 pm',
-    desc: 'Impresiones, copias, encuadernados, papelería escolar y de oficina.',
-    image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600&q=80',
-    status: 'approved',
-    owner: null,
-  },
-  {
-    id: 'b4',
-    name: 'Abarrotes La Lupita',
-    category: 'comercios',
-    phone: '7735556677',
-    address: 'Calle Juárez 88, Col. La Estación, Tula',
-    hours: 'Lun–Dom 7:00 am – 10:00 pm',
-    desc: 'Todo para el hogar: abarrotes, frituras, bebidas, lácteos y más a precios accesibles.',
-    image: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=600&q=80',
-    status: 'approved',
-    owner: null,
-  },
-  {
-    id: 'b5',
-    name: 'Estética Vanessa',
-    category: 'belleza',
-    phone: '7738889900',
-    address: 'Calle Allende 33, Col. Nueva, Tula',
-    hours: 'Mar–Sáb 9:00 am – 7:00 pm',
-    desc: 'Cortes, tintes, manicure, pedicure y tratamientos capilares. Precios accesibles.',
-    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80',
-    status: 'approved',
-    owner: null,
-  },
-  {
-    id: 'b6',
-    name: 'Taller Mecánico Los Primos',
-    category: 'automotriz',
-    phone: '7731112233',
-    address: 'Carretera Tula–Jorobas km 1, Tula',
-    hours: 'Lun–Sáb 8:00 am – 6:00 pm',
-    desc: 'Servicio de afinación, frenos, suspensión y diagnóstico computarizado para todo tipo de vehículo.',
-    image: 'https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=600&q=80',
-    status: 'approved',
-    owner: null,
-  },
-];
+function wappStep(action) {
+  const body = document.getElementById('wapp-chat-body');
+  // hide buttons in current message
+  document.querySelectorAll('.wapp-options').forEach(el => el.remove());
 
-const ADMIN_PASSWORD = 'tula2026';
-
-/* ================================================================
-   STORAGE HELPERS
-================================================================ */
-function getBusinesses() {
-  const stored = localStorage.getItem('nt_businesses');
-  if (!stored) {
-    localStorage.setItem('nt_businesses', JSON.stringify(DEFAULT_BUSINESSES));
-    return DEFAULT_BUSINESSES;
-  }
-  return JSON.parse(stored);
-}
-function saveBusinesses(list) {
-  localStorage.setItem('nt_businesses', JSON.stringify(list));
-}
-function getUsers() {
-  return JSON.parse(localStorage.getItem('nt_users') || '[]');
-}
-function saveUsers(u) {
-  localStorage.setItem('nt_users', JSON.stringify(u));
-}
-function getSession() {
-  return JSON.parse(localStorage.getItem('nt_session') || 'null');
-}
-function saveSession(s) {
-  localStorage.setItem('nt_session', JSON.stringify(s));
-}
-
-/* ================================================================
-   AUTH
-================================================================ */
-let currentUser = getSession();
-
-function initNav() {
-  const actions = document.getElementById('nav-actions');
-  if (currentUser) {
-    actions.innerHTML = `
-      <button id="nav-user-name" onclick="openAccount()">👤 ${currentUser.name}</button>
-      <button class="btn-register-nav" onclick="openRegisterBiz()">+ Registrar negocio</button>`;
-  } else {
-    actions.innerHTML = `
-      <button class="auth-btn" onclick="openAuth('login')">Iniciar sesión</button>
-      <button class="btn-register-nav" onclick="openRegisterBiz()">+ Registrar negocio</button>`;
+  if (action === 'agendar') {
+    addMsg('📅 Agendar una cita', true);
+    setTimeout(() => {
+      addMsg('¡Perfecto! Para agendar tu cita necesito algunos datos. ¿Cuál es tu nombre completo?');
+      setTimeout(() => {
+        addMsg('Escribe tu nombre y te enviaremos al chat de WhatsApp para confirmar tu cita 😊', false, [
+          { label: '✏️ Continuar en WhatsApp', action: 'go_wapp_agendar' }
+        ]);
+      }, 900);
+    }, 600);
+  } else if (action === 'info') {
+    addMsg('ℹ️ Información y servicios', true);
+    setTimeout(() => {
+      addMsg('Ofrecemos: limpieza dental, blanqueamiento, ortodoncia, implantes, endodoncia, odontopediatría y más. 🦷\n\n¿Sobre cuál servicio quieres saber más?', false, [
+        { label: '🦷 Ortodoncia y brackets', action: 'go_wapp_ortodoncia' },
+        { label: '✨ Blanqueamiento', action: 'go_wapp_blanqueamiento' },
+        { label: '🌱 Implantes', action: 'go_wapp_implantes' },
+        { label: '📞 Llamar al consultorio', action: 'call' },
+      ]);
+    }, 700);
+  } else if (action === 'urgencia') {
+    addMsg('🚨 Urgencia dental', true);
+    setTimeout(() => {
+      addMsg('¡Atendemos urgencias el mismo día! Escríbenos ahora mismo por WhatsApp y un dentista te atenderá a la brevedad. 🚑', false, [
+        { label: '🚨 Reportar urgencia ahora', action: 'go_wapp_urgencia' }
+      ]);
+    }, 500);
+  } else if (action.startsWith('go_wapp')) {
+    const msgs = {
+      go_wapp_agendar:       'Hola%2C%20quiero%20agendar%20una%20cita%20en%20Dental%20Marqués',
+      go_wapp_ortodoncia:    'Hola%2C%20quiero%20información%20sobre%20ortodoncia%20en%20Dental%20Marqués',
+      go_wapp_blanqueamiento:'Hola%2C%20quiero%20información%20sobre%20blanqueamiento%20en%20Dental%20Marqués',
+      go_wapp_implantes:     'Hola%2C%20quiero%20información%20sobre%20implantes%20en%20Dental%20Marqués',
+      go_wapp_urgencia:      'Hola%2C%20tengo%20una%20urgencia%20dental%20y%20necesito%20atención%20inmediata',
+    };
+    addMsg(action === 'go_wapp_urgencia' ? '🚨 Reportar urgencia ahora' : '✏️ Continuar en WhatsApp', true);
+    setTimeout(() => {
+      addMsg('Te estamos redirigiendo a WhatsApp... 💬');
+      setTimeout(() => window.open(`https://wa.me/${WAPP_NUMBER}?text=${msgs[action]}`, '_blank'), 800);
+    }, 500);
+  } else if (action === 'call') {
+    addMsg('📞 Llamar al consultorio', true);
+    setTimeout(() => {
+      addMsg('Nuestro número es: 📞 <b>442 123 4567</b>\nHorario: Lun–Vie 9am–7pm · Sáb 9am–3pm');
+      window.location = 'tel:4421234567';
+    }, 500);
   }
 }
 
-function openAuth(view) {
-  document.getElementById('modal-auth').classList.add('open');
-  switchAuth(view);
-}
-function closeAuth() {
-  document.getElementById('modal-auth').classList.remove('open');
-}
-function switchAuth(view) {
-  document.getElementById('auth-login-view').style.display    = view === 'login' ? '' : 'none';
-  document.getElementById('auth-register-view').style.display = view === 'register' ? '' : 'none';
-}
-
-function handleLogin() {
-  const email = document.getElementById('login-email').value.trim().toLowerCase();
-  const pw    = document.getElementById('login-pw').value;
-  const err   = document.getElementById('login-error');
-  err.classList.remove('show');
-  if (!email || !pw) { err.textContent = 'Completa todos los campos.'; err.classList.add('show'); return; }
-  const users = getUsers();
-  const user  = users.find(u => u.email === email && u.pw === pw);
-  if (!user) { err.textContent = 'Correo o contraseña incorrectos.'; err.classList.add('show'); return; }
-  currentUser = { id: user.id, name: user.name, email: user.email };
-  saveSession(currentUser);
-  closeAuth();
-  initNav();
-  showToast(`Bienvenido, ${user.name}`);
-  if (window._pendingRegisterBiz) { window._pendingRegisterBiz = false; openRegisterBiz(); }
-}
-
-function handleRegister() {
-  const name  = document.getElementById('reg-name').value.trim();
-  const last  = document.getElementById('reg-last').value.trim();
-  const email = document.getElementById('reg-email').value.trim().toLowerCase();
-  const pw    = document.getElementById('reg-pw').value;
-  const err   = document.getElementById('register-error');
-  err.classList.remove('show');
-  if (!name || !email || !pw) { err.textContent = 'Completa todos los campos.'; err.classList.add('show'); return; }
-  if (pw.length < 6) { err.textContent = 'La contraseña debe tener al menos 6 caracteres.'; err.classList.add('show'); return; }
-  const users = getUsers();
-  if (users.find(u => u.email === email)) { err.textContent = 'Este correo ya está registrado.'; err.classList.add('show'); return; }
-  const user = { id: 'u' + Date.now(), name: name + (last ? ' ' + last : ''), email, pw };
-  users.push(user);
-  saveUsers(users);
-  currentUser = { id: user.id, name: user.name, email: user.email };
-  saveSession(currentUser);
-  closeAuth();
-  initNav();
-  showToast(`Cuenta creada. Bienvenido, ${user.name}`);
-  if (window._pendingRegisterBiz) { window._pendingRegisterBiz = false; openRegisterBiz(); }
-}
-
-function logout() {
-  currentUser = null;
-  saveSession(null);
-  closeAccount();
-  initNav();
-  showToast('Sesión cerrada.');
-}
-
-/* ================================================================
-   ACCOUNT DRAWER
-================================================================ */
-function openAccount() {
-  if (!currentUser) { openAuth('login'); return; }
-  document.getElementById('account-user-name').textContent  = currentUser.name;
-  document.getElementById('account-user-email').textContent = currentUser.email;
-  const bizList = document.getElementById('account-biz-list');
-  const all = getBusinesses().filter(b => b.owner === currentUser.id);
-  if (all.length === 0) {
-    bizList.innerHTML = '<p style="font-size:0.8rem;color:var(--warm-gray)">Aún no tienes negocios registrados.</p>';
-  } else {
-    bizList.innerHTML = all.map(b => `
-      <div class="account-biz-item">
-        <strong>${b.name}</strong>
-        <span>${CAT_LABELS[b.category] || b.category}</span>
-        <span class="account-biz-status status-${b.status}">${statusLabel(b.status)}</span>
-      </div>`).join('');
-  }
-  document.getElementById('account-drawer').classList.add('open');
-  document.getElementById('drawer-overlay').classList.add('open');
-}
-function closeAccount() {
-  document.getElementById('account-drawer').classList.remove('open');
-  document.getElementById('drawer-overlay').classList.remove('open');
-}
-function statusLabel(s) {
-  return s === 'approved' ? 'Aprobado' : s === 'rejected' ? 'Rechazado' : 'En revisión';
-}
-
-/* ================================================================
-   CATEGORIES BAR
-================================================================ */
-let activeCategory = '';
-
-function renderCatPills() {
-  const wrap = document.getElementById('cat-pills');
-  wrap.innerHTML = `<button class="cat-pill active" data-cat="" onclick="setCat('')">Todos</button>` +
-    CATEGORIES.map(c => `<button class="cat-pill" data-cat="${c.id}" onclick="setCat('${c.id}')">${c.icon} ${c.label}</button>`).join('');
-}
-function setCat(cat) {
-  activeCategory = cat;
-  document.querySelectorAll('.cat-pill').forEach(p => p.classList.toggle('active', p.dataset.cat === cat));
-  applyFilters();
-}
-
-/* ================================================================
-   BUSINESS GRID
-================================================================ */
-function applyFilters() {
-  const q = (document.getElementById('hero-search').value || '').toLowerCase().trim();
-  let list = getBusinesses().filter(b => b.status === 'approved');
-  if (activeCategory) list = list.filter(b => b.category === activeCategory);
-  if (q) list = list.filter(b =>
-    b.name.toLowerCase().includes(q) ||
-    (b.desc || '').toLowerCase().includes(q) ||
-    (b.address || '').toLowerCase().includes(q)
-  );
-  renderGrid(list);
-}
-
-function renderGrid(list) {
-  const grid = document.getElementById('biz-grid');
-  document.getElementById('result-count').textContent = `${list.length} negocio${list.length !== 1 ? 's' : ''}`;
-  if (list.length === 0) {
-    grid.innerHTML = `<div class="no-results"><p>No se encontraron negocios con ese criterio.</p></div>`;
-    return;
-  }
-  grid.innerHTML = list.map(b => `
-    <div class="biz-card" onclick="openDetail('${b.id}')">
-      <div class="biz-img-wrap">
-        <img src="${b.image || 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80'}" alt="${b.name}" loading="lazy">
-        <span class="biz-cat-badge">${CAT_LABELS[b.category] || b.category}</span>
-      </div>
-      <div class="biz-body">
-        <h3 class="biz-name">${b.name}</h3>
-        <p class="biz-desc">${b.desc || ''}</p>
-        <div class="biz-info">
-          ${b.address ? `<div class="biz-info-row"><span class="biz-info-icon">📍</span><span>${b.address}</span></div>` : ''}
-          ${b.hours   ? `<div class="biz-info-row"><span class="biz-info-icon">🕐</span><span>${b.hours}</span></div>` : ''}
-          ${b.phone   ? `<div class="biz-info-row"><span class="biz-info-icon">📞</span><span>${formatPhone(b.phone)}</span></div>` : ''}
-        </div>
-      </div>
-      <div class="biz-footer">
-        ${b.phone ? `<button class="biz-btn biz-btn-call" onclick="event.stopPropagation(); window.location='tel:${b.phone}'">Llamar</button>` : ''}
-        <button class="biz-btn biz-btn-detail" onclick="event.stopPropagation(); openDetail('${b.id}')">Ver más</button>
-      </div>
-    </div>`).join('');
-}
-
-function formatPhone(p) {
-  const d = p.replace(/\D/g, '');
-  if (d.length === 10) return `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
-  return p;
-}
-
-/* ================================================================
-   BUSINESS DETAIL MODAL
-================================================================ */
-function openDetail(id) {
-  const b = getBusinesses().find(x => x.id === id);
-  if (!b) return;
-  document.getElementById('detail-img').src = b.image || 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80';
-  document.getElementById('detail-img').alt = b.name;
-  document.getElementById('detail-cat').textContent  = CAT_LABELS[b.category] || b.category;
-  document.getElementById('detail-name').textContent = b.name;
-  document.getElementById('detail-desc').textContent = b.desc || '';
-  document.getElementById('detail-info').innerHTML = [
-    b.address ? `<div class="detail-info-row"><span class="detail-info-icon">📍</span><span>${b.address}</span></div>` : '',
-    b.hours   ? `<div class="detail-info-row"><span class="detail-info-icon">🕐</span><span>${b.hours}</span></div>` : '',
-    b.phone   ? `<div class="detail-info-row"><span class="detail-info-icon">📞</span><span>${formatPhone(b.phone)}</span></div>` : '',
-  ].join('');
-  document.getElementById('detail-actions').innerHTML = [
-    b.phone ? `<button class="detail-btn detail-btn-call" onclick="window.location='tel:${b.phone}'">📞 Llamar</button>` : '',
-    b.phone ? `<button class="detail-btn detail-btn-wapp" onclick="window.open('https://wa.me/52${b.phone.replace(/\D/,'')}','_blank')">💬 WhatsApp</button>` : '',
-  ].join('');
-  document.getElementById('modal-detail').classList.add('open');
-}
-function closeDetail() {
-  document.getElementById('modal-detail').classList.remove('open');
-}
-
-/* ================================================================
-   REGISTER BUSINESS MODAL
-================================================================ */
-function openRegisterBiz() {
-  if (!currentUser) {
-    window._pendingRegisterBiz = true;
-    openAuth('login');
-    return;
-  }
-  document.getElementById('modal-register-biz').classList.add('open');
-}
-function closeRegisterBiz() {
-  document.getElementById('modal-register-biz').classList.remove('open');
-}
-
-function submitRegisterBiz() {
-  if (!currentUser) { openAuth('login'); return; }
-  const name    = document.getElementById('rb-name').value.trim();
-  const cat     = document.getElementById('rb-cat').value;
-  const phone   = document.getElementById('rb-phone').value.trim();
-  const address = document.getElementById('rb-address').value.trim();
-  const hours   = document.getElementById('rb-hours').value.trim();
-  const desc    = document.getElementById('rb-desc').value.trim();
-  const img     = document.getElementById('rb-img').value.trim();
-  const err     = document.getElementById('rb-error');
-  err.classList.remove('show');
-  if (!name || !cat || !phone || !address) {
-    err.textContent = 'Completa los campos obligatorios (*)';
-    err.classList.add('show'); return;
-  }
-  const list = getBusinesses();
-  const biz = {
-    id: 'b' + Date.now(),
-    name, category: cat, phone, address, hours, desc,
-    image: img || 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80',
-    status: 'pending',
-    owner: currentUser.id,
-    ownerName: currentUser.name,
-    ownerEmail: currentUser.email,
-    createdAt: new Date().toISOString(),
-  };
-  list.push(biz);
-  saveBusinesses(list);
-  closeRegisterBiz();
-  // clear form
-  ['rb-name','rb-phone','rb-address','rb-hours','rb-desc','rb-img'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('rb-cat').value = '';
-  showToast('Solicitud enviada. Revisaremos tu negocio pronto.');
-}
-
-/* ================================================================
-   ADMIN
-================================================================ */
-let adminAuthenticated = false;
-
-function openAdminScreen() {
-  document.getElementById('admin-screen').style.display = 'block';
-  if (adminAuthenticated) {
-    renderAdminPending();
-  }
-}
-
-function adminLogin() {
-  const pw = document.getElementById('admin-pw-input').value;
-  const errEl = document.getElementById('admin-pw-error');
-  if (pw === ADMIN_PASSWORD) {
-    adminAuthenticated = true;
-    document.getElementById('admin-login-wrap').style.display = 'none';
-    document.getElementById('admin-panel-wrap').style.display = 'block';
-    renderAdminPending();
-  } else {
-    errEl.style.display = 'block';
-    setTimeout(() => errEl.style.display = 'none', 2500);
-  }
-}
-
-function adminLogout() {
-  adminAuthenticated = false;
-  document.getElementById('admin-screen').style.display = 'none';
-  document.getElementById('admin-login-wrap').style.display = 'block';
-  document.getElementById('admin-panel-wrap').style.display = 'none';
-  document.getElementById('admin-pw-input').value = '';
-}
-
-function adminShowTab(tab) {
-  ['pending','all','users'].forEach(t => {
-    document.getElementById(`admin-tab-${t}`).style.display = t === tab ? '' : 'none';
-    document.getElementById(`tab-${t}`).classList.toggle('active', t === tab);
-  });
-  if (tab === 'pending') renderAdminPending();
-  if (tab === 'all')     renderAdminAll();
-  if (tab === 'users')   renderAdminUsers();
-}
-
-function renderAdminPending() {
-  const list = getBusinesses().filter(b => b.status === 'pending');
-  const tbody = document.getElementById('tbody-pending');
-  if (list.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" class="admin-empty">No hay solicitudes pendientes.</td></tr>`;
-    return;
-  }
-  tbody.innerHTML = list.map(b => `
-    <tr>
-      <td><strong>${b.name}</strong>${b.desc ? `<br><span style="font-size:0.75rem;color:var(--warm-gray)">${b.desc.substring(0,60)}…</span>` : ''}</td>
-      <td>${CAT_LABELS[b.category] || b.category}</td>
-      <td>${b.ownerName || '—'}<br><span style="font-size:0.72rem;color:var(--warm-gray)">${b.ownerEmail || ''}</span></td>
-      <td>${formatPhone(b.phone)}</td>
-      <td style="font-size:0.78rem">${b.address}</td>
-      <td>
-        <button onclick="adminSetStatus('${b.id}','approved')" style="background:var(--forest);color:#fff;padding:0.3rem 0.7rem;border-radius:3px;font-size:0.7rem;font-weight:600;margin-bottom:0.3rem;display:block;width:100%">Aprobar</button>
-        <button onclick="adminSetStatus('${b.id}','rejected')" style="background:#c0392b;color:#fff;padding:0.3rem 0.7rem;border-radius:3px;font-size:0.7rem;font-weight:600;display:block;width:100%">Rechazar</button>
-      </td>
-    </tr>`).join('');
-}
-
-function renderAdminAll() {
-  const catF    = document.getElementById('admin-cat-filter').value;
-  const statusF = document.getElementById('admin-status-filter').value;
-  const q       = (document.getElementById('admin-search-filter').value || '').toLowerCase();
-  let list = getBusinesses();
-  if (catF)    list = list.filter(b => b.category === catF);
-  if (statusF) list = list.filter(b => b.status === statusF);
-  if (q)       list = list.filter(b => b.name.toLowerCase().includes(q));
-  const tbody = document.getElementById('tbody-all');
-  if (list.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" class="admin-empty">No hay negocios con esos filtros.</td></tr>`;
-    return;
-  }
-  tbody.innerHTML = list.map(b => `
-    <tr>
-      <td><strong>${b.name}</strong></td>
-      <td>${CAT_LABELS[b.category] || b.category}</td>
-      <td>${formatPhone(b.phone)}</td>
-      <td style="font-size:0.78rem">${b.address}</td>
-      <td><span class="admin-status-badge status-${b.status}">${statusLabel(b.status)}</span></td>
-      <td>
-        <select class="admin-status-select" onchange="adminSetStatus('${b.id}', this.value)">
-          <option value="approved" ${b.status==='approved'?'selected':''}>Aprobado</option>
-          <option value="pending"  ${b.status==='pending' ?'selected':''}>Pendiente</option>
-          <option value="rejected" ${b.status==='rejected'?'selected':''}>Rechazado</option>
-        </select>
-      </td>
-    </tr>`).join('');
-}
-
-function renderAdminUsers() {
-  const users = getUsers();
-  const businesses = getBusinesses();
-  const tbody = document.getElementById('tbody-users');
-  if (users.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="3" class="admin-empty">No hay usuarios registrados.</td></tr>`;
-    return;
-  }
-  tbody.innerHTML = users.map(u => {
-    const count = businesses.filter(b => b.owner === u.id).length;
-    return `<tr>
-      <td><strong>${u.name}</strong></td>
-      <td>${u.email}</td>
-      <td>${count} negocio${count !== 1 ? 's' : ''}</td>
-    </tr>`;
-  }).join('');
-}
-
-function adminSetStatus(id, status) {
-  const list = getBusinesses();
-  const b = list.find(x => x.id === id);
-  if (!b) return;
-  b.status = status;
-  saveBusinesses(list);
-  applyFilters();
-  renderAdminPending();
-  renderAdminAll();
-  showToast(`Negocio "${b.name}" actualizado a: ${statusLabel(status)}`);
-}
-
-/* ================================================================
-   TOAST
-================================================================ */
-function showToast(msg, duration = 3000) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), duration);
-}
-
-/* ================================================================
-   INIT
-================================================================ */
-function init() {
-  // nav scroll shadow
-  const nav = document.getElementById('main-nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 10));
-
-  // close modals on overlay click
-  ['modal-auth','modal-register-biz','modal-detail'].forEach(id => {
-    document.getElementById(id).addEventListener('click', e => {
-      if (e.target === document.getElementById(id)) {
-        document.getElementById(id).classList.remove('open');
-      }
+function addMsg(text, isSent = false, options = null) {
+  const body = document.getElementById('wapp-chat-body');
+  const msg = document.createElement('div');
+  msg.className = 'wapp-msg' + (isSent ? ' sent' : '');
+  const now = new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
+  msg.innerHTML = text.replace(/\n/g, '<br>') + `<div class="wapp-time">${now}</div>`;
+  if (options) {
+    const opts = document.createElement('div');
+    opts.className = 'wapp-options';
+    options.forEach(o => {
+      const btn = document.createElement('button');
+      btn.className = 'wapp-option-btn';
+      btn.textContent = o.label;
+      btn.onclick = () => wappStep(o.action);
+      opts.appendChild(btn);
     });
-  });
-
-  // esc key closes modals
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      ['modal-auth','modal-register-biz','modal-detail'].forEach(id =>
-        document.getElementById(id).classList.remove('open')
-      );
-    }
-  });
-
-  renderCatPills();
-  initNav();
-  applyFilters();
+    msg.appendChild(opts);
+  }
+  body.appendChild(msg);
+  body.scrollTop = body.scrollHeight;
 }
 
-document.addEventListener('DOMContentLoaded', init);
+/* ── Form → WhatsApp ── */
+function sendApptWhatsapp() {
+  const name    = document.getElementById('f-name').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const service = document.getElementById('f-service').value;
+  const date    = document.getElementById('f-date').value;
+  const time    = document.getElementById('f-time').value;
+  const notes   = document.getElementById('f-notes').value.trim();
+
+  if (!name || !phone) {
+    alert('Por favor ingresa tu nombre y teléfono.');
+    return;
+  }
+
+  const msg = `Hola, quiero agendar una cita en Dental Marqués 🦷\n\n`
+    + `👤 Nombre: ${name}\n`
+    + `📞 Teléfono: ${phone}\n`
+    + (service ? `🔧 Servicio: ${service}\n` : '')
+    + (date    ? `📅 Fecha preferida: ${date}\n` : '')
+    + `🕐 Horario preferido: ${time}\n`
+    + (notes   ? `📝 Notas: ${notes}` : '');
+
+  window.open(`https://wa.me/${WAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ── Set min date for form ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const dateInput = document.getElementById('f-date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+  }
+});
 </script>
 </body>
 </html>
