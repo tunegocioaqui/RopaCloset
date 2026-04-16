@@ -3,617 +3,591 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloe — Clínica Veterinaria · Querétaro</title>
-  <meta name="description" content="Clínica Veterinaria Cloe en Querétaro. Consultas, vacunas, cirugía, estética y más. Agenda tu cita por WhatsApp.">
+  <title>AeroGym Express — Querétaro</title>
+  <meta name="description" content="AeroGym Express en Santiago de Querétaro. Entrena con los mejores, compra suplementos y merchandising. Lunes a Sábado 6am–9pm.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --teal:        #1A8C6E;
-      --teal-dark:   #126B54;
-      --teal-light:  #2DB88E;
-      --teal-xlight: #E6F7F2;
-      --mint:        #F0FAF6;
-      --amber:       #F0A500;
-      --amber-light: #FFD166;
-      --coral:       #FF6B6B;
-      --white:       #FFFFFF;
-      --offwhite:    #F8FDFB;
-      --gray:        #6E7F76;
-      --gray-light:  #DCE8E3;
-      --dark:        #0D2B1F;
-      --charcoal:    #1A3528;
-      --green-wapp:  #25D366;
-      --serif:       'Playfair Display', Georgia, serif;
-      --sans:        'Nunito', system-ui, sans-serif;
-      --nav-h:       72px;
-      --r:           14px;
-      --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+      --lime:       #C6F135;
+      --lime-dark:  #A8D020;
+      --lime-glow:  rgba(198,241,53,0.18);
+      --black:      #080808;
+      --dark:       #111111;
+      --dark2:      #181818;
+      --dark3:      #202020;
+      --gray:       #888888;
+      --gray-light: #2E2E2E;
+      --white:      #FFFFFF;
+      --offwhite:   #F4F4F4;
+      --red:        #E63946;
+      --green-wapp: #25D366;
+      --condensed:  'Barlow Condensed', Impact, sans-serif;
+      --sans:       'Inter', system-ui, sans-serif;
+      --nav-h:      68px;
+      --ease:       cubic-bezier(0.4, 0, 0.2, 1);
     }
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--sans);
-      background: var(--offwhite);
-      color: var(--dark);
+      background: var(--dark);
+      color: var(--white);
       overflow-x: hidden;
       opacity: 0;
-      animation: appear 0.6s ease 0.05s forwards;
+      animation: fadeBody 0.5s ease 0.05s forwards;
     }
-    @keyframes appear { to { opacity: 1; } }
+    @keyframes fadeBody { to { opacity: 1; } }
     img { display: block; max-width: 100%; }
     button { font-family: var(--sans); cursor: pointer; border: none; background: none; }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-thumb { background: var(--gray-light); border-radius: 5px; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-thumb { background: var(--gray-light); border-radius: 4px; }
 
-    /* ── NAV ── */
+    /* ─── NAV ─── */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 900;
       height: var(--nav-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 3rem;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--gray-light);
+      background: rgba(8,8,8,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       transition: box-shadow 0.3s;
     }
-    .nav.scrolled { box-shadow: 0 4px 28px rgba(26,140,110,0.12); }
+    .nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.6); }
 
     .nav-brand { display: flex; align-items: center; gap: 0.75rem; }
-    .nav-paw {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    .nav-logo {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: var(--lime);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.25rem;
-      box-shadow: 0 4px 14px rgba(26,140,110,0.3);
+      font-size: 1.2rem;
     }
     .nav-name {
-      font-family: var(--serif); font-size: 1.5rem; font-weight: 700;
-      color: var(--dark); letter-spacing: -0.01em;
+      font-family: var(--condensed); font-size: 1.55rem;
+      font-weight: 900; color: var(--white); letter-spacing: 0.04em;
+      line-height: 1;
     }
-    .nav-name span { color: var(--teal); }
-    .nav-tagline {
-      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--gray);
-      margin-top: 0.1rem;
+    .nav-name span { color: var(--lime); }
+    .nav-sub {
+      font-size: 0.58rem; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gray); margin-top: 0.1rem;
     }
 
-    .nav-links { display: flex; gap: 2rem; }
+    .nav-links { display: flex; gap: 1.75rem; }
     .nav-links a {
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;
-      color: var(--gray); transition: color 0.2s; position: relative;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gray);
+      transition: color 0.2s; position: relative;
     }
     .nav-links a::after {
       content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px; background: var(--teal);
-      border-radius: 2px; transition: width 0.25s var(--ease);
+      width: 0; height: 2px; background: var(--lime);
+      transition: width 0.25s;
     }
-    .nav-links a:hover { color: var(--teal); }
+    .nav-links a:hover { color: var(--lime); }
     .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.6rem 1.4rem;
-      background: var(--teal); color: #fff;
-      font-size: 0.78rem; font-weight: 800;
-      letter-spacing: 0.04em; border-radius: 100px;
+      background: var(--lime); color: var(--black);
+      font-size: 0.72rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border-radius: 4px;
       transition: background 0.2s, transform 0.2s;
-      box-shadow: 0 4px 16px rgba(26,140,110,0.3);
     }
-    .nav-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .nav-cta:hover { background: var(--lime-dark); transform: translateY(-1px); }
 
-    /* ── HERO ── */
+    /* ─── HERO ─── */
     .hero {
       position: relative;
       min-height: 100vh;
-      padding-top: var(--nav-h);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
+      display: flex; align-items: center;
       overflow: hidden;
-      background: linear-gradient(150deg, var(--mint) 0%, #dff5ec 100%);
+      padding-top: var(--nav-h);
     }
-    .hero-blobs {
-      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=90');
+      background-size: cover; background-position: center;
+      transform: scale(1.06);
+      animation: zoomBg 14s ease-in-out infinite alternate;
     }
-    .blob {
-      position: absolute; border-radius: 50%;
-      background: var(--teal-light); opacity: 0.07;
-      filter: blur(60px);
+    @keyframes zoomBg { to { transform: scale(1); } }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(100deg,
+        rgba(8,8,8,0.95) 0%,
+        rgba(8,8,8,0.80) 50%,
+        rgba(8,8,8,0.35) 100%
+      );
     }
-    .blob-1 { width: 500px; height: 500px; top: -100px; right: 10%; }
-    .blob-2 { width: 350px; height: 350px; bottom: 0; left: -50px; background: var(--amber); }
-
-    .hero-left {
-      padding: 4rem 3rem 4rem 5vw;
+    .hero-overlay-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 180px;
+      background: linear-gradient(to top, var(--dark), transparent);
+    }
+    .hero-content {
       position: relative; z-index: 1;
+      padding: 0 3rem; max-width: 800px;
     }
-    .hero-pill {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(26,140,110,0.1); color: var(--teal-dark);
-      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em;
-      text-transform: uppercase; padding: 0.4rem 1rem;
-      border-radius: 100px; margin-bottom: 1.5rem;
-      border: 1px solid rgba(26,140,110,0.2);
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--lime);
+      margin-bottom: 1.5rem;
     }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--lime); }
     .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-      font-weight: 700; color: var(--dark);
-      line-height: 1.1; margin-bottom: 1.25rem;
+      font-family: var(--condensed);
+      font-size: clamp(4rem, 9vw, 8rem);
+      font-weight: 900; line-height: 0.92;
       letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
     }
-    .hero h1 em { font-style: italic; color: var(--teal); }
-    .hero h1 span { display: block; }
+    .hero h1 .line1 { display: block; color: var(--white); }
+    .hero h1 .line2 { display: block; color: var(--lime); -webkit-text-stroke: 1px var(--lime); }
+    .hero h1 .line3 { display: block; color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.3); }
     .hero-desc {
-      font-size: 1.05rem; color: var(--gray);
-      line-height: 1.8; margin-bottom: 2.5rem;
-      max-width: 440px; font-weight: 400;
+      font-size: 1rem; color: rgba(255,255,255,0.55);
+      line-height: 1.75; margin-bottom: 2.5rem;
+      max-width: 440px; font-weight: 300;
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-    .btn-teal {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.9rem 1.9rem;
-      background: var(--teal); color: #fff;
-      font-size: 0.85rem; font-weight: 800;
-      letter-spacing: 0.04em; border-radius: 100px;
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 6px 22px rgba(26,140,110,0.35);
+    .btn-lime {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.95rem 2.25rem;
+      background: var(--lime); color: var(--black);
+      font-size: 0.82rem; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 0 24px rgba(198,241,53,0.35);
     }
-    .btn-teal:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(26,140,110,0.45); }
-    .btn-wapp-hero {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.9rem 1.9rem;
-      background: var(--green-wapp); color: #fff;
-      font-size: 0.85rem; font-weight: 800;
-      border-radius: 100px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 6px 22px rgba(37,211,102,0.3);
+    .btn-lime:hover { background: var(--lime-dark); transform: translateY(-2px); box-shadow: 0 0 40px rgba(198,241,53,0.5); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      padding: 0.95rem 2.25rem;
+      border: 1px solid rgba(255,255,255,0.2); color: var(--white);
+      font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border-radius: 4px;
+      transition: border-color 0.2s, background 0.2s;
     }
-    .btn-wapp-hero:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,211,102,0.45); }
+    .btn-ghost:hover { border-color: var(--lime); color: var(--lime); }
 
-    .hero-badges {
-      display: flex; gap: 1rem; flex-wrap: wrap;
+    .hero-strip {
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
     }
-    .hero-badge {
-      display: flex; align-items: center; gap: 0.5rem;
-      background: #fff; border: 1px solid var(--gray-light);
-      border-radius: 100px; padding: 0.45rem 1rem;
-      font-size: 0.75rem; font-weight: 700; color: var(--dark);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-
-    /* hero right — image collage */
-    .hero-right {
-      position: relative; z-index: 1;
-      padding: 4rem 5vw 4rem 2rem;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .hero-collage {
-      position: relative; width: 100%; max-width: 480px; height: 480px;
-    }
-    .col-img {
-      position: absolute; border-radius: 20px; overflow: hidden;
-      box-shadow: 0 16px 48px rgba(13,43,31,0.15);
-    }
-    .col-img img { width: 100%; height: 100%; object-fit: cover; }
-    .col-main { width: 68%; height: 72%; top: 0; left: 0; border-radius: 24px; }
-    .col-sec  { width: 52%; height: 55%; bottom: 0; right: 0; border-radius: 20px; border: 5px solid var(--offwhite); }
-    .col-float-card {
-      position: absolute; bottom: 8%; left: 55%;
-      background: #fff; border-radius: 14px;
-      padding: 0.85rem 1.1rem;
-      box-shadow: 0 12px 32px rgba(13,43,31,0.14);
+    .hero-strip-item {
       display: flex; align-items: center; gap: 0.6rem;
-      min-width: 160px; z-index: 2;
+      font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.5);
     }
-    .col-float-icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: var(--teal-xlight); font-size: 1.1rem;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    .hero-strip-item span:first-child {
+      font-size: 1rem;
     }
-    .col-float-text strong { display: block; font-size: 0.82rem; font-weight: 800; color: var(--dark); }
-    .col-float-text span { font-size: 0.68rem; color: var(--gray); }
-    .col-dot {
-      position: absolute; width: 70px; height: 70px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--amber), var(--amber-light));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem;
-      top: -16px; right: 8%;
-      box-shadow: 0 8px 24px rgba(240,165,0,0.35);
-      animation: floatDot 3s ease-in-out infinite alternate;
-    }
-    @keyframes floatDot { to { transform: translateY(-8px); } }
 
-    /* ── TRUST BAR ── */
-    .trust {
-      background: var(--teal);
-      padding: 1.25rem 3rem;
-      display: flex; align-items: center; justify-content: center;
-      gap: 3rem; flex-wrap: wrap;
+    /* ─── TICKER ─── */
+    .ticker {
+      background: var(--lime); padding: 0.7rem 0;
+      overflow: hidden; white-space: nowrap;
     }
-    .trust-item {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.78rem; font-weight: 700;
-      color: rgba(255,255,255,0.85);
+    .ticker-inner {
+      display: inline-flex; gap: 0; animation: ticker 22s linear infinite;
     }
-    .trust-item span:first-child { font-size: 1rem; }
-    .trust-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.25); }
+    .ticker-text {
+      font-family: var(--condensed); font-size: 1rem; font-weight: 900;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--black); padding: 0 2.5rem;
+    }
+    .ticker-dot { color: var(--black); opacity: 0.4; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* ── SECTIONS ── */
+    /* ─── SECTION BASE ─── */
     .section { padding: 5.5rem 3rem; }
     .sh { margin-bottom: 3.5rem; }
     .stag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--teal);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--lime);
+      display: flex; align-items: center; gap: 0.5rem;
       margin-bottom: 0.6rem;
     }
-    .stag::before { content: ''; width: 18px; height: 2px; background: var(--teal); border-radius: 2px; }
-    .stag.light { color: var(--amber-light); }
-    .stag.light::before { background: var(--amber-light); }
+    .stag::before { content: ''; width: 18px; height: 2px; background: var(--lime); }
     .stitle {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-weight: 700; color: var(--dark);
-      line-height: 1.15; margin-bottom: 0.85rem;
+      font-family: var(--condensed);
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 900; text-transform: uppercase;
+      color: var(--white); line-height: 1; letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
     }
-    .stitle em { font-style: italic; color: var(--teal); }
-    .stitle.light { color: #fff; }
-    .stitle.light em { color: var(--amber-light); }
+    .stitle em { font-style: italic; color: var(--lime); }
+    .stitle.dark-txt { color: var(--dark); }
+    .stitle.dark-txt em { color: var(--lime-dark); }
     .ssub {
-      font-size: 0.98rem; color: var(--gray);
-      line-height: 1.75; max-width: 520px; font-weight: 400;
+      font-size: 0.95rem; color: var(--gray);
+      line-height: 1.75; max-width: 500px;
     }
-    .ssub.light { color: rgba(255,255,255,0.55); }
+    .ssub.dark-txt { color: #555; }
 
-    /* ── SERVICES ── */
-    .services-bg { background: var(--white); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
+    /* ─── HORARIOS ─── */
+    .horarios-section { background: var(--dark2); }
+    .horarios-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
     }
-    .svc-card {
-      background: var(--offwhite);
-      border: 1.5px solid var(--gray-light);
-      border-radius: var(--r);
-      overflow: hidden;
-      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s;
+    .schedule-table { width: 100%; border-collapse: collapse; }
+    .schedule-table tr {
+      border-bottom: 1px solid var(--gray-light);
     }
-    .svc-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 48px rgba(26,140,110,0.12);
-      border-color: var(--teal-light);
+    .schedule-table tr:last-child { border-bottom: none; }
+    .schedule-table td {
+      padding: 1rem 0.5rem;
+      font-size: 0.9rem;
     }
-    .svc-img { height: 150px; overflow: hidden; background: var(--teal-xlight); position: relative; }
-    .svc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease); }
-    .svc-card:hover .svc-img img { transform: scale(1.07); }
-    .svc-emoji {
-      position: absolute; top: 10px; right: 10px;
-      width: 34px; height: 34px; border-radius: 50%;
-      background: rgba(255,255,255,0.9);
-      display: flex; align-items: center; justify-content: center; font-size: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    .schedule-table td:first-child {
+      font-weight: 700; color: var(--white); text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
-    .svc-body { padding: 1.25rem; }
-    .svc-name {
-      font-family: var(--serif); font-size: 1.05rem; font-weight: 700;
-      color: var(--dark); margin-bottom: 0.4rem;
+    .schedule-table td:last-child {
+      text-align: right; color: var(--lime); font-weight: 600;
     }
-    .svc-desc { font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
-    .svc-link {
-      display: inline-flex; align-items: center; gap: 0.3rem;
-      margin-top: 0.85rem; font-size: 0.72rem; font-weight: 800;
-      letter-spacing: 0.05em; text-transform: uppercase; color: var(--teal);
-      transition: gap 0.2s;
+    .schedule-closed { color: var(--red) !important; }
+    .schedule-today {
+      background: var(--lime-glow);
+      border-radius: 6px;
     }
-    .svc-card:hover .svc-link { gap: 0.55rem; }
+    .schedule-today td:first-child { color: var(--lime) !important; }
+    .open-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(198,241,53,0.1); border: 1px solid rgba(198,241,53,0.25);
+      color: var(--lime); padding: 0.5rem 1.1rem;
+      border-radius: 100px; font-size: 0.78rem; font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .open-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); animation: blink 1.5s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+    .horarios-info { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .hor-item {
+      display: flex; align-items: center; gap: 0.85rem;
+      padding: 1rem 1.25rem; background: var(--dark3);
+      border: 1px solid var(--gray-light); border-radius: 10px;
+      font-size: 0.85rem; transition: border-color 0.2s;
+    }
+    .hor-item:hover { border-color: var(--lime); }
+    .hor-icon { font-size: 1.15rem; }
+    .hor-item strong { display: block; font-weight: 700; color: var(--white); margin-bottom: 0.1rem; }
+    .hor-item span { color: var(--gray); font-size: 0.78rem; }
 
-    /* ── STATS ── */
-    .stats-bg {
-      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
-      padding: 4rem 3rem;
+    /* ─── SERVICIOS / CLASES ─── */
+    .clases-section { background: var(--dark); }
+    .clases-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    }
+    .clase-card {
+      position: relative; border-radius: 12px; overflow: hidden;
+      height: 260px; cursor: default;
+      border: 1px solid var(--gray-light);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .clase-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(198,241,53,0.12); }
+    .clase-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+    .clase-card:hover img { transform: scale(1.06); }
+    .clase-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.3) 60%, transparent);
+    }
+    .clase-card:hover .clase-overlay {
+      background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.5) 60%, rgba(198,241,53,0.05));
+    }
+    .clase-body {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+    }
+    .clase-tag {
+      display: inline-block; background: var(--lime); color: var(--black);
+      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 0.2rem 0.6rem;
+      border-radius: 3px; margin-bottom: 0.5rem;
+    }
+    .clase-name {
+      font-family: var(--condensed); font-size: 1.5rem; font-weight: 900;
+      text-transform: uppercase; color: var(--white); line-height: 1.1;
+    }
+    .clase-desc { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 0.35rem; }
+
+    /* ─── TIENDA ─── */
+    .tienda-section { background: var(--offwhite); }
+    .tienda-tabs {
+      display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+    }
+    .tienda-tab {
+      padding: 0.5rem 1.25rem; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border-radius: 100px; border: 1.5px solid #ccc;
+      background: #fff; color: #555; cursor: pointer; transition: all 0.2s;
+    }
+    .tienda-tab.active { background: var(--black); color: var(--lime); border-color: var(--black); }
+    .tienda-tab:hover:not(.active) { border-color: var(--black); color: var(--black); }
+
+    .productos-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+    }
+    .prod-card {
+      background: var(--white); border-radius: 12px;
+      border: 1.5px solid #E8E8E8; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .prod-card:hover { transform: translateY(-4px); box-shadow: 0 16px 42px rgba(0,0,0,0.1); border-color: #ccc; }
+    .prod-img { height: 200px; overflow: hidden; background: #f0f0f0; position: relative; }
+    .prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .prod-card:hover .prod-img img { transform: scale(1.06); }
+    .prod-badge {
+      position: absolute; top: 10px; left: 10px;
+      background: var(--black); color: var(--lime);
+      font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.22rem 0.6rem; border-radius: 4px;
+    }
+    .prod-body { padding: 1rem 1.1rem 1.25rem; }
+    .prod-cat { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.25rem; }
+    .prod-name { font-size: 0.92rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
+    .prod-desc { font-size: 0.75rem; color: var(--gray); line-height: 1.5; margin-bottom: 0.85rem; }
+    .prod-footer { display: flex; align-items: center; justify-content: space-between; }
+    .prod-price { font-family: var(--condensed); font-size: 1.3rem; font-weight: 900; color: var(--dark); }
+    .prod-btn {
+      padding: 0.45rem 0.9rem;
+      background: var(--black); color: var(--lime);
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; border-radius: 5px;
+      transition: background 0.2s;
+    }
+    .prod-btn:hover { background: #333; }
+    .prod-hidden { display: none; }
+
+    /* ─── ENTRENADORES ─── */
+    .trainers-section { background: var(--dark); }
+    .trainers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .trainer-card {
+      background: var(--dark2);
+      border: 1px solid var(--gray-light);
+      border-radius: 16px; overflow: hidden;
+      display: grid; grid-template-columns: 260px 1fr;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .trainer-card:hover { border-color: var(--lime); transform: translateY(-3px); }
+    .trainer-photo { height: 320px; overflow: hidden; }
+    .trainer-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .trainer-card:hover .trainer-photo img { transform: scale(1.04); }
+    .trainer-body { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
+    .trainer-number {
+      font-family: var(--condensed); font-size: 5rem; font-weight: 900;
+      color: rgba(255,255,255,0.04); line-height: 1; margin-bottom: -1rem;
+      letter-spacing: -0.02em;
+    }
+    .trainer-role { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin-bottom: 0.4rem; }
+    .trainer-name { font-family: var(--condensed); font-size: 2.5rem; font-weight: 900; text-transform: uppercase; color: var(--white); line-height: 1; margin-bottom: 0.75rem; letter-spacing: 0.02em; }
+    .trainer-bio { font-size: 0.82rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
+    .trainer-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .trainer-tag {
+      padding: 0.3rem 0.75rem; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: var(--dark3); color: var(--gray);
+      border: 1px solid var(--gray-light); border-radius: 100px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .trainer-card:hover .trainer-tag { border-color: rgba(198,241,53,0.3); color: rgba(198,241,53,0.7); }
+
+    /* ─── STATS ─── */
+    .stats-section {
+      background: var(--lime); padding: 3.5rem 3rem;
     }
     .stats-inner {
       display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1px; background: rgba(255,255,255,0.15);
-      border-radius: 20px; overflow: hidden;
-      max-width: 900px; margin: 0 auto;
+      gap: 1px; background: rgba(0,0,0,0.12);
+      border-radius: 12px; overflow: hidden;
     }
-    .stat-box {
-      background: rgba(255,255,255,0.05);
-      padding: 2.5rem 1.5rem; text-align: center;
-      transition: background 0.25s;
-    }
-    .stat-box:hover { background: rgba(255,255,255,0.12); }
-    .stat-n {
-      font-family: var(--serif); font-size: 3rem; font-weight: 700;
-      color: #fff; line-height: 1; margin-bottom: 0.4rem;
-    }
-    .stat-l {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: rgba(255,255,255,0.5);
-    }
+    .stat-box { background: var(--lime); padding: 2.5rem 1.5rem; text-align: center; transition: background 0.2s; }
+    .stat-box:hover { background: var(--lime-dark); }
+    .stat-n { font-family: var(--condensed); font-size: 3.5rem; font-weight: 900; color: var(--black); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-l { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(0,0,0,0.5); }
 
-    /* ── ABOUT ── */
-    .about-bg { background: var(--offwhite); }
-    .about-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center;
-    }
-    .about-imgs { position: relative; }
-    .about-main-img {
-      border-radius: 24px; overflow: hidden; height: 420px;
-    }
-    .about-main-img img { width: 100%; height: 100%; object-fit: cover; }
-    .about-mini-img {
-      position: absolute; bottom: -28px; right: -28px;
-      width: 48%; border-radius: 18px; overflow: hidden;
-      height: 200px;
-      border: 5px solid var(--offwhite);
-      box-shadow: 0 16px 40px rgba(13,43,31,0.14);
-    }
-    .about-mini-img img { width: 100%; height: 100%; object-fit: cover; }
-    .about-heart {
-      position: absolute; top: -20px; left: -20px;
-      width: 64px; height: 64px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--amber), var(--amber-light));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem;
-      box-shadow: 0 8px 24px rgba(240,165,0,0.35);
-      animation: floatDot 3.5s ease-in-out infinite alternate;
-    }
-    .about-text { padding-bottom: 2rem; }
-    .about-list { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
-    .about-item {
-      display: flex; align-items: flex-start; gap: 0.85rem;
-      padding: 1.1rem; background: var(--white);
-      border: 1.5px solid var(--gray-light); border-radius: 12px;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .about-item:hover { border-color: var(--teal); transform: translateX(4px); }
-    .about-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--teal-xlight); font-size: 1.1rem;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .about-item strong { display: block; font-size: 0.88rem; font-weight: 800; color: var(--dark); margin-bottom: 0.15rem; }
-    .about-item span { font-size: 0.78rem; color: var(--gray); line-height: 1.5; }
-
-    /* ── GALLERY ── */
-    .gallery-bg { background: var(--white); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr;
-      grid-template-rows: 230px 230px;
-      gap: 8px; border-radius: 20px; overflow: hidden;
-    }
-    .gl-item { overflow: hidden; position: relative; background: var(--teal-xlight); }
-    .gl-item:first-child { grid-row: 1 / 3; }
-    .gl-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
-    .gl-item:hover img { transform: scale(1.06); }
-    .gl-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(13,43,31,0.65), transparent);
-      padding: 1.25rem 1rem 0.75rem;
-      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em;
-      text-transform: uppercase; color: #fff;
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .gl-item:hover .gl-label { opacity: 1; }
-
-    /* ── APPOINTMENT ── */
-    .appt-bg {
-      background: var(--dark);
-      padding: 5.5rem 3rem;
-    }
-    .appt-grid {
+    /* ─── FAQ CHATBOT ─── */
+    .faq-section { background: var(--dark2); padding: 5.5rem 3rem; }
+    .faq-inner {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 5rem; align-items: start;
     }
 
-    /* whatsapp chat */
-    .wapp-shell {
-      border-radius: 22px; overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    /* chatbot */
+    .bot-shell {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      border: 1px solid var(--gray-light);
     }
-    .wapp-hdr {
-      background: #075E54;
-      padding: 1rem 1.25rem;
+    .bot-hdr {
+      background: linear-gradient(135deg, var(--dark3), #2a2a2a);
+      padding: 1.1rem 1.4rem;
       display: flex; align-items: center; gap: 0.85rem;
+      border-bottom: 1px solid var(--gray-light);
     }
-    .wapp-av {
-      width: 44px; height: 44px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+    .bot-av {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--lime);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
     }
-    .wapp-av img { width: 100%; height: 100%; object-fit: cover; }
-    .wapp-hdr strong { display: block; color: #fff; font-size: 0.9rem; }
-    .wapp-hdr span { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
-    .wapp-msgs {
-      background: #ECE5DD;
-      padding: 1.25rem; min-height: 280px;
+    .bot-hdr strong { display: block; color: var(--white); font-size: 0.9rem; font-weight: 700; }
+    .bot-hdr span { font-size: 0.7rem; color: var(--gray); }
+    .bot-msgs {
+      background: var(--dark3);
+      padding: 1.25rem;
+      min-height: 340px; max-height: 340px;
+      overflow-y: auto;
       display: flex; flex-direction: column; gap: 0.75rem;
     }
-    .wm {
-      max-width: 82%; padding: 0.7rem 0.95rem;
-      border-radius: 0 12px 12px 12px;
-      background: #fff; font-size: 0.83rem; line-height: 1.55;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      animation: wSlide 0.3s var(--ease);
+    .bot-msgs::-webkit-scrollbar { width: 3px; }
+    .bot-msgs::-webkit-scrollbar-thumb { background: var(--gray-light); }
+    .bm {
+      max-width: 86%; padding: 0.7rem 1rem;
+      border-radius: 4px 14px 14px 14px;
+      background: var(--dark2); font-size: 0.83rem;
+      line-height: 1.55; color: var(--white);
+      border: 1px solid var(--gray-light);
+      animation: msgPop 0.25s var(--ease);
     }
-    .wm.sent { align-self: flex-end; background: #DCF8C6; border-radius: 12px 0 12px 12px; }
-    @keyframes wSlide { from { opacity: 0; transform: translateY(8px); } }
-    .wts { font-size: 0.6rem; color: rgba(0,0,0,0.3); text-align: right; margin-top: 0.25rem; }
-    .wopts { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.4rem; }
-    .wopt {
-      background: #fff; border: 1px solid rgba(7,94,84,0.2);
+    .bm.user {
+      align-self: flex-end;
+      background: var(--lime); color: var(--black);
+      border-color: transparent;
+      border-radius: 14px 4px 14px 14px;
+    }
+    @keyframes msgPop { from { opacity: 0; transform: translateY(6px); } }
+    .bts { font-size: 0.6rem; color: var(--gray); margin-top: 0.2rem; }
+    .bm.user .bts { color: rgba(0,0,0,0.4); }
+    .bopts { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem; }
+    .bopt {
+      background: var(--dark3); border: 1px solid var(--gray-light);
       border-radius: 8px; padding: 0.5rem 0.9rem;
-      font-size: 0.8rem; font-weight: 700; color: #075E54;
-      text-align: left; transition: background 0.15s;
+      font-size: 0.78rem; font-weight: 600; color: var(--lime);
+      text-align: left; transition: background 0.15s, border-color 0.15s;
     }
-    .wopt:hover { background: #f0faf8; }
-    .wapp-ft {
-      background: #F0F0F0; padding: 0.85rem 1rem;
+    .bopt:hover { background: rgba(198,241,53,0.07); border-color: var(--lime); }
+    .bot-ft {
+      background: var(--dark2); padding: 0.85rem 1.1rem;
       display: flex; gap: 0.5rem; align-items: center;
+      border-top: 1px solid var(--gray-light);
     }
-    .wapp-inp {
-      flex: 1; padding: 0.5rem 0.9rem; border-radius: 22px;
-      border: none; font-family: var(--sans); font-size: 0.8rem;
-      background: #fff; color: #999; outline: none; cursor: default;
+    .bot-inp {
+      flex: 1; padding: 0.55rem 1rem; border-radius: 8px;
+      border: 1px solid var(--gray-light);
+      font-family: var(--sans); font-size: 0.82rem;
+      background: var(--dark3); color: var(--gray); outline: none;
+      cursor: default;
     }
-    .wapp-sb {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: #075E54; color: #fff;
-      display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
-    }
-
-    /* form */
-    .form-title {
-      font-family: var(--serif); font-size: 2rem; font-weight: 700;
-      color: #fff; margin-bottom: 0.4rem; line-height: 1.2;
-    }
-    .form-title em { font-style: italic; color: var(--amber-light); }
-    .form-sub { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.7; margin-bottom: 2rem; }
-    .ff { margin-bottom: 1rem; }
-    .ff label {
-      display: block; font-size: 0.65rem; font-weight: 800;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(255,255,255,0.35); margin-bottom: 0.4rem;
-    }
-    .ff input, .ff select, .ff textarea {
-      width: 100%; padding: 0.8rem 1.1rem;
-      font-family: var(--sans); font-size: 0.88rem; font-weight: 600;
-      background: rgba(255,255,255,0.07);
-      border: 1.5px solid rgba(255,255,255,0.1);
-      border-radius: 10px; color: #fff; outline: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .ff input::placeholder, .ff textarea::placeholder { color: rgba(255,255,255,0.22); }
-    .ff select option { background: var(--dark); }
-    .ff input:focus, .ff select:focus, .ff textarea:focus {
-      border-color: var(--teal-light); background: rgba(255,255,255,0.1);
-    }
-    .ff-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .btn-wapp-form {
-      width: 100%; padding: 1rem;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      color: #fff; font-size: 0.85rem; font-weight: 800;
-      letter-spacing: 0.05em; text-transform: uppercase;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 6px 22px rgba(37,211,102,0.3);
-      margin-top: 0.5rem;
-    }
-    .btn-wapp-form:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,0.45); }
-
-    /* ── TEAM ── */
-    .team-bg { background: var(--offwhite); }
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .team-card {
-      background: var(--white);
-      border: 1.5px solid var(--gray-light);
-      border-radius: 20px; overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .team-card:hover { transform: translateY(-6px); box-shadow: 0 20px 55px rgba(26,140,110,0.13); }
-    .team-photo { height: 270px; overflow: hidden; }
-    .team-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-    .team-card:hover .team-photo img { transform: scale(1.04); }
-    .team-body { padding: 1.5rem; }
-    .team-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--dark); margin-bottom: 0.2rem; }
-    .team-role { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem; }
-    .team-bio { font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
-
-    /* ── TESTIMONIALS ── */
-    .test-bg { background: var(--teal-xlight); padding: 5.5rem 3rem; }
-    .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .test-card {
-      background: var(--white);
-      border-radius: 18px; padding: 2rem;
-      border: 1.5px solid var(--gray-light);
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .test-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,140,110,0.1); }
-    .test-paw { font-size: 1.4rem; margin-bottom: 0.75rem; }
-    .test-stars { color: var(--amber); font-size: 0.85rem; margin-bottom: 0.85rem; letter-spacing: 0.08em; }
-    .test-text { font-size: 0.88rem; color: var(--gray); line-height: 1.75; margin-bottom: 1.5rem; font-style: italic; }
-    .test-author { display: flex; align-items: center; gap: 0.75rem; }
-    .test-av-circle {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    .bot-sb {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--lime); color: var(--black);
       display: flex; align-items: center; justify-content: center;
-      color: #fff; font-weight: 800; font-size: 0.85rem; flex-shrink: 0;
+      font-size: 0.85rem; font-weight: 700;
     }
-    .test-name { font-size: 0.85rem; font-weight: 800; color: var(--dark); }
-    .test-pet { font-size: 0.72rem; color: var(--gray); margin-top: 0.1rem; }
 
-    /* ── LOCATION ── */
-    .loc-bg { background: var(--white); }
-    .loc-inner {
+    /* faq list */
+    .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .faq-item {
+      border: 1px solid var(--gray-light); border-radius: 10px; overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: rgba(198,241,53,0.4); }
+    .faq-q {
+      padding: 1.1rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--white);
+    }
+    .faq-q .faq-icon {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--gray-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; color: var(--gray); flex-shrink: 0;
+      transition: background 0.2s, transform 0.3s;
+    }
+    .faq-item.open .faq-icon { background: var(--lime); color: var(--black); transform: rotate(45deg); }
+    .faq-a {
+      font-size: 0.82rem; color: var(--gray); line-height: 1.7;
+      padding: 0 1.25rem;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s var(--ease), padding 0.35s;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 1.25rem 1.1rem; }
+
+    /* ─── UBICACIÓN ─── */
+    .map-section { background: var(--dark); }
+    .map-inner {
       display: grid; grid-template-columns: 1fr 1.5fr;
       gap: 4rem; align-items: center;
     }
-    .loc-list { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
+    .loc-items { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
     .loc-item {
       display: flex; align-items: flex-start; gap: 0.9rem;
-      padding: 1.1rem; background: var(--offwhite);
-      border: 1.5px solid var(--gray-light); border-radius: 12px;
-      transition: border-color 0.25s;
+      padding: 1.1rem; background: var(--dark2);
+      border: 1px solid var(--gray-light); border-radius: 10px;
+      transition: border-color 0.2s;
     }
-    .loc-item:hover { border-color: var(--teal); }
+    .loc-item:hover { border-color: var(--lime); }
     .loc-ico {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--teal), var(--teal-light));
+      width: 40px; height: 40px; border-radius: 8px;
+      background: var(--lime);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0;
+      font-size: 1rem; flex-shrink: 0; color: var(--black);
     }
-    .loc-item strong { display: block; font-size: 0.82rem; font-weight: 800; color: var(--dark); margin-bottom: 0.2rem; }
+    .loc-item strong { display: block; font-size: 0.82rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
     .loc-item span { font-size: 0.78rem; color: var(--gray); line-height: 1.5; }
     .btn-wapp-loc {
       display: inline-flex; align-items: center; gap: 0.65rem;
-      padding: 0.95rem 2rem;
+      padding: 0.9rem 2rem;
       background: var(--green-wapp); color: #fff;
-      font-size: 0.82rem; font-weight: 800;
-      border-radius: 100px;
+      font-size: 0.8rem; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 6px;
       transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 18px rgba(37,211,102,0.35);
+      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
     }
-    .btn-wapp-loc:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,211,102,0.5); }
+    .btn-wapp-loc:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,211,102,0.45); }
     .map-frame {
-      border-radius: 20px; overflow: hidden;
-      height: 400px; border: 2px solid var(--gray-light);
-      box-shadow: 0 16px 50px rgba(13,43,31,0.1);
+      border-radius: 16px; overflow: hidden;
+      height: 400px;
+      border: 1px solid var(--gray-light);
     }
     .map-frame iframe { width: 100%; height: 100%; border: none; display: block; }
 
-    /* ── FOOTER ── */
-    .footer { background: var(--dark); padding: 3rem 3rem 1.75rem; }
+    /* ─── FOOTER ─── */
+    .footer { background: var(--black); padding: 3rem 3rem 1.75rem; }
     .footer-top {
       display: grid; grid-template-columns: 1.6fr 1fr 1fr;
       gap: 3rem; padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.75rem;
     }
-    .ft-brand-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
-    .ft-brand-name span { color: var(--teal-light); }
-    .ft-tagline { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 1rem; }
-    .ft-desc { font-size: 0.8rem; color: rgba(255,255,255,0.3); line-height: 1.7; max-width: 260px; }
-    .ft-col h4 { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 1.1rem; }
-    .ft-col li { font-size: 0.8rem; color: rgba(255,255,255,0.3); margin-bottom: 0.55rem; transition: color 0.2s; cursor: pointer; }
+    .ft-name { font-family: var(--condensed); font-size: 1.8rem; font-weight: 900; text-transform: uppercase; color: var(--white); margin-bottom: 0.2rem; }
+    .ft-name span { color: var(--lime); }
+    .ft-sub { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.85rem; }
+    .ft-desc { font-size: 0.8rem; color: rgba(255,255,255,0.25); line-height: 1.7; max-width: 260px; }
+    .ft-col h4 { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime); margin-bottom: 1.1rem; }
+    .ft-col li { font-size: 0.8rem; color: rgba(255,255,255,0.28); margin-bottom: 0.55rem; transition: color 0.2s; cursor: pointer; }
     .ft-col li:hover { color: rgba(255,255,255,0.65); }
     .footer-bottom {
       display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.72rem; color: rgba(255,255,255,0.18); flex-wrap: wrap; gap: 0.5rem;
+      font-size: 0.72rem; color: rgba(255,255,255,0.15); flex-wrap: wrap; gap: 0.5rem;
     }
-    .footer-bottom a { color: var(--teal-light); }
+    .footer-bottom a { color: var(--lime); }
 
-    /* ── FLOATING WA ── */
-    .wa-fab {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
-    }
+    /* ─── WA FLOAT ─── */
+    .wa-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; }
     .wa-fab-btn {
       width: 62px; height: 62px; border-radius: 50%;
       background: linear-gradient(135deg, #25D366, #128C7E);
@@ -621,592 +595,594 @@
       font-size: 1.6rem; color: #fff;
       box-shadow: 0 6px 26px rgba(37,211,102,0.45);
       transition: transform 0.25s, box-shadow 0.25s;
-      animation: fabPulse 2.5s ease-in-out infinite;
+      animation: pulseFab 2.5s ease-in-out infinite;
     }
-    .wa-fab-btn:hover { transform: scale(1.12); animation: none; box-shadow: 0 10px 36px rgba(37,211,102,0.6); }
-    @keyframes fabPulse {
+    .wa-fab-btn:hover { transform: scale(1.1); animation: none; }
+    @keyframes pulseFab {
       0%,100% { box-shadow: 0 6px 26px rgba(37,211,102,0.45); }
-      50% { box-shadow: 0 6px 26px rgba(37,211,102,0.45), 0 0 0 12px rgba(37,211,102,0.1); }
+      50% { box-shadow: 0 6px 26px rgba(37,211,102,0.45), 0 0 0 10px rgba(37,211,102,0.1); }
     }
     .wa-fab-tip {
       position: absolute; right: 72px; top: 50%; transform: translateY(-50%);
-      background: var(--dark); color: #fff;
-      font-size: 0.72rem; font-weight: 700; white-space: nowrap;
-      padding: 0.4rem 0.8rem; border-radius: 8px;
+      background: var(--black); color: var(--white);
+      font-size: 0.72rem; font-weight: 600; white-space: nowrap;
+      padding: 0.4rem 0.8rem; border-radius: 6px;
       opacity: 0; pointer-events: none; transition: opacity 0.2s;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--gray-light);
     }
     .wa-fab-tip::after {
       content: ''; position: absolute; left: 100%; top: 50%; transform: translateY(-50%);
-      border: 5px solid transparent; border-left-color: var(--dark);
+      border: 5px solid transparent; border-left-color: var(--black);
     }
     .wa-fab:hover .wa-fab-tip { opacity: 1; }
 
-    /* ── RESPONSIVE ── */
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 1100px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .productos-grid { grid-template-columns: repeat(2, 1fr); }
+      .trainer-card { grid-template-columns: 1fr; }
+      .trainer-photo { height: 240px; }
+      .trainers-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 900px) {
       .nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       .section { padding: 4rem 1.5rem; }
-      .appt-bg, .test-bg { padding: 4rem 1.5rem; }
-      .hero { grid-template-columns: 1fr; min-height: auto; padding: calc(var(--nav-h) + 3rem) 1.5rem 3rem; }
-      .hero-right { display: none; }
-      .about-inner { grid-template-columns: 1fr; }
-      .about-mini-img { display: none; }
-      .appt-grid { grid-template-columns: 1fr; }
-      .loc-inner { grid-template-columns: 1fr; }
+      .faq-section { padding: 4rem 1.5rem; }
+      .map-section { padding: 4rem 1.5rem; }
+      .hero-content { padding: 0 1.5rem; }
+      .horarios-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .faq-inner { grid-template-columns: 1fr; }
+      .map-inner { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-      .trust { padding: 1.25rem 1.5rem; gap: 1.25rem; }
+      .stats-section { padding: 2.5rem 1.5rem; }
     }
     @media (max-width: 640px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .test-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-      .gl-item:first-child { grid-row: auto; }
+      .clases-grid { grid-template-columns: 1fr; }
+      .productos-grid { grid-template-columns: 1fr 1fr; }
       .stats-inner { grid-template-columns: 1fr 1fr; }
       .stat-box { padding: 1.75rem 1rem; }
-      .stat-n { font-size: 2.2rem; }
-      .stat-l { font-size: 0.65rem; letter-spacing: 0.06em; }
-      .ff-row { grid-template-columns: 1fr; }
+      .stat-n { font-size: 2.4rem; }
       .footer { padding: 2.5rem 1.5rem 1.5rem; }
       .footer-bottom { flex-direction: column; text-align: center; }
-      .hero-badges { gap: 0.5rem; }
+      .hero h1 { font-size: clamp(3rem, 14vw, 5rem); }
+    }
+    @media (max-width: 480px) {
+      .productos-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ═══════ NAV ═══════ -->
+<!-- ══ NAV ══ -->
 <nav class="nav" id="main-nav">
   <div class="nav-brand">
-    <div class="nav-paw">🐾</div>
+    <div class="nav-logo">⚡</div>
     <div>
-      <div class="nav-name"><span>Cloe</span> Veterinaria</div>
-      <div class="nav-tagline">El Marqués · Querétaro</div>
+      <div class="nav-name"><span>Aero</span>Gym Express</div>
+      <div class="nav-sub">Santiago de Querétaro</div>
     </div>
   </div>
   <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#cita">Cita</a></li>
-    <li><a href="#opiniones">Opiniones</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#horarios">Horarios</a></li>
+    <li><a href="#clases">Clases</a></li>
+    <li><a href="#tienda">Tienda</a></li>
+    <li><a href="#entrenadores">Entrenadores</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
   </ul>
   <a class="nav-cta"
-     href="https://wa.me/524421234567?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20Clínica%20Veterinaria%20Cloe"
+     href="https://wa.me/524421234567?text=Hola%2C%20quiero%20información%20sobre%20AeroGym%20Express"
      target="_blank">
-    🐾 Agendar cita
+    ⚡ Únete ahora
   </a>
 </nav>
 
-<!-- ═══════ HERO ═══════ -->
+<!-- ══ HERO ══ -->
 <section class="hero" id="inicio">
-  <div class="hero-blobs">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-  </div>
-
-  <div class="hero-left">
-    <div class="hero-pill">🏥 Clínica Veterinaria Certificada</div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-bottom"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Santiago de Querétaro · Est. 2015</div>
     <h1>
-      Tu mascota merece<br>
-      <em>el mejor cuidado</em>
-      <span>del mundo</span>
+      <span class="line1">Entrena</span>
+      <span class="line2">sin límites</span>
+      <span class="line3">AeroGym</span>
     </h1>
-    <p class="hero-desc">
-      En Cloe los tratamos como de la familia. Consultas, vacunas, cirugía, estética y mucho más — con amor y tecnología de punta.
-    </p>
+    <p class="hero-desc">El gimnasio que se adapta a ti. Clases, entrenadores certificados, suplementos y merchandising. Todo en un solo lugar.</p>
     <div class="hero-btns">
-      <a class="btn-wapp-hero"
-         href="https://wa.me/524421234567?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20Clínica%20Veterinaria%20Cloe"
-         target="_blank">
-        💬 Agendar por WhatsApp
-      </a>
-      <a class="btn-teal" href="#servicios">Ver servicios →</a>
+      <a class="btn-lime"
+         href="https://wa.me/524421234567?text=Hola%2C%20quiero%20inscribirme%20en%20AeroGym%20Express"
+         target="_blank">⚡ Inscríbete ya</a>
+      <a class="btn-ghost" href="#clases">Ver clases →</a>
     </div>
-    <div class="hero-badges">
-      <div class="hero-badge">✅ Sin cita previa</div>
-      <div class="hero-badge">🐶 Perros y gatos</div>
-      <div class="hero-badge">🚨 Urgencias 24h</div>
-      <div class="hero-badge">💳 Tarjetas</div>
-    </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-collage">
-      <div class="col-img col-main">
-        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=85" alt="Perro feliz">
-      </div>
-      <div class="col-img col-sec">
-        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=600&q=85" alt="Gato en clínica">
-      </div>
-      <div class="col-float-card">
-        <div class="col-float-icon">🐾</div>
-        <div class="col-float-text">
-          <strong>+2,000 mascotas</strong>
-          <span>atendidas con amor</span>
-        </div>
-      </div>
-      <div class="col-dot">❤️</div>
+    <div class="hero-strip">
+      <div class="hero-strip-item"><span>🕕</span><span>Abrimos 6am</span></div>
+      <div class="hero-strip-item"><span>🏋️</span><span>Equipo de punta</span></div>
+      <div class="hero-strip-item"><span>👟</span><span>Entrenadores certificados</span></div>
+      <div class="hero-strip-item"><span>🛒</span><span>Tienda de suplementos</span></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════ TRUST ═══════ -->
-<div class="trust">
-  <div class="trust-item"><span>🏅</span><span>Clínica Certificada</span></div>
-  <div class="trust-sep"></div>
-  <div class="trust-item"><span>🐾</span><span>+2,000 mascotas atendidas</span></div>
-  <div class="trust-sep"></div>
-  <div class="trust-item"><span>🚨</span><span>Urgencias 24 horas</span></div>
-  <div class="trust-sep"></div>
-  <div class="trust-item"><span>💉</span><span>Vacunación al día</span></div>
-  <div class="trust-sep"></div>
-  <div class="trust-item"><span>🛒</span><span>Tienda de mascotas</span></div>
+<!-- ══ TICKER ══ -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-text">AeroGym Express</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Fuerza · Cardio · Disciplina</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Querétaro</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Suplementos Premium</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Entrenadores Certificados</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Lun – Sáb · 6am – 9pm</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">AeroGym Express</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Fuerza · Cardio · Disciplina</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Querétaro</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Suplementos Premium</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Entrenadores Certificados</span><span class="ticker-dot">✦</span>
+    <span class="ticker-text">Lun – Sáb · 6am – 9pm</span><span class="ticker-dot">✦</span>
+  </div>
 </div>
 
-<!-- ═══════ SERVICIOS ═══════ -->
-<section class="section services-bg" id="servicios">
-  <div class="sh">
-    <div class="stag">Nuestros servicios</div>
-    <h2 class="stitle">Todo lo que tu mascota<br><em>necesita</em> en un solo lugar</h2>
-    <p class="ssub">Desde una simple consulta hasta cirugía de especialidad. Atendemos perros, gatos, conejos y más.</p>
-  </div>
-  <div class="services-grid">
-
-    <div class="svc-card">
-      <div class="svc-img">
-        <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600&q=80" alt="Consulta veterinaria" loading="lazy">
-        <div class="svc-emoji">🩺</div>
-      </div>
-      <div class="svc-body">
-        <div class="svc-name">Consulta General</div>
-        <div class="svc-desc">Revisión completa, diagnóstico y seguimiento personalizado para la salud de tu mascota.</div>
-        <div class="svc-link">Agendar →</div>
-      </div>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-img">
-        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Vacunación" loading="lazy">
-        <div class="svc-emoji">💉</div>
-      </div>
-      <div class="svc-body">
-        <div class="svc-name">Vacunación</div>
-        <div class="svc-desc">Esquema de vacunación completo y personalizado. Recuerda que un perro vacunado es un perro protegido.</div>
-        <div class="svc-link">Agendar →</div>
-      </div>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-img">
-        <img src="https://images.unsplash.com/photo-1551884170-09fb70a3a2ed?w=600&q=80" alt="Cirugía veterinaria" loading="lazy">
-        <div class="svc-emoji">🔬</div>
-      </div>
-      <div class="svc-body">
-        <div class="svc-name">Cirugía</div>
-        <div class="svc-desc">Quirófano equipado con monitoreo anestésico. Esterilizaciones, tumores, ortopedia y más.</div>
-        <div class="svc-link">Agendar →</div>
+<!-- ══ HORARIOS ══ -->
+<section class="section horarios-section" id="horarios">
+  <div class="horarios-inner">
+    <div>
+      <div class="stag">Horarios</div>
+      <h2 class="stitle">Abierto cuando<br><em>tú lo necesitas</em></h2>
+      <p class="ssub">Lunes a sábado estamos para ti. Planifica tu semana y no pierdas ningún entrenamiento.</p>
+      <div class="horarios-info">
+        <div class="hor-item">
+          <div class="hor-icon">🕕</div>
+          <div>
+            <strong>Apertura temprana</strong>
+            <span>Desde las 6:00 am, sin excusas para no entrenar</span>
+          </div>
+        </div>
+        <div class="hor-item">
+          <div class="hor-icon">🌙</div>
+          <div>
+            <strong>Cierre a las 9pm</strong>
+            <span>Tiempo suficiente para entrenar después del trabajo</span>
+          </div>
+        </div>
+        <div class="hor-item">
+          <div class="hor-icon">📅</div>
+          <div>
+            <strong>Domingos cerrado</strong>
+            <span>Descansamos para volver más fuertes el lunes</span>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="svc-card">
-      <div class="svc-img">
-        <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4a?w=600&q=80" alt="Estética canina" loading="lazy">
-        <div class="svc-emoji">✂️</div>
-      </div>
-      <div class="svc-body">
-        <div class="svc-name">Estética y Baño</div>
-        <div class="svc-desc">Baño, corte, secado, limpieza de oídos y uñas. Tu mascota sale guapísima y olorosa.</div>
-        <div class="svc-link">Agendar →</div>
-      </div>
+    <div>
+      <div class="open-badge"><div class="open-dot"></div> Abierto ahora</div>
+      <table class="schedule-table">
+        <tr>
+          <td>Lunes</td>
+          <td>6:00 am – 9:00 pm</td>
+        </tr>
+        <tr>
+          <td>Martes</td>
+          <td>6:00 am – 9:00 pm</td>
+        </tr>
+        <tr>
+          <td>Miércoles</td>
+          <td>6:00 am – 9:00 pm</td>
+        </tr>
+        <tr>
+          <td>Jueves</td>
+          <td>6:00 am – 9:00 pm</td>
+        </tr>
+        <tr>
+          <td>Viernes</td>
+          <td>6:00 am – 9:00 pm</td>
+        </tr>
+        <tr>
+          <td>Sábado</td>
+          <td>6:00 am – 9:00 pm</td>
+        </tr>
+        <tr>
+          <td>Domingo</td>
+          <td class="schedule-closed">Cerrado</td>
+        </tr>
+      </table>
     </div>
-
-    <div class="svc-card">
-      <div class="svc-img">
-        <img src="https://images.unsplash.com/photo-1583786242850-7d6588e7f362?w=600&q=80" alt="Laboratorio veterinario" loading="lazy">
-        <div class="svc-emoji">🧪</div>
-      </div>
-      <div class="svc-body">
-        <div class="svc-name">Laboratorio</div>
-        <div class="svc-desc">Análisis de sangre, orina, heces y estudios de imagen con resultados el mismo día.</div>
-        <div class="svc-link">Agendar →</div>
-      </div>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-img">
-        <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600&q=80" alt="Urgencias veterinarias" loading="lazy">
-        <div class="svc-emoji">🚨</div>
-      </div>
-      <div class="svc-body">
-        <div class="svc-name">Urgencias 24h</div>
-        <div class="svc-desc">Disponibles las 24 horas del día. Porque las emergencias no esperan, tu mascota tampoco.</div>
-        <div class="svc-link">Llamar ahora →</div>
-      </div>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-img">
-        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&q=80" alt="Odontología veterinaria" loading="lazy">
-        <div class="svc-emoji">🦷</div>
-      </div>
-      <div class="svc-body">
-        <div class="svc-name">Odontología</div>
-        <div class="svc-desc">Limpieza dental, extracciones y tratamiento de enfermedades periodontales bajo anestesia segura.</div>
-        <div class="svc-link">Agendar →</div>
-      </div>
-    </div>
-
-    <div class="svc-card">
-      <div class="svc-img">
-        <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=600&q=80" alt="Tienda de mascotas" loading="lazy">
-        <div class="svc-emoji">🛒</div>
-      </div>
-      <div class="svc-body">
-        <div class="svc-name">Tienda</div>
-        <div class="svc-desc">Alimento premium, accesorios, antiparasitarios, juguetes y todo lo que tu peludito necesita.</div>
-        <div class="svc-link">Ver productos →</div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ═══════ STATS ═══════ -->
-<div class="stats-bg">
+<!-- ══ CLASES ══ -->
+<section class="section clases-section" id="clases">
+  <div class="sh">
+    <div class="stag">Clases y entrenamientos</div>
+    <h2 class="stitle">Encuentra tu<br><em>disciplina</em></h2>
+    <p class="ssub">Cardio, fuerza, funcional y más. Clases para todos los niveles guiadas por nuestros entrenadores.</p>
+  </div>
+  <div class="clases-grid">
+    <div class="clase-card">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Gym" loading="lazy">
+      <div class="clase-overlay"></div>
+      <div class="clase-body">
+        <div class="clase-tag">Fuerza</div>
+        <div class="clase-name">Pesas & Musculación</div>
+        <div class="clase-desc">Zona de pesas libre y máquinas. Para todos los niveles.</div>
+      </div>
+    </div>
+    <div class="clase-card">
+      <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80" alt="Cardio" loading="lazy">
+      <div class="clase-overlay"></div>
+      <div class="clase-body">
+        <div class="clase-tag">Cardio</div>
+        <div class="clase-name">Cardio Extremo</div>
+        <div class="clase-desc">Quema calorías con nuestras clases de cardio de alta intensidad.</div>
+      </div>
+    </div>
+    <div class="clase-card">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Funcional" loading="lazy">
+      <div class="clase-overlay"></div>
+      <div class="clase-body">
+        <div class="clase-tag">Funcional</div>
+        <div class="clase-name">Entrenamiento Funcional</div>
+        <div class="clase-desc">Movimientos completos, coordinación y resistencia para el día a día.</div>
+      </div>
+    </div>
+    <div class="clase-card">
+      <img src="https://images.unsplash.com/photo-1470468969717-61d5d54fd036?w=800&q=80" alt="Spinning" loading="lazy">
+      <div class="clase-overlay"></div>
+      <div class="clase-body">
+        <div class="clase-tag">Ciclismo</div>
+        <div class="clase-name">Spinning Indoor</div>
+        <div class="clase-desc">Bicicletas de alta resistencia, música y motivación a tope.</div>
+      </div>
+    </div>
+    <div class="clase-card">
+      <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=800&q=80" alt="Boxeo" loading="lazy">
+      <div class="clase-overlay"></div>
+      <div class="clase-body">
+        <div class="clase-tag">Combate</div>
+        <div class="clase-name">Box Fitness</div>
+        <div class="clase-desc">Técnica, resistencia y quema de grasa. La clase más popular del gym.</div>
+      </div>
+    </div>
+    <div class="clase-card">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" alt="Yoga" loading="lazy">
+      <div class="clase-overlay"></div>
+      <div class="clase-body">
+        <div class="clase-tag">Mente y cuerpo</div>
+        <div class="clase-name">Stretching & Yoga</div>
+        <div class="clase-desc">Flexibilidad, relajación y recuperación muscular después del entrenamiento.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-section">
   <div class="stats-inner">
     <div class="stat-box">
-      <div class="stat-n">+2,000</div>
-      <div class="stat-l">Mascotas atendidas</div>
+      <div class="stat-n">+500</div>
+      <div class="stat-l">Miembros activos</div>
     </div>
     <div class="stat-box">
-      <div class="stat-n">8</div>
-      <div class="stat-l">Años de experiencia</div>
+      <div class="stat-n">9+</div>
+      <div class="stat-l">Años en Querétaro</div>
     </div>
     <div class="stat-box">
-      <div class="stat-n">24h</div>
-      <div class="stat-l">Urgencias disponibles</div>
+      <div class="stat-n">6</div>
+      <div class="stat-l">Disciplinas</div>
     </div>
     <div class="stat-box">
-      <div class="stat-n">100%</div>
-      <div class="stat-l">Amor garantizado</div>
+      <div class="stat-n">15h</div>
+      <div class="stat-l">Horas de apertura</div>
     </div>
   </div>
 </div>
 
-<!-- ═══════ NOSOTROS ═══════ -->
-<section class="section about-bg" id="nosotros">
-  <div class="about-inner">
-    <div class="about-imgs">
-      <div class="about-main-img">
-        <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=900&q=85" alt="Veterinaria con perro" loading="lazy">
-      </div>
-      <div class="about-mini-img">
-        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=500&q=85" alt="Gato en consulta" loading="lazy">
-      </div>
-      <div class="about-heart">❤️</div>
-    </div>
-    <div class="about-text">
-      <div class="stag">¿Quiénes somos?</div>
-      <h2 class="stitle">Más que una clínica,<br><em>una familia</em></h2>
-      <p class="ssub">En Cloe creemos que cada mascota merece atención de calidad con el calor de un hogar. Nuestro equipo se capacita constantemente para brindarte lo mejor.</p>
-      <div class="about-list">
-        <div class="about-item">
-          <div class="about-icon">🩺</div>
-          <div>
-            <strong>Veterinarios certificados</strong>
-            <span>Equipo con especialidades, posgrado y actualización constante en medicina veterinaria.</span>
-          </div>
-        </div>
-        <div class="about-item">
-          <div class="about-icon">🏥</div>
-          <div>
-            <strong>Instalaciones modernas</strong>
-            <span>Quirófano, laboratorio, sala de hospitalización y área de estética completamente equipados.</span>
-          </div>
-        </div>
-        <div class="about-item">
-          <div class="about-icon">❤️</div>
-          <div>
-            <strong>Trato con amor</strong>
-            <span>Tratamos a cada paciente como si fuera nuestro propio compañero de vida.</span>
-          </div>
-        </div>
-      </div>
-      <a class="btn-teal"
-         href="https://wa.me/524421234567?text=Hola%2C%20quiero%20conocer%20más%20sobre%20Clínica%20Veterinaria%20Cloe"
-         target="_blank"
-         style="display:inline-flex">
-        Contáctanos →
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ GALERÍA ═══════ -->
-<section class="section gallery-bg">
+<!-- ══ TIENDA ══ -->
+<section class="section tienda-section" id="tienda">
   <div class="sh">
-    <div class="stag">Nuestro espacio</div>
-    <h2 class="stitle">Un lugar lleno de<br><em>amor y cuidado</em></h2>
+    <div class="stag" style="color:var(--black)">Tienda AeroGym</div>
+    <h2 class="stitle dark-txt">Tu equipamiento,<br><em>nuestra tienda</em></h2>
+    <p class="ssub dark-txt">Playeras, suplementos, proteínas y accesorios. Todo lo que necesitas para rendir al máximo.</p>
   </div>
-  <div class="gallery-grid">
-    <div class="gl-item">
-      <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=900&q=85" alt="Clínica" loading="lazy">
-      <div class="gl-label">Nuestro consultorio</div>
+
+  <div class="tienda-tabs">
+    <button class="tienda-tab active" onclick="filterTienda('all', this)">Todo</button>
+    <button class="tienda-tab" onclick="filterTienda('merch', this)">👕 Merchandising</button>
+    <button class="tienda-tab" onclick="filterTienda('proteina', this)">💪 Proteínas</button>
+    <button class="tienda-tab" onclick="filterTienda('suplemento', this)">⚡ Suplementos</button>
+  </div>
+
+  <div class="productos-grid" id="productos-grid">
+
+    <div class="prod-card" data-cat="merch">
+      <div class="prod-img">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80" alt="Playera" loading="lazy">
+        <div class="prod-badge">Merch</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Merchandising</div>
+        <div class="prod-name">Playera AeroGym Classic</div>
+        <div class="prod-desc">100% algodón, corte oversize. Logo bordado. Disponible en S, M, L, XL.</div>
+        <div class="prod-footer">
+          <div class="prod-price">$280</div>
+          <button class="prod-btn" onclick="wappProduct('Playera AeroGym Classic $280')">Pedir</button>
+        </div>
+      </div>
     </div>
-    <div class="gl-item">
-      <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Perro feliz" loading="lazy">
-      <div class="gl-label">Pacientes felices</div>
+
+    <div class="prod-card" data-cat="merch">
+      <div class="prod-img">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80" alt="Short" loading="lazy">
+        <div class="prod-badge">Merch</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Merchandising</div>
+        <div class="prod-name">Short AeroGym Training</div>
+        <div class="prod-desc">Short deportivo con logo. Tela transpirable. Cinturilla ajustable.</div>
+        <div class="prod-footer">
+          <div class="prod-price">$320</div>
+          <button class="prod-btn" onclick="wappProduct('Short AeroGym Training $320')">Pedir</button>
+        </div>
+      </div>
     </div>
-    <div class="gl-item">
-      <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4a?w=600&q=80" alt="Estética" loading="lazy">
-      <div class="gl-label">Estética canina</div>
+
+    <div class="prod-card" data-cat="merch">
+      <div class="prod-img">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Gorra" loading="lazy">
+        <div class="prod-badge">Merch</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Merchandising</div>
+        <div class="prod-name">Gorra AeroGym</div>
+        <div class="prod-desc">Gorra deportiva con cierre ajustable. Logo frontal bordado en negro/lima.</div>
+        <div class="prod-footer">
+          <div class="prod-price">$180</div>
+          <button class="prod-btn" onclick="wappProduct('Gorra AeroGym $180')">Pedir</button>
+        </div>
+      </div>
     </div>
-    <div class="gl-item">
-      <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=600&q=80" alt="Gato" loading="lazy">
-      <div class="gl-label">También felinos</div>
+
+    <div class="prod-card" data-cat="merch">
+      <div class="prod-img">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80" alt="Mochila" loading="lazy">
+        <div class="prod-badge">Merch</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Merchandising</div>
+        <div class="prod-name">Mochila AeroGym</div>
+        <div class="prod-desc">Mochila de lona con compartimento para zapatos. Varios bolsillos. 25 litros.</div>
+        <div class="prod-footer">
+          <div class="prod-price">$450</div>
+          <button class="prod-btn" onclick="wappProduct('Mochila AeroGym $450')">Pedir</button>
+        </div>
+      </div>
     </div>
-    <div class="gl-item">
-      <img src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?w=600&q=80" alt="Urgencias" loading="lazy">
-      <div class="gl-label">Urgencias 24h</div>
+
+    <div class="prod-card" data-cat="proteina">
+      <div class="prod-img">
+        <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=500&q=80" alt="Proteína Whey" loading="lazy">
+        <div class="prod-badge">Proteína</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Proteínas</div>
+        <div class="prod-name">Whey Protein 2kg</div>
+        <div class="prod-desc">25g de proteína por servicio. Sabores: chocolate, vainilla, fresa. Sin azúcar añadida.</div>
+        <div class="prod-footer">
+          <div class="prod-price">$850</div>
+          <button class="prod-btn" onclick="wappProduct('Whey Protein 2kg $850')">Pedir</button>
+        </div>
+      </div>
     </div>
+
+    <div class="prod-card" data-cat="proteina">
+      <div class="prod-img">
+        <img src="https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=500&q=80" alt="Caseína" loading="lazy">
+        <div class="prod-badge">Proteína</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Proteínas</div>
+        <div class="prod-name">Caseína Nocturna 1.5kg</div>
+        <div class="prod-desc">Liberación lenta ideal para tomar antes de dormir. Máxima recuperación muscular.</div>
+        <div class="prod-footer">
+          <div class="prod-price">$780</div>
+          <button class="prod-btn" onclick="wappProduct('Caseína Nocturna 1.5kg $780')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="suplemento">
+      <div class="prod-img">
+        <img src="https://images.unsplash.com/photo-1616279969862-de8af8cb8fd5?w=500&q=80" alt="Creatina" loading="lazy">
+        <div class="prod-badge">Suplemento</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Suplementos</div>
+        <div class="prod-name">Creatina Monohidrato 300g</div>
+        <div class="prod-desc">Creatina micronizada de grado farmacéutico. 60 porciones. Aumenta fuerza y resistencia.</div>
+        <div class="prod-footer">
+          <div class="prod-price">$380</div>
+          <button class="prod-btn" onclick="wappProduct('Creatina Monohidrato 300g $380')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="suplemento">
+      <div class="prod-img">
+        <img src="https://images.unsplash.com/photo-1544991875-5dc1b05f1571?w=500&q=80" alt="Pre-workout" loading="lazy">
+        <div class="prod-badge">Suplemento</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">Suplementos</div>
+        <div class="prod-name">Pre-Workout Explosion</div>
+        <div class="prod-desc">Máxima energía, enfoque y bombeo muscular. Con cafeína, beta-alanina y citrulina.</div>
+        <div class="prod-footer">
+          <div class="prod-price">$420</div>
+          <button class="prod-btn" onclick="wappProduct('Pre-Workout Explosion $420')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ═══════ CITA ═══════ -->
-<section class="appt-bg" id="cita">
-  <div class="appt-grid">
+<!-- ══ ENTRENADORES ══ -->
+<section class="section trainers-section" id="entrenadores">
+  <div class="sh">
+    <div class="stag">Nuestros entrenadores</div>
+    <h2 class="stitle">Los mejores te<br><em>guían</em></h2>
+    <p class="ssub">Certificados, apasionados y comprometidos con tu progreso. Lucya y Giovanni están aquí para llevarte al siguiente nivel.</p>
+  </div>
+  <div class="trainers-grid">
 
-    <!-- Chat WhatsApp -->
+    <div class="trainer-card">
+      <div class="trainer-photo">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=85" alt="Lucya" loading="lazy">
+      </div>
+      <div class="trainer-body">
+        <div class="trainer-number">01</div>
+        <div class="trainer-role">Entrenadora Personal · Cardio</div>
+        <div class="trainer-name">Lucya</div>
+        <div class="trainer-bio">Especialista en cardio HIIT, transformación corporal y nutrición deportiva. Con más de 5 años de experiencia entrenando a mujeres y hombres a alcanzar sus metas. Certificada por NASM.</div>
+        <div class="trainer-tags">
+          <span class="trainer-tag">HIIT</span>
+          <span class="trainer-tag">Fat Burn</span>
+          <span class="trainer-tag">Nutrición</span>
+          <span class="trainer-tag">NASM Cert.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="trainer-card">
+      <div class="trainer-photo">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=85" alt="Giovanni" loading="lazy">
+      </div>
+      <div class="trainer-body">
+        <div class="trainer-number">02</div>
+        <div class="trainer-role">Entrenador Personal · Fuerza</div>
+        <div class="trainer-name">Giovanni</div>
+        <div class="trainer-bio">Especialista en musculación, fuerza y powerlifting. 7 años formando atletas en Querétaro. Campeón regional de powerlifting 2022. Certificado IFBB y CrossFit Level 2.</div>
+        <div class="trainer-tags">
+          <span class="trainer-tag">Powerlifting</span>
+          <span class="trainer-tag">Hipertrofia</span>
+          <span class="trainer-tag">Fuerza</span>
+          <span class="trainer-tag">CrossFit L2</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FAQ CHATBOT ══ -->
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+
+    <!-- Bot -->
     <div>
-      <div class="stag light">Asistente virtual</div>
-      <h2 style="font-family:var(--serif);font-size:2rem;font-weight:700;color:#fff;margin-bottom:0.85rem;line-height:1.2">
-        Agenda en<br><em style="font-style:italic;color:var(--amber-light)">segundos</em>
-      </h2>
-      <p style="font-size:0.85rem;color:rgba(255,255,255,0.38);line-height:1.75;margin-bottom:2rem;max-width:320px">
-        Nuestro chat te guía para agendar tu cita, resolver dudas o reportar una urgencia directamente por WhatsApp.
-      </p>
-      <div class="wapp-shell">
-        <div class="wapp-hdr">
-          <div class="wapp-av">
-            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=100&q=80" alt="Vet">
-          </div>
+      <div class="stag">Asistente AeroGym</div>
+      <h2 class="stitle" style="margin-bottom:1rem">Preguntas<br><em>frecuentes</em></h2>
+      <p class="ssub" style="margin-bottom:2rem">Chatea con nuestro asistente virtual o revisa las preguntas más comunes del lado derecho.</p>
+      <div class="bot-shell">
+        <div class="bot-hdr">
+          <div class="bot-av">⚡</div>
           <div>
-            <strong>Cloe Veterinaria</strong>
-            <span>🟢 En línea · Responde en minutos</span>
+            <strong>AeroBot — AeroGym Express</strong>
+            <span>🟢 Siempre disponible</span>
           </div>
         </div>
-        <div class="wapp-msgs" id="wapp-msgs">
-          <div class="wm">
-            ¡Hola! 🐾 Bienvenido a <b>Cloe Veterinaria</b>. ¿Cómo podemos ayudarte hoy?
-            <div class="wts">Ahora</div>
-            <div class="wopts" id="wopts-init">
-              <button class="wopt" onclick="wBot('cita')">📅 Agendar una cita</button>
-              <button class="wopt" onclick="wBot('info')">ℹ️ Precios y servicios</button>
-              <button class="wopt" onclick="wBot('urgencia')">🚨 Tengo una urgencia</button>
+        <div class="bot-msgs" id="bot-msgs">
+          <div class="bm">
+            ¡Hola! ⚡ Soy <b>AeroBot</b>, el asistente de <b>AeroGym Express</b>. ¿En qué te ayudo?
+            <div class="bts">Ahora</div>
+            <div class="bopts" id="opts-init">
+              <button class="bopt" onclick="botStep('precio')">💰 ¿Cuánto cuesta la membresía?</button>
+              <button class="bopt" onclick="botStep('horario')">🕕 ¿Cuál es el horario?</button>
+              <button class="bopt" onclick="botStep('clases')">🏋️ ¿Qué clases tienen?</button>
+              <button class="bopt" onclick="botStep('prueba')">🎟️ ¿Tienen clase de prueba?</button>
+              <button class="bopt" onclick="botStep('ubicacion')">📍 ¿Dónde están ubicados?</button>
             </div>
           </div>
         </div>
-        <div class="wapp-ft">
-          <input class="wapp-inp" placeholder="Escribe un mensaje..." readonly>
-          <button class="wapp-sb">➤</button>
+        <div class="bot-ft">
+          <input class="bot-inp" placeholder="Selecciona una opción..." readonly>
+          <button class="bot-sb">→</button>
         </div>
       </div>
     </div>
 
-    <!-- Formulario -->
+    <!-- FAQ estático -->
     <div>
-      <div class="stag light">Formulario de cita</div>
-      <h2 class="form-title">Solicita tu <em>cita</em></h2>
-      <p class="form-sub">Llena el formulario y te confirmamos por WhatsApp con día y hora disponible.</p>
-      <div class="ff-row">
-        <div class="ff">
-          <label>Tu nombre *</label>
-          <input type="text" id="f-name" placeholder="Tu nombre">
+      <div class="stag">Respuestas rápidas</div>
+      <h2 class="stitle" style="margin-bottom:2rem">Lo más<br><em>preguntado</em></h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            💰 ¿Cuánto cuesta la membresía?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Tenemos planes semanales, quincenales y mensuales. Contáctanos por WhatsApp para precios actualizados y promociones especiales para nuevos miembros.</div>
         </div>
-        <div class="ff">
-          <label>WhatsApp *</label>
-          <input type="tel" id="f-phone" placeholder="442 000 0000">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            🕕 ¿Cuáles son los horarios?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Lunes a Sábado de 6:00 am a 9:00 pm. Los domingos permanecemos cerrados. Aprovecha los horarios de menor afluencia: temprano en la mañana o después de las 7pm.</div>
         </div>
-      </div>
-      <div class="ff-row">
-        <div class="ff">
-          <label>Nombre de tu mascota</label>
-          <input type="text" id="f-pet" placeholder="Rocky, Luna...">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            🎟️ ¿Tienen clase de prueba gratis?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">¡Sí! Ofrecemos una clase de prueba gratuita para nuevos visitantes. Solo escríbenos por WhatsApp para agendar tu visita sin compromiso.</div>
         </div>
-        <div class="ff">
-          <label>Especie</label>
-          <select id="f-species">
-            <option>🐶 Perro</option>
-            <option>🐱 Gato</option>
-            <option>🐰 Conejo</option>
-            <option>🐦 Ave</option>
-            <option>Otro</option>
-          </select>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            🏋️ ¿Necesito experiencia previa?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Para nada. Nuestros entrenadores Lucya y Giovanni te hacen una evaluación inicial y diseñan un plan personalizado según tu nivel, ya seas principiante o avanzado.</div>
         </div>
-      </div>
-      <div class="ff">
-        <label>Motivo de la consulta</label>
-        <select id="f-service">
-          <option value="">Selecciona...</option>
-          <option>Consulta general</option>
-          <option>Vacunación</option>
-          <option>Cirugía / Esterilización</option>
-          <option>Estética y baño</option>
-          <option>Laboratorio</option>
-          <option>Odontología veterinaria</option>
-          <option>Urgencia</option>
-          <option>No sé, primera visita</option>
-        </select>
-      </div>
-      <div class="ff-row">
-        <div class="ff">
-          <label>Fecha preferida</label>
-          <input type="date" id="f-date">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            🛒 ¿Puedo comprar suplementos aquí?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Sí, contamos con tienda dentro del gimnasio con proteínas, creatina, pre-workouts, BCAA y más. También vendemos merchandising oficial de AeroGym.</div>
         </div>
-        <div class="ff">
-          <label>Horario preferido</label>
-          <select id="f-time">
-            <option>9:00 am</option>
-            <option>10:00 am</option>
-            <option>11:00 am</option>
-            <option>12:00 pm</option>
-            <option>1:00 pm</option>
-            <option>3:00 pm</option>
-            <option>4:00 pm</option>
-            <option>5:00 pm</option>
-            <option>6:00 pm</option>
-          </select>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            📍 ¿Dónde están ubicados?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Estamos en Av. Circunvalación 46, La Santa Cruz, Centro, 76020 Santiago de Querétaro, Qro. Fácil acceso en transporte público y con estacionamiento cerca.</div>
         </div>
       </div>
-      <div class="ff">
-        <label>¿Algo más que debamos saber?</label>
-        <textarea id="f-notes" rows="2" placeholder="Síntomas, medicamentos actuales, alergias..."></textarea>
-      </div>
-      <button class="btn-wapp-form" onclick="sendForm()">
-        💬 Enviar por WhatsApp
-      </button>
     </div>
 
   </div>
 </section>
 
-<!-- ═══════ EQUIPO ═══════ -->
-<section class="section team-bg">
-  <div class="sh">
-    <div class="stag">Nuestro equipo</div>
-    <h2 class="stitle">Especialistas que <em>aman</em> a los animales</h2>
-    <p class="ssub">Médicos veterinarios con especialidad, certificaciones y sobre todo, mucho amor por cada paciente.</p>
-  </div>
-  <div class="team-grid">
-    <div class="team-card">
-      <div class="team-photo">
-        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=85" alt="Dra. Directora" loading="lazy">
-      </div>
-      <div class="team-body">
-        <div class="team-name">Dra. Sofía Herrera</div>
-        <div class="team-role">Medicina Interna · Directora</div>
-        <div class="team-bio">Especialista en medicina interna y diagnóstico. Posgrado UNAM. Fundadora de Cloe con más de 10 años cuidando mascotas.</div>
-      </div>
-    </div>
-    <div class="team-card">
-      <div class="team-photo">
-        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=85" alt="Dr. Cirugía" loading="lazy">
-      </div>
-      <div class="team-body">
-        <div class="team-name">Dr. Ramón Vega</div>
-        <div class="team-role">Cirugía y Ortopedia</div>
-        <div class="team-bio">Especialista en cirugía de tejidos blandos y ortopedia veterinaria. Más de 800 cirugías realizadas con éxito.</div>
-      </div>
-    </div>
-    <div class="team-card">
-      <div class="team-photo">
-        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&q=85" alt="Dr. Urgencias" loading="lazy">
-      </div>
-      <div class="team-body">
-        <div class="team-name">Dr. Luis Morales</div>
-        <div class="team-role">Urgencias y Cuidados Intensivos</div>
-        <div class="team-bio">A cargo de urgencias 24 horas. Especialista en medicina crítica y manejo de emergencias veterinarias.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ TESTIMONIOS ═══════ -->
-<section class="test-bg" id="opiniones">
-  <div style="max-width:1200px;margin:0 auto">
-    <div class="sh">
-      <div class="stag">Opiniones</div>
-      <h2 class="stitle">Lo que dicen las <em>familias</em> de nuestros pacientes</h2>
-      <p class="ssub">Más de 2,000 familias en Querétaro confían en Cloe para cuidar a sus peluditos.</p>
-    </div>
-    <div class="test-grid">
-      <div class="test-card">
-        <div class="test-paw">🐶</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">"Llevé a Rocky de urgencia de noche y la Dra. Sofía lo atendió de inmediato. Salvaron su vida. Infinitamente agradecida con todo el equipo de Cloe."</p>
-        <div class="test-author">
-          <div class="test-av-circle">MR</div>
-          <div>
-            <div class="test-name">María Robles</div>
-            <div class="test-pet">Rocky · Golden Retriever 🐕</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card">
-        <div class="test-paw">🐱</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">"Mi gata Luna tuvo una cirugía y la atención fue impecable. Me explicaron todo paso a paso y se recuperó perfectamente. Ya somos clientes de por vida."</p>
-        <div class="test-author">
-          <div class="test-av-circle">CP</div>
-          <div>
-            <div class="test-name">Carlos Paredes</div>
-            <div class="test-pet">Luna · Gata persa 🐈</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-card">
-        <div class="test-paw">🐶</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">"El servicio de estética es excelente. Llevan a Canela cada mes y siempre sale hermosa y feliz. También les compro su alimento aquí, muy buenos precios."</p>
-        <div class="test-author">
-          <div class="test-av-circle">AG</div>
-          <div>
-            <div class="test-name">Ana González</div>
-            <div class="test-pet">Canela · Poodle 🐩</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ CONTACTO ═══════ -->
-<section class="section loc-bg" id="contacto">
-  <div class="loc-inner">
+<!-- ══ UBICACIÓN ══ -->
+<section class="section map-section" id="ubicacion">
+  <div class="map-inner">
     <div>
-      <div class="stag">¿Dónde estamos?</div>
-      <h2 class="stitle">Visítanos en<br><em>El Marqués</em></h2>
-      <p class="ssub">Estamos a unos minutos del centro de Querétaro. Con estacionamiento gratuito y fácil acceso.</p>
-      <div class="loc-list">
+      <div class="stag">Ubicación</div>
+      <h2 class="stitle">Encuéntranos en<br><em>Querétaro</em></h2>
+      <p class="ssub">Estamos en el Centro de Santiago de Querétaro, fácil acceso en transporte público.</p>
+      <div class="loc-items">
         <div class="loc-item">
           <div class="loc-ico">📍</div>
           <div>
             <strong>Dirección</strong>
-            <span>Blvd. El Marqués No. 45<br>Col. Centro, El Marqués, Qro.</span>
+            <span>Av Circunvalación 46, La Santa Cruz<br>Centro, 76020 Santiago de Querétaro, Qro.</span>
           </div>
         </div>
         <div class="loc-item">
-          <div class="loc-ico">🕐</div>
+          <div class="loc-ico">🕕</div>
           <div>
             <strong>Horario</strong>
-            <span>Lun – Vie: 9:00 am – 8:00 pm<br>Sáb – Dom: 9:00 am – 4:00 pm<br>Urgencias: 24 horas</span>
+            <span>Lunes – Sábado: 6:00 am – 9:00 pm<br>Domingo: Cerrado</span>
           </div>
         </div>
         <div class="loc-item">
@@ -1220,165 +1196,208 @@
           <div class="loc-ico">📧</div>
           <div>
             <strong>Correo</strong>
-            <span>hola@cloeveterinaria.mx</span>
+            <span>hola@aerogymexpress.mx</span>
           </div>
         </div>
       </div>
       <a class="btn-wapp-loc"
-         href="https://wa.me/524421234567?text=Hola%2C%20quiero%20información%20sobre%20Cloe%20Veterinaria"
+         href="https://wa.me/524421234567?text=Hola%2C%20quiero%20información%20sobre%20AeroGym%20Express"
          target="_blank">
         💬 Escríbenos por WhatsApp
       </a>
     </div>
+
     <div class="map-frame">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60072!2d-100.18!3d20.59!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b7b8fc3e8b5%3A0x5c2b4d0a8b5c2a1!2sEl%20Marqu%C3%A9s%2C%20Quer%C3%A9taro!5e0!3m2!1ses-419!2smx!4v1680000000002"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.5!2d-100.3899!3d20.5885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d345b01a09a5e9%3A0x5b3b4d5c2a1b3e4!2sAv.%20Circunvalaci%C3%B3n%2C%20La%20Santa%20Cruz%2C%2076020%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1ses-419!2smx!4v1680000000003"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
   </div>
 </section>
 
-<!-- ═══════ FOOTER ═══════ -->
+<!-- ══ FOOTER ══ -->
 <footer class="footer">
   <div class="footer-top">
     <div>
-      <div class="ft-brand-name">🐾 <span>Cloe</span> Veterinaria</div>
-      <div class="ft-tagline">Clínica Veterinaria · El Marqués, Querétaro</div>
-      <p class="ft-desc">Porque tu mascota es parte de la familia y merece el mejor cuidado. Con amor, tecnología y dedicación.</p>
+      <div class="ft-name">⚡ <span>Aero</span>Gym Express</div>
+      <div class="ft-sub">Santiago de Querétaro · Est. 2015</div>
+      <p class="ft-desc">El gimnasio que te impulsa a superar tus límites. Entrenadores certificados, equipos de punta y una comunidad que te motiva cada día.</p>
     </div>
     <div class="ft-col">
       <h4>Servicios</h4>
       <ul>
-        <li>Consulta General</li>
-        <li>Vacunación</li>
-        <li>Cirugía</li>
-        <li>Estética y Baño</li>
-        <li>Laboratorio</li>
-        <li>Urgencias 24h</li>
+        <li>Pesas y Musculación</li>
+        <li>Cardio Extremo</li>
+        <li>Funcional</li>
+        <li>Spinning Indoor</li>
+        <li>Box Fitness</li>
+        <li>Stretching & Yoga</li>
       </ul>
     </div>
     <div class="ft-col">
       <h4>Contacto</h4>
       <ul>
-        <li>El Marqués, Querétaro</li>
+        <li>📍 Av Circunvalación 46, Qro.</li>
         <li>📞 442 123 4567</li>
         <li>💬 WhatsApp disponible</li>
-        <li>Lun–Vie: 9 am – 8 pm</li>
-        <li>Sáb–Dom: 9 am – 4 pm</li>
-        <li>🚨 Urgencias: 24 horas</li>
+        <li>Lun–Sáb: 6 am – 9 pm</li>
+        <li>Domingo: Cerrado</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Cloe Veterinaria — El Marqués, Querétaro. Todos los derechos reservados.</span>
+    <span>© 2026 AeroGym Express — Santiago de Querétaro. Todos los derechos reservados.</span>
     <a href="https://wa.me/524421234567" target="_blank">💬 WhatsApp: 442 123 4567</a>
   </div>
 </footer>
 
-<!-- ═══════ FLOATING WA ═══════ -->
+<!-- ══ WA FLOAT ══ -->
 <div class="wa-fab">
-  <div class="wa-fab-tip">¿Hablamos por WhatsApp? 🐾</div>
+  <div class="wa-fab-tip">¡Únete a AeroGym! 💬</div>
   <a class="wa-fab-btn"
-     href="https://wa.me/524421234567?text=Hola%2C%20quiero%20información%20sobre%20Cloe%20Veterinaria"
-     target="_blank"
-     aria-label="WhatsApp">
+     href="https://wa.me/524421234567?text=Hola%2C%20quiero%20información%20sobre%20AeroGym%20Express"
+     target="_blank" aria-label="WhatsApp">
     💬
   </a>
 </div>
 
-<!-- ═══════ JS ═══════ -->
+<!-- ══ JS ══ -->
 <script>
   const WA = '524421234567';
 
+  /* nav scroll */
   window.addEventListener('scroll', () =>
     document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 30)
   );
 
+  /* highlight today's schedule */
   window.addEventListener('DOMContentLoaded', () => {
-    const d = document.getElementById('f-date');
-    if (d) d.min = new Date().toISOString().split('T')[0];
+    const days = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+    const today = days[new Date().getDay()];
+    document.querySelectorAll('.schedule-table tr').forEach(tr => {
+      if (tr.cells[0] && tr.cells[0].textContent.trim() === today)
+        tr.classList.add('schedule-today');
+    });
   });
 
-  function wBot(action) {
-    document.querySelectorAll('.wopts').forEach(e => e.remove());
-    const map = {
-      cita:     { txt: '📅 Agendar una cita',       wa: 'Hola%2C%20quiero%20agendar%20una%20cita%20para%20mi%20mascota%20en%20Cloe%20Veterinaria' },
-      info:     { txt: 'ℹ️ Precios y servicios',    wa: 'Hola%2C%20quisiera%20información%20sobre%20servicios%20y%20precios%20en%20Cloe%20Veterinaria' },
-      urgencia: { txt: '🚨 Tengo una urgencia',      wa: 'URGENCIA%3A%20Mi%20mascota%20necesita%20atención%20inmediata%20en%20Cloe%20Veterinaria' },
-      estética: { txt: '✂️ Estética y baño',         wa: 'Hola%2C%20quiero%20agendar%20un%20baño%20y%20corte%20en%20Cloe%20Veterinaria' },
-      vacunas:  { txt: '💉 Vacunación',              wa: 'Hola%2C%20quiero%20información%20sobre%20vacunas%20en%20Cloe%20Veterinaria' },
-    };
-    const p = map[action] || map['cita'];
-    addMsg(p.txt, true);
-
-    if (action === 'urgencia') {
-      setTimeout(() => {
-        addMsg('¡Atendemos urgencias ahora mismo! 🚨 Te conectamos de inmediato con un veterinario.');
-        setTimeout(() => window.open(`https://wa.me/${WA}?text=${p.wa}`, '_blank'), 800);
-      }, 400);
-    } else if (action === 'info') {
-      setTimeout(() => {
-        addMsg('¡Con gusto! ¿Qué servicio te interesa?', false, [
-          { label: '✂️ Estética y baño', act: 'estética' },
-          { label: '💉 Vacunación', act: 'vacunas' },
-          { label: '🩺 Consulta general', act: 'cita' },
-        ]);
-      }, 600);
-    } else {
-      setTimeout(() => {
-        addMsg('¡Perfecto! Te redirigimos a WhatsApp para coordinar tu cita 🐾');
-        setTimeout(() => window.open(`https://wa.me/${WA}?text=${p.wa}`, '_blank'), 800);
-      }, 500);
-    }
+  /* tienda filter */
+  function filterTienda(cat, btn) {
+    document.querySelectorAll('.tienda-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.prod-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) card.classList.remove('prod-hidden');
+      else card.classList.add('prod-hidden');
+    });
   }
 
-  function addMsg(text, sent = false, opts = null) {
-    const body = document.getElementById('wapp-msgs');
+  /* wapp product */
+  function wappProduct(name) {
+    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(`Hola, quiero información sobre el producto: ${name} en AeroGym Express 🛒`)}`, '_blank');
+  }
+
+  /* FAQ accordion */
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  /* FAQ Bot */
+  const FAQ_ANSWERS = {
+    precio: {
+      q: '💰 ¿Cuánto cuesta la membresía?',
+      a: 'Tenemos planes semanales, quincenales y mensuales con precios muy accesibles. 💪 ¿Quieres que te enviemos los precios actualizados por WhatsApp?',
+      opts: [{ l: '✅ Sí, envíame precios', a: 'wa_precio' }, { l: '🔙 Ver más preguntas', a: 'reset' }]
+    },
+    horario: {
+      q: '🕕 ¿Cuál es el horario?',
+      a: '🟢 Lunes a Sábado de 6:00 am a 9:00 pm.\n🔴 Domingo: Cerrado.\n\n¡15 horas al día para que entrenes cuando quieras!',
+      opts: [{ l: '🔙 Ver más preguntas', a: 'reset' }]
+    },
+    clases: {
+      q: '🏋️ ¿Qué clases tienen?',
+      a: 'Tenemos: Pesas, Cardio Extremo, Funcional, Spinning Indoor, Box Fitness y Stretching. Guiadas por nuestros entrenadores Lucya y Giovanni. 🔥',
+      opts: [{ l: '👟 Conocer entrenadores', a: 'entrenadores' }, { l: '🔙 Ver más preguntas', a: 'reset' }]
+    },
+    prueba: {
+      q: '🎟️ ¿Tienen clase de prueba?',
+      a: '¡Sí! 🎉 Te damos una clase de prueba GRATIS. Solo coordina con nosotros por WhatsApp y ven a conocer el gym sin compromiso.',
+      opts: [{ l: '💬 Agendar clase gratis', a: 'wa_prueba' }, { l: '🔙 Ver más preguntas', a: 'reset' }]
+    },
+    ubicacion: {
+      q: '📍 ¿Dónde están ubicados?',
+      a: '📍 Av Circunvalación 46, La Santa Cruz, Centro, 76020 Santiago de Querétaro, Qro.\n\nFácil acceso en transporte público.',
+      opts: [{ l: '🗺️ Ver en mapa', a: 'mapa' }, { l: '🔙 Ver más preguntas', a: 'reset' }]
+    },
+    entrenadores: {
+      q: '👟 ¿Quiénes son los entrenadores?',
+      a: '¡Los mejores! 💪\n\n👩 Lucya — especialista en cardio HIIT y transformación corporal. Cert. NASM.\n\n👨 Giovanni — especialista en fuerza, musculación y powerlifting. Cert. IFBB.',
+      opts: [{ l: '🔙 Ver más preguntas', a: 'reset' }]
+    },
+    reset: null,
+    wa_precio:  { wapp: 'Hola%2C%20quiero%20saber%20los%20precios%20de%20membresía%20en%20AeroGym%20Express' },
+    wa_prueba:  { wapp: 'Hola%2C%20quiero%20agendar%20mi%20clase%20de%20prueba%20gratis%20en%20AeroGym%20Express' },
+    mapa: null,
+  };
+
+  function botStep(action) {
+    document.querySelectorAll('.bopts').forEach(e => e.remove());
+
+    if (action === 'reset') {
+      addBotMsg('¿En qué más te ayudo? 😊', false, [
+        { l: '💰 ¿Cuánto cuesta la membresía?', a: 'precio' },
+        { l: '🕕 ¿Cuál es el horario?', a: 'horario' },
+        { l: '🏋️ ¿Qué clases tienen?', a: 'clases' },
+        { l: '🎟️ ¿Tienen clase de prueba?', a: 'prueba' },
+        { l: '📍 ¿Dónde están ubicados?', a: 'ubicacion' },
+      ]);
+      return;
+    }
+
+    if (action === 'mapa') {
+      addBotMsg('🗺️ Ver en mapa', true);
+      setTimeout(() => {
+        addBotMsg('Puedes ver nuestra ubicación en el mapa más abajo en la página 👇');
+        document.getElementById('ubicacion').scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+      return;
+    }
+
+    const d = FAQ_ANSWERS[action];
+    if (!d) return;
+
+    if (d.wapp) {
+      window.open(`https://wa.me/${WA}?text=${d.wapp}`, '_blank');
+      return;
+    }
+
+    addBotMsg(d.q, true);
+    setTimeout(() => {
+      addBotMsg(d.a, false, d.opts);
+    }, 500);
+  }
+
+  function addBotMsg(text, isUser = false, opts = null) {
+    const body = document.getElementById('bot-msgs');
     const m = document.createElement('div');
-    m.className = 'wm' + (sent ? ' sent' : '');
+    m.className = 'bm' + (isUser ? ' user' : '');
     const t = new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
-    m.innerHTML = text + `<div class="wts">${t}</div>`;
+    m.innerHTML = text.replace(/\n/g, '<br>') + `<div class="bts">${t}</div>`;
     if (opts) {
       const w = document.createElement('div');
-      w.className = 'wopts';
+      w.className = 'bopts';
       opts.forEach(o => {
         const b = document.createElement('button');
-        b.className = 'wopt'; b.textContent = o.label;
-        b.onclick = () => wBot(o.act);
+        b.className = 'bopt'; b.textContent = o.l;
+        b.onclick = () => botStep(o.a);
         w.appendChild(b);
       });
       m.appendChild(w);
     }
     body.appendChild(m);
     body.scrollTop = body.scrollHeight;
-  }
-
-  function sendForm() {
-    const name    = document.getElementById('f-name').value.trim();
-    const phone   = document.getElementById('f-phone').value.trim();
-    const pet     = document.getElementById('f-pet').value.trim();
-    const species = document.getElementById('f-species').value;
-    const service = document.getElementById('f-service').value;
-    const date    = document.getElementById('f-date').value;
-    const time    = document.getElementById('f-time').value;
-    const notes   = document.getElementById('f-notes').value.trim();
-
-    if (!name || !phone) {
-      alert('Por favor ingresa tu nombre y WhatsApp.');
-      return;
-    }
-
-    const msg = `Hola, quiero agendar una cita en Cloe Veterinaria 🐾\n\n`
-      + `👤 Dueño: ${name}\n`
-      + `📞 WhatsApp: ${phone}\n`
-      + (pet     ? `🐾 Mascota: ${pet} (${species})\n` : '')
-      + (service ? `🩺 Motivo: ${service}\n` : '')
-      + (date    ? `📅 Fecha: ${date}\n` : '')
-      + `🕐 Horario: ${time}\n`
-      + (notes   ? `📝 Notas: ${notes}` : '');
-
-    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank');
   }
 </script>
 </body>
