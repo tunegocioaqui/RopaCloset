@@ -3,31 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AeroGym Express — Querétaro</title>
-  <meta name="description" content="AeroGym Express en Santiago de Querétaro. Entrena con los mejores, compra suplementos y merchandising. Lunes a Sábado 6am–9pm.">
+  <title>Servicios Automotrices G & P — Tula de Allende, Hgo.</title>
+  <meta name="description" content="Servicios Automotrices G & P en Tula de Allende. Alineación, balanceo, frenos y suspensión. Profesionales con experiencia.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --lime:       #C6F135;
-      --lime-dark:  #A8D020;
-      --lime-glow:  rgba(198,241,53,0.18);
-      --black:      #080808;
-      --dark:       #111111;
-      --dark2:      #181818;
-      --dark3:      #202020;
-      --gray:       #888888;
-      --gray-light: #2E2E2E;
-      --white:      #FFFFFF;
-      --offwhite:   #F4F4F4;
-      --red:        #E63946;
-      --green-wapp: #25D366;
-      --condensed:  'Barlow Condensed', Impact, sans-serif;
-      --sans:       'Inter', system-ui, sans-serif;
-      --nav-h:      68px;
-      --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+      --orange:       #E8650A;
+      --orange-dark:  #C4520A;
+      --orange-light: #FF8133;
+      --orange-glow:  rgba(232,101,10,0.15);
+      --black:        #080808;
+      --dark:         #111111;
+      --dark2:        #171717;
+      --dark3:        #1F1F1F;
+      --steel:        #2A2A2A;
+      --gray:         #888;
+      --gray-light:   #333;
+      --white:        #FFFFFF;
+      --offwhite:     #F5F5F5;
+      --red:          #DC2626;
+      --green-wapp:   #25D366;
+      --condensed:    'Barlow Condensed', Impact, sans-serif;
+      --sans:         'Inter', system-ui, sans-serif;
+      --nav-h:        68px;
+      --ease:         cubic-bezier(0.4,0,0.2,1);
     }
     html { scroll-behavior: smooth; }
     body {
@@ -36,671 +38,641 @@
       color: var(--white);
       overflow-x: hidden;
       opacity: 0;
-      animation: fadeBody 0.5s ease 0.05s forwards;
+      animation: show .5s ease .05s forwards;
     }
-    @keyframes fadeBody { to { opacity: 1; } }
-    img { display: block; max-width: 100%; }
-    button { font-family: var(--sans); cursor: pointer; border: none; background: none; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-thumb { background: var(--gray-light); border-radius: 4px; }
+    @keyframes show { to { opacity:1; } }
+    img { display:block; max-width:100%; }
+    button { font-family:var(--sans); cursor:pointer; border:none; background:none; }
+    a { text-decoration:none; color:inherit; }
+    ul { list-style:none; }
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-thumb { background:var(--gray-light); border-radius:4px; }
 
-    /* ─── NAV ─── */
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--orange);
+      padding: 0.45rem 3rem;
+      text-align: center;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.75);
+    }
+
+    /* ── NAV ── */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 900;
       height: var(--nav-h);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 3rem;
-      background: rgba(8,8,8,0.95);
+      background: rgba(8,8,8,0.97);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      transition: box-shadow 0.3s;
+      transition: box-shadow .3s;
     }
-    .nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.6); }
+    .nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,.7); }
 
-    .nav-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-brand { display:flex; align-items:center; gap:.75rem; }
     .nav-logo {
-      width: 40px; height: 40px; border-radius: 8px;
-      background: var(--lime);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
+      width:42px; height:42px; border-radius:8px;
+      background: var(--orange);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.3rem;
     }
     .nav-name {
-      font-family: var(--condensed); font-size: 1.55rem;
-      font-weight: 900; color: var(--white); letter-spacing: 0.04em;
-      line-height: 1;
+      font-family:var(--condensed); font-size:1.4rem;
+      font-weight:900; color:var(--white); letter-spacing:.04em; line-height:1;
     }
-    .nav-name span { color: var(--lime); }
+    .nav-name span { color:var(--orange); }
     .nav-sub {
-      font-size: 0.58rem; font-weight: 500; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--gray); margin-top: 0.1rem;
+      font-size:.58rem; font-weight:500; letter-spacing:.16em;
+      text-transform:uppercase; color:var(--gray); margin-top:.1rem;
     }
 
-    .nav-links { display: flex; gap: 1.75rem; }
+    .nav-links { display:flex; gap:1.75rem; }
     .nav-links a {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--gray);
-      transition: color 0.2s; position: relative;
+      font-size:.72rem; font-weight:600; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--gray);
+      transition:color .2s; position:relative;
     }
     .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0;
-      width: 0; height: 2px; background: var(--lime);
-      transition: width 0.25s;
+      content:''; position:absolute; bottom:-4px; left:0;
+      width:0; height:2px; background:var(--orange);
+      transition:width .25s;
     }
-    .nav-links a:hover { color: var(--lime); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color:var(--orange); }
+    .nav-links a:hover::after { width:100%; }
 
     .nav-cta {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.6rem 1.4rem;
-      background: var(--lime); color: var(--black);
-      font-size: 0.72rem; font-weight: 800;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border-radius: 4px;
-      transition: background 0.2s, transform 0.2s;
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.6rem 1.4rem;
+      background:var(--orange); color:var(--white);
+      font-size:.72rem; font-weight:800;
+      letter-spacing:.08em; text-transform:uppercase;
+      border-radius:4px;
+      transition:background .2s, transform .2s;
     }
-    .nav-cta:hover { background: var(--lime-dark); transform: translateY(-1px); }
+    .nav-cta:hover { background:var(--orange-dark); transform:translateY(-1px); }
 
-    /* ─── HERO ─── */
+    /* ── HERO ── */
     .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex; align-items: center;
-      overflow: hidden;
-      padding-top: var(--nav-h);
+      position:relative; min-height:100vh;
+      display:flex; align-items:center;
+      overflow:hidden;
+      padding-top: calc(var(--nav-h) + 2rem);
     }
     .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=90');
-      background-size: cover; background-position: center;
-      transform: scale(1.06);
-      animation: zoomBg 14s ease-in-out infinite alternate;
+      position:absolute; inset:0;
+      background-image:url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=1800&q=90');
+      background-size:cover; background-position:center;
+      transform:scale(1.05);
+      animation:zBg 14s ease-in-out infinite alternate;
     }
-    @keyframes zoomBg { to { transform: scale(1); } }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(100deg,
-        rgba(8,8,8,0.95) 0%,
-        rgba(8,8,8,0.80) 50%,
-        rgba(8,8,8,0.35) 100%
+    @keyframes zBg { to { transform:scale(1); } }
+    .hero-ov {
+      position:absolute; inset:0;
+      background:linear-gradient(110deg,
+        rgba(8,8,8,.96) 0%,
+        rgba(8,8,8,.82) 55%,
+        rgba(8,8,8,.4) 100%
       );
     }
-    .hero-overlay-bottom {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      height: 180px;
-      background: linear-gradient(to top, var(--dark), transparent);
+    .hero-ov-bot {
+      position:absolute; bottom:0; left:0; right:0; height:200px;
+      background:linear-gradient(to top, var(--dark), transparent);
     }
+
     .hero-content {
-      position: relative; z-index: 1;
-      padding: 0 3rem; max-width: 800px;
+      position:relative; z-index:1;
+      padding:0 3rem; max-width:820px;
     }
     .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.25em;
-      text-transform: uppercase; color: var(--lime);
-      margin-bottom: 1.5rem;
+      display:inline-flex; align-items:center; gap:.6rem;
+      font-size:.68rem; font-weight:700; letter-spacing:.25em;
+      text-transform:uppercase; color:var(--orange-light);
+      margin-bottom:1.5rem;
     }
-    .hero-eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--lime); }
+    .hero-eyebrow::before { content:''; width:28px; height:2px; background:var(--orange); }
+
     .hero h1 {
-      font-family: var(--condensed);
-      font-size: clamp(4rem, 9vw, 8rem);
-      font-weight: 900; line-height: 0.92;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      font-family:var(--condensed);
+      font-size:clamp(3.5rem,8vw,7rem);
+      font-weight:900; line-height:.95;
+      text-transform:uppercase; letter-spacing:.01em;
+      margin-bottom:1.5rem;
     }
-    .hero h1 .line1 { display: block; color: var(--white); }
-    .hero h1 .line2 { display: block; color: var(--lime); -webkit-text-stroke: 1px var(--lime); }
-    .hero h1 .line3 { display: block; color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.3); }
+    .hero h1 .l1 { display:block; color:var(--white); }
+    .hero h1 .l2 { display:block; color:var(--orange); }
+    .hero h1 .l3 { display:block; color:transparent; -webkit-text-stroke:2px rgba(255,255,255,.18); }
+
     .hero-desc {
-      font-size: 1rem; color: rgba(255,255,255,0.55);
-      line-height: 1.75; margin-bottom: 2.5rem;
-      max-width: 440px; font-weight: 300;
+      font-size:1rem; color:rgba(255,255,255,.55);
+      line-height:1.8; margin-bottom:2.5rem;
+      max-width:460px; font-weight:300;
     }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
-    .btn-lime {
-      display: inline-flex; align-items: center; gap: 0.55rem;
-      padding: 0.95rem 2.25rem;
-      background: var(--lime); color: var(--black);
-      font-size: 0.82rem; font-weight: 800;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      border-radius: 4px;
-      transition: background 0.2s, transform 0.2s;
-      box-shadow: 0 0 24px rgba(198,241,53,0.35);
+    .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:3rem; }
+
+    .btn-orange {
+      display:inline-flex; align-items:center; gap:.55rem;
+      padding:.95rem 2.25rem;
+      background:var(--orange); color:var(--white);
+      font-size:.82rem; font-weight:800;
+      letter-spacing:.1em; text-transform:uppercase;
+      border-radius:4px;
+      transition:background .2s, transform .2s;
+      box-shadow:0 0 28px rgba(232,101,10,.4);
     }
-    .btn-lime:hover { background: var(--lime-dark); transform: translateY(-2px); box-shadow: 0 0 40px rgba(198,241,53,0.5); }
+    .btn-orange:hover { background:var(--orange-dark); transform:translateY(-2px); }
+
     .btn-ghost {
-      display: inline-flex; align-items: center; gap: 0.55rem;
-      padding: 0.95rem 2.25rem;
-      border: 1px solid rgba(255,255,255,0.2); color: var(--white);
-      font-size: 0.82rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border-radius: 4px;
-      transition: border-color 0.2s, background 0.2s;
+      display:inline-flex; align-items:center; gap:.55rem;
+      padding:.95rem 2.25rem;
+      border:1px solid rgba(255,255,255,.2); color:var(--white);
+      font-size:.82rem; font-weight:600;
+      letter-spacing:.08em; text-transform:uppercase;
+      border-radius:4px;
+      transition:border-color .2s, color .2s;
     }
-    .btn-ghost:hover { border-color: var(--lime); color: var(--lime); }
+    .btn-ghost:hover { border-color:var(--orange); color:var(--orange); }
 
-    .hero-strip {
-      display: flex; gap: 2.5rem; flex-wrap: wrap;
-    }
-    .hero-strip-item {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.5);
-    }
-    .hero-strip-item span:first-child {
-      font-size: 1rem;
+    .hero-chips { display:flex; gap:1rem; flex-wrap:wrap; }
+    .hero-chip {
+      display:flex; align-items:center; gap:.5rem;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:100px; padding:.4rem 1rem;
+      font-size:.75rem; font-weight:600; color:rgba(255,255,255,.6);
     }
 
-    /* ─── TICKER ─── */
+    /* ── TICKER ── */
     .ticker {
-      background: var(--lime); padding: 0.7rem 0;
-      overflow: hidden; white-space: nowrap;
+      background:var(--orange); padding:.65rem 0;
+      overflow:hidden; white-space:nowrap;
     }
     .ticker-inner {
-      display: inline-flex; gap: 0; animation: ticker 22s linear infinite;
+      display:inline-flex; animation:tick 24s linear infinite;
     }
-    .ticker-text {
-      font-family: var(--condensed); font-size: 1rem; font-weight: 900;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--black); padding: 0 2.5rem;
+    .tick-txt {
+      font-family:var(--condensed); font-size:1rem; font-weight:900;
+      letter-spacing:.14em; text-transform:uppercase;
+      color:rgba(0,0,0,.75); padding:0 2.5rem;
     }
-    .ticker-dot { color: var(--black); opacity: 0.4; }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes tick { from{transform:translateX(0);} to{transform:translateX(-50%);} }
 
-    /* ─── SECTION BASE ─── */
-    .section { padding: 5.5rem 3rem; }
-    .sh { margin-bottom: 3.5rem; }
+    /* ── SECTIONS ── */
+    .section { padding:5.5rem 3rem; }
+    .sh { margin-bottom:3.5rem; }
     .stag {
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em;
-      text-transform: uppercase; color: var(--lime);
-      display: flex; align-items: center; gap: 0.5rem;
-      margin-bottom: 0.6rem;
+      font-size:.65rem; font-weight:700; letter-spacing:.25em;
+      text-transform:uppercase; color:var(--orange);
+      display:flex; align-items:center; gap:.5rem; margin-bottom:.6rem;
     }
-    .stag::before { content: ''; width: 18px; height: 2px; background: var(--lime); }
+    .stag::before { content:''; width:18px; height:2px; background:var(--orange); border-radius:2px; }
     .stitle {
-      font-family: var(--condensed);
-      font-size: clamp(2.4rem, 4vw, 3.8rem);
-      font-weight: 900; text-transform: uppercase;
-      color: var(--white); line-height: 1; letter-spacing: 0.02em;
-      margin-bottom: 0.75rem;
+      font-family:var(--condensed);
+      font-size:clamp(2.4rem,4vw,3.8rem);
+      font-weight:900; text-transform:uppercase;
+      color:var(--white); line-height:1; letter-spacing:.02em;
+      margin-bottom:.75rem;
     }
-    .stitle em { font-style: italic; color: var(--lime); }
-    .stitle.dark-txt { color: var(--dark); }
-    .stitle.dark-txt em { color: var(--lime-dark); }
+    .stitle em { font-style:italic; color:var(--orange); }
+    .stitle.dk { color:var(--dark); }
+    .stitle.dk em { color:var(--orange-dark); }
     .ssub {
-      font-size: 0.95rem; color: var(--gray);
-      line-height: 1.75; max-width: 500px;
+      font-size:.95rem; color:var(--gray);
+      line-height:1.75; max-width:520px;
     }
-    .ssub.dark-txt { color: #555; }
+    .ssub.dk { color:#666; }
 
-    /* ─── HORARIOS ─── */
-    .horarios-section { background: var(--dark2); }
-    .horarios-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
+    /* ── SERVICIOS ── */
+    .svc-section { background:var(--dark2); }
+    .svc-grid {
+      display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem;
     }
-    .schedule-table { width: 100%; border-collapse: collapse; }
-    .schedule-table tr {
-      border-bottom: 1px solid var(--gray-light);
+    .svc-card {
+      background:var(--dark3);
+      border:1px solid var(--gray-light);
+      border-radius:14px; overflow:hidden;
+      display:grid; grid-template-columns:200px 1fr;
+      transition:border-color .3s, transform .3s, box-shadow .3s;
     }
-    .schedule-table tr:last-child { border-bottom: none; }
-    .schedule-table td {
-      padding: 1rem 0.5rem;
-      font-size: 0.9rem;
+    .svc-card:hover {
+      border-color:var(--orange);
+      transform:translateY(-4px);
+      box-shadow:0 16px 48px rgba(232,101,10,.15);
     }
-    .schedule-table td:first-child {
-      font-weight: 700; color: var(--white); text-transform: uppercase;
-      letter-spacing: 0.05em;
+    .svc-img { overflow:hidden; background:var(--steel); }
+    .svc-img img {
+      width:100%; height:100%; object-fit:cover;
+      transition:transform .5s var(--ease);
     }
-    .schedule-table td:last-child {
-      text-align: right; color: var(--lime); font-weight: 600;
+    .svc-card:hover .svc-img img { transform:scale(1.07); }
+    .svc-body { padding:1.75rem; display:flex; flex-direction:column; justify-content:center; }
+    .svc-num {
+      font-family:var(--condensed); font-size:3.5rem; font-weight:900;
+      color:rgba(255,255,255,.04); line-height:1; margin-bottom:-.75rem;
     }
-    .schedule-closed { color: var(--red) !important; }
-    .schedule-today {
-      background: var(--lime-glow);
-      border-radius: 6px;
+    .svc-icon {
+      width:48px; height:48px; border-radius:10px;
+      background:var(--orange-glow); border:1px solid rgba(232,101,10,.25);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.4rem; margin-bottom:1rem;
+      transition:background .3s;
     }
-    .schedule-today td:first-child { color: var(--lime) !important; }
-    .open-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(198,241,53,0.1); border: 1px solid rgba(198,241,53,0.25);
-      color: var(--lime); padding: 0.5rem 1.1rem;
-      border-radius: 100px; font-size: 0.78rem; font-weight: 700;
-      margin-bottom: 1.5rem;
+    .svc-card:hover .svc-icon { background:var(--orange); }
+    .svc-name {
+      font-family:var(--condensed); font-size:1.6rem; font-weight:900;
+      text-transform:uppercase; color:var(--white);
+      letter-spacing:.03em; margin-bottom:.5rem; line-height:1.1;
     }
-    .open-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); animation: blink 1.5s ease-in-out infinite; }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
-    .horarios-info { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
-    .hor-item {
-      display: flex; align-items: center; gap: 0.85rem;
-      padding: 1rem 1.25rem; background: var(--dark3);
-      border: 1px solid var(--gray-light); border-radius: 10px;
-      font-size: 0.85rem; transition: border-color 0.2s;
+    .svc-desc { font-size:.82rem; color:var(--gray); line-height:1.7; margin-bottom:1.25rem; }
+    .svc-tags { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .svc-tag {
+      padding:.25rem .7rem; font-size:.65rem; font-weight:700;
+      letter-spacing:.06em; text-transform:uppercase;
+      background:var(--steel); color:var(--gray);
+      border:1px solid var(--gray-light); border-radius:100px;
+      transition:border-color .2s, color .2s;
     }
-    .hor-item:hover { border-color: var(--lime); }
-    .hor-icon { font-size: 1.15rem; }
-    .hor-item strong { display: block; font-weight: 700; color: var(--white); margin-bottom: 0.1rem; }
-    .hor-item span { color: var(--gray); font-size: 0.78rem; }
+    .svc-card:hover .svc-tag { border-color:rgba(232,101,10,.35); color:rgba(232,101,10,.8); }
 
-    /* ─── SERVICIOS / CLASES ─── */
-    .clases-section { background: var(--dark); }
-    .clases-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
-    }
-    .clase-card {
-      position: relative; border-radius: 12px; overflow: hidden;
-      height: 260px; cursor: default;
-      border: 1px solid var(--gray-light);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .clase-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(198,241,53,0.12); }
-    .clase-card img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.5s var(--ease);
-    }
-    .clase-card:hover img { transform: scale(1.06); }
-    .clase-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.3) 60%, transparent);
-    }
-    .clase-card:hover .clase-overlay {
-      background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.5) 60%, rgba(198,241,53,0.05));
-    }
-    .clase-body {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 1.5rem;
-    }
-    .clase-tag {
-      display: inline-block; background: var(--lime); color: var(--black);
-      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em;
-      text-transform: uppercase; padding: 0.2rem 0.6rem;
-      border-radius: 3px; margin-bottom: 0.5rem;
-    }
-    .clase-name {
-      font-family: var(--condensed); font-size: 1.5rem; font-weight: 900;
-      text-transform: uppercase; color: var(--white); line-height: 1.1;
-    }
-    .clase-desc { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 0.35rem; }
-
-    /* ─── TIENDA ─── */
-    .tienda-section { background: var(--offwhite); }
-    .tienda-tabs {
-      display: flex; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;
-    }
-    .tienda-tab {
-      padding: 0.5rem 1.25rem; font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      border-radius: 100px; border: 1.5px solid #ccc;
-      background: #fff; color: #555; cursor: pointer; transition: all 0.2s;
-    }
-    .tienda-tab.active { background: var(--black); color: var(--lime); border-color: var(--black); }
-    .tienda-tab:hover:not(.active) { border-color: var(--black); color: var(--black); }
-
-    .productos-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
-    }
-    .prod-card {
-      background: var(--white); border-radius: 12px;
-      border: 1.5px solid #E8E8E8; overflow: hidden;
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-    }
-    .prod-card:hover { transform: translateY(-4px); box-shadow: 0 16px 42px rgba(0,0,0,0.1); border-color: #ccc; }
-    .prod-img { height: 200px; overflow: hidden; background: #f0f0f0; position: relative; }
-    .prod-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-    .prod-card:hover .prod-img img { transform: scale(1.06); }
-    .prod-badge {
-      position: absolute; top: 10px; left: 10px;
-      background: var(--black); color: var(--lime);
-      font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.22rem 0.6rem; border-radius: 4px;
-    }
-    .prod-body { padding: 1rem 1.1rem 1.25rem; }
-    .prod-cat { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.25rem; }
-    .prod-name { font-size: 0.92rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
-    .prod-desc { font-size: 0.75rem; color: var(--gray); line-height: 1.5; margin-bottom: 0.85rem; }
-    .prod-footer { display: flex; align-items: center; justify-content: space-between; }
-    .prod-price { font-family: var(--condensed); font-size: 1.3rem; font-weight: 900; color: var(--dark); }
-    .prod-btn {
-      padding: 0.45rem 0.9rem;
-      background: var(--black); color: var(--lime);
-      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em;
-      text-transform: uppercase; border-radius: 5px;
-      transition: background 0.2s;
-    }
-    .prod-btn:hover { background: #333; }
-    .prod-hidden { display: none; }
-
-    /* ─── ENTRENADORES ─── */
-    .trainers-section { background: var(--dark); }
-    .trainers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .trainer-card {
-      background: var(--dark2);
-      border: 1px solid var(--gray-light);
-      border-radius: 16px; overflow: hidden;
-      display: grid; grid-template-columns: 260px 1fr;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .trainer-card:hover { border-color: var(--lime); transform: translateY(-3px); }
-    .trainer-photo { height: 320px; overflow: hidden; }
-    .trainer-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-    .trainer-card:hover .trainer-photo img { transform: scale(1.04); }
-    .trainer-body { padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
-    .trainer-number {
-      font-family: var(--condensed); font-size: 5rem; font-weight: 900;
-      color: rgba(255,255,255,0.04); line-height: 1; margin-bottom: -1rem;
-      letter-spacing: -0.02em;
-    }
-    .trainer-role { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--lime); margin-bottom: 0.4rem; }
-    .trainer-name { font-family: var(--condensed); font-size: 2.5rem; font-weight: 900; text-transform: uppercase; color: var(--white); line-height: 1; margin-bottom: 0.75rem; letter-spacing: 0.02em; }
-    .trainer-bio { font-size: 0.82rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.5rem; }
-    .trainer-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .trainer-tag {
-      padding: 0.3rem 0.75rem; font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      background: var(--dark3); color: var(--gray);
-      border: 1px solid var(--gray-light); border-radius: 100px;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .trainer-card:hover .trainer-tag { border-color: rgba(198,241,53,0.3); color: rgba(198,241,53,0.7); }
-
-    /* ─── STATS ─── */
-    .stats-section {
-      background: var(--lime); padding: 3.5rem 3rem;
+    /* ── STATS ── */
+    .stats-bg {
+      background:var(--orange); padding:3.5rem 3rem;
     }
     .stats-inner {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1px; background: rgba(0,0,0,0.12);
-      border-radius: 12px; overflow: hidden;
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:1px; background:rgba(0,0,0,.15);
+      border-radius:12px; overflow:hidden;
+      max-width:900px; margin:0 auto;
     }
-    .stat-box { background: var(--lime); padding: 2.5rem 1.5rem; text-align: center; transition: background 0.2s; }
-    .stat-box:hover { background: var(--lime-dark); }
-    .stat-n { font-family: var(--condensed); font-size: 3.5rem; font-weight: 900; color: var(--black); line-height: 1; margin-bottom: 0.3rem; }
-    .stat-l { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(0,0,0,0.5); }
+    .stat-box {
+      background:var(--orange); padding:2.5rem 1.5rem; text-align:center;
+      transition:background .2s;
+    }
+    .stat-box:hover { background:var(--orange-dark); }
+    .stat-n {
+      font-family:var(--condensed); font-size:3.2rem; font-weight:900;
+      color:var(--white); line-height:1; margin-bottom:.3rem;
+    }
+    .stat-l {
+      font-size:.7rem; font-weight:700; letter-spacing:.14em;
+      text-transform:uppercase; color:rgba(255,255,255,.65);
+    }
 
-    /* ─── FAQ CHATBOT ─── */
-    .faq-section { background: var(--dark2); padding: 5.5rem 3rem; }
+    /* ── POR QUÉ NOSOTROS ── */
+    .why-section { background:var(--dark); }
+    .why-inner {
+      display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;
+    }
+    .why-img-wrap { position:relative; }
+    .why-img-main {
+      border-radius:16px; overflow:hidden; height:460px;
+    }
+    .why-img-main img { width:100%; height:100%; object-fit:cover; }
+    .why-img-sec {
+      position:absolute; bottom:-28px; right:-28px;
+      width:55%; height:210px;
+      border-radius:14px; overflow:hidden;
+      border:5px solid var(--dark);
+      box-shadow:0 16px 48px rgba(0,0,0,.5);
+    }
+    .why-img-sec img { width:100%; height:100%; object-fit:cover; }
+    .why-badge {
+      position:absolute; top:-20px; left:-20px;
+      width:72px; height:72px; border-radius:50%;
+      background:var(--orange);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      box-shadow:0 8px 24px rgba(232,101,10,.45);
+      animation:floatBadge 3s ease-in-out infinite alternate;
+    }
+    @keyframes floatBadge { to { transform:translateY(-8px); } }
+    .why-badge strong {
+      font-family:var(--condensed); font-size:1.6rem; font-weight:900;
+      color:var(--white); line-height:1;
+    }
+    .why-badge span { font-size:.5rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.75); }
+
+    .why-list { display:flex; flex-direction:column; gap:1rem; margin:2rem 0; }
+    .why-item {
+      display:flex; align-items:flex-start; gap:.9rem;
+      padding:1.1rem 1.25rem; background:var(--dark2);
+      border:1px solid var(--gray-light); border-radius:10px;
+      transition:border-color .25s, transform .25s;
+    }
+    .why-item:hover { border-color:var(--orange); transform:translateX(4px); }
+    .why-ico {
+      width:40px; height:40px; border-radius:8px;
+      background:var(--orange-glow); border:1px solid rgba(232,101,10,.25);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.1rem; flex-shrink:0;
+      transition:background .25s;
+    }
+    .why-item:hover .why-ico { background:var(--orange); }
+    .why-item strong { display:block; font-size:.88rem; font-weight:700; color:var(--white); margin-bottom:.15rem; }
+    .why-item span { font-size:.78rem; color:var(--gray); line-height:1.5; }
+
+    /* ── GALERÍA ── */
+    .gallery-section { background:var(--dark2); }
+    .gallery-grid {
+      display:grid;
+      grid-template-columns:1.5fr 1fr 1fr;
+      grid-template-rows:240px 240px;
+      gap:8px; border-radius:16px; overflow:hidden;
+    }
+    .gl { overflow:hidden; position:relative; background:var(--steel); }
+    .gl:first-child { grid-row:1/3; }
+    .gl img { width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease); }
+    .gl:hover img { transform:scale(1.06); }
+    .gl-lbl {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(to top,rgba(8,8,8,.75),transparent);
+      padding:1.25rem 1rem .75rem;
+      font-size:.7rem; font-weight:800; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--white);
+      opacity:0; transition:opacity .3s;
+    }
+    .gl:hover .gl-lbl { opacity:1; }
+
+    /* ── FAQ CHATBOT ── */
+    .faq-section { background:var(--dark2); padding:5.5rem 3rem; }
     .faq-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: start;
+      display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;
     }
 
     /* chatbot */
     .bot-shell {
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-      border: 1px solid var(--gray-light);
+      border-radius:18px; overflow:hidden;
+      box-shadow:0 30px 80px rgba(0,0,0,.6);
+      border:1px solid var(--gray-light);
     }
     .bot-hdr {
-      background: linear-gradient(135deg, var(--dark3), #2a2a2a);
-      padding: 1.1rem 1.4rem;
-      display: flex; align-items: center; gap: 0.85rem;
-      border-bottom: 1px solid var(--gray-light);
+      background:linear-gradient(135deg,var(--dark3),var(--steel));
+      padding:1rem 1.25rem;
+      display:flex; align-items:center; gap:.85rem;
+      border-bottom:1px solid var(--gray-light);
     }
     .bot-av {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--lime);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; flex-shrink: 0;
+      width:44px; height:44px; border-radius:50%;
+      background:var(--orange);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; flex-shrink:0;
     }
-    .bot-hdr strong { display: block; color: var(--white); font-size: 0.9rem; font-weight: 700; }
-    .bot-hdr span { font-size: 0.7rem; color: var(--gray); }
+    .bot-hdr strong { display:block; color:var(--white); font-size:.9rem; font-weight:700; }
+    .bot-hdr span { font-size:.7rem; color:var(--gray); }
     .bot-msgs {
-      background: var(--dark3);
-      padding: 1.25rem;
-      min-height: 340px; max-height: 340px;
-      overflow-y: auto;
-      display: flex; flex-direction: column; gap: 0.75rem;
+      background:var(--dark3); padding:1.25rem;
+      min-height:320px; max-height:320px; overflow-y:auto;
+      display:flex; flex-direction:column; gap:.75rem;
     }
-    .bot-msgs::-webkit-scrollbar { width: 3px; }
-    .bot-msgs::-webkit-scrollbar-thumb { background: var(--gray-light); }
+    .bot-msgs::-webkit-scrollbar { width:3px; }
+    .bot-msgs::-webkit-scrollbar-thumb { background:var(--gray-light); }
     .bm {
-      max-width: 86%; padding: 0.7rem 1rem;
-      border-radius: 4px 14px 14px 14px;
-      background: var(--dark2); font-size: 0.83rem;
-      line-height: 1.55; color: var(--white);
-      border: 1px solid var(--gray-light);
-      animation: msgPop 0.25s var(--ease);
+      max-width:88%; padding:.7rem 1rem;
+      border-radius:4px 14px 14px 14px;
+      background:var(--dark2); font-size:.83rem; line-height:1.55;
+      color:var(--white); border:1px solid var(--gray-light);
+      animation:bPop .25s var(--ease);
     }
-    .bm.user {
-      align-self: flex-end;
-      background: var(--lime); color: var(--black);
-      border-color: transparent;
-      border-radius: 14px 4px 14px 14px;
+    .bm.u {
+      align-self:flex-end;
+      background:var(--orange); color:var(--white);
+      border-color:transparent; border-radius:14px 4px 14px 14px;
     }
-    @keyframes msgPop { from { opacity: 0; transform: translateY(6px); } }
-    .bts { font-size: 0.6rem; color: var(--gray); margin-top: 0.2rem; }
-    .bm.user .bts { color: rgba(0,0,0,0.4); }
-    .bopts { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.5rem; }
+    @keyframes bPop { from{opacity:0;transform:translateY(6px);} }
+    .bts { font-size:.6rem; color:var(--gray); margin-top:.2rem; }
+    .bm.u .bts { color:rgba(255,255,255,.45); }
+    .bopts { display:flex; flex-direction:column; gap:.4rem; margin-top:.5rem; }
     .bopt {
-      background: var(--dark3); border: 1px solid var(--gray-light);
-      border-radius: 8px; padding: 0.5rem 0.9rem;
-      font-size: 0.78rem; font-weight: 600; color: var(--lime);
-      text-align: left; transition: background 0.15s, border-color 0.15s;
+      background:var(--steel); border:1px solid var(--gray-light);
+      border-radius:8px; padding:.5rem .9rem;
+      font-size:.78rem; font-weight:600; color:var(--orange-light);
+      text-align:left; transition:background .15s, border-color .15s;
     }
-    .bopt:hover { background: rgba(198,241,53,0.07); border-color: var(--lime); }
+    .bopt:hover { background:var(--orange-glow); border-color:var(--orange); }
     .bot-ft {
-      background: var(--dark2); padding: 0.85rem 1.1rem;
-      display: flex; gap: 0.5rem; align-items: center;
-      border-top: 1px solid var(--gray-light);
+      background:var(--dark2); padding:.85rem 1.1rem;
+      display:flex; gap:.5rem; align-items:center;
+      border-top:1px solid var(--gray-light);
     }
     .bot-inp {
-      flex: 1; padding: 0.55rem 1rem; border-radius: 8px;
-      border: 1px solid var(--gray-light);
-      font-family: var(--sans); font-size: 0.82rem;
-      background: var(--dark3); color: var(--gray); outline: none;
-      cursor: default;
+      flex:1; padding:.55rem 1rem; border-radius:8px;
+      border:1px solid var(--gray-light);
+      font-family:var(--sans); font-size:.82rem;
+      background:var(--dark3); color:var(--gray); outline:none; cursor:default;
     }
     .bot-sb {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: var(--lime); color: var(--black);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem; font-weight: 700;
+      width:36px; height:36px; border-radius:8px;
+      background:var(--orange); color:var(--white);
+      display:flex; align-items:center; justify-content:center; font-size:.85rem;
     }
 
-    /* faq list */
-    .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
-    .faq-item {
-      border: 1px solid var(--gray-light); border-radius: 10px; overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .faq-item:hover { border-color: rgba(198,241,53,0.4); }
+    /* faq accordion */
+    .faq-list { display:flex; flex-direction:column; gap:.75rem; }
+    .faq-item { border:1px solid var(--gray-light); border-radius:10px; overflow:hidden; transition:border-color .2s; }
+    .faq-item:hover { border-color:rgba(232,101,10,.4); }
     .faq-q {
-      padding: 1.1rem 1.25rem;
-      display: flex; align-items: center; justify-content: space-between;
-      cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--white);
+      padding:1.1rem 1.25rem;
+      display:flex; align-items:center; justify-content:space-between;
+      cursor:pointer; font-size:.88rem; font-weight:600; color:var(--white);
     }
-    .faq-q .faq-icon {
-      width: 24px; height: 24px; border-radius: 50%;
-      background: var(--gray-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.75rem; color: var(--gray); flex-shrink: 0;
-      transition: background 0.2s, transform 0.3s;
+    .faq-ic {
+      width:24px; height:24px; border-radius:50%;
+      background:var(--gray-light);
+      display:flex; align-items:center; justify-content:center;
+      font-size:.75rem; color:var(--gray); flex-shrink:0;
+      transition:background .2s, transform .3s;
     }
-    .faq-item.open .faq-icon { background: var(--lime); color: var(--black); transform: rotate(45deg); }
+    .faq-item.open .faq-ic { background:var(--orange); color:var(--white); transform:rotate(45deg); }
     .faq-a {
-      font-size: 0.82rem; color: var(--gray); line-height: 1.7;
-      padding: 0 1.25rem;
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.35s var(--ease), padding 0.35s;
+      font-size:.82rem; color:var(--gray); line-height:1.7;
+      padding:0 1.25rem; max-height:0; overflow:hidden;
+      transition:max-height .35s var(--ease), padding .35s;
     }
-    .faq-item.open .faq-a { max-height: 200px; padding: 0 1.25rem 1.1rem; }
+    .faq-item.open .faq-a { max-height:200px; padding:0 1.25rem 1.1rem; }
 
-    /* ─── UBICACIÓN ─── */
-    .map-section { background: var(--dark); }
-    .map-inner {
-      display: grid; grid-template-columns: 1fr 1.5fr;
-      gap: 4rem; align-items: center;
+    /* ── CONTACTO/MAPA ── */
+    .contact-section { background:var(--dark); }
+    .contact-inner {
+      display:grid; grid-template-columns:1fr 1.5fr; gap:4rem; align-items:center;
     }
-    .loc-items { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
+    .loc-items { display:flex; flex-direction:column; gap:1rem; margin:2rem 0; }
     .loc-item {
-      display: flex; align-items: flex-start; gap: 0.9rem;
-      padding: 1.1rem; background: var(--dark2);
-      border: 1px solid var(--gray-light); border-radius: 10px;
-      transition: border-color 0.2s;
+      display:flex; align-items:flex-start; gap:.9rem;
+      padding:1.1rem; background:var(--dark2);
+      border:1px solid var(--gray-light); border-radius:10px;
+      transition:border-color .2s;
     }
-    .loc-item:hover { border-color: var(--lime); }
+    .loc-item:hover { border-color:var(--orange); }
     .loc-ico {
-      width: 40px; height: 40px; border-radius: 8px;
-      background: var(--lime);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0; color: var(--black);
+      width:40px; height:40px; border-radius:8px;
+      background:var(--orange);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1rem; flex-shrink:0;
     }
-    .loc-item strong { display: block; font-size: 0.82rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
-    .loc-item span { font-size: 0.78rem; color: var(--gray); line-height: 1.5; }
-    .btn-wapp-loc {
-      display: inline-flex; align-items: center; gap: 0.65rem;
-      padding: 0.9rem 2rem;
-      background: var(--green-wapp); color: #fff;
-      font-size: 0.8rem; font-weight: 800;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      border-radius: 6px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+    .loc-item strong { display:block; font-size:.82rem; font-weight:700; color:var(--white); margin-bottom:.2rem; }
+    .loc-item span { font-size:.78rem; color:var(--gray); line-height:1.5; }
+    .btn-wapp {
+      display:inline-flex; align-items:center; gap:.65rem;
+      padding:.9rem 2rem;
+      background:var(--green-wapp); color:#fff;
+      font-size:.8rem; font-weight:800;
+      letter-spacing:.06em; text-transform:uppercase;
+      border-radius:6px;
+      transition:transform .2s, box-shadow .2s;
+      box-shadow:0 4px 18px rgba(37,211,102,.3);
     }
-    .btn-wapp-loc:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,211,102,0.45); }
+    .btn-wapp:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(37,211,102,.45); }
     .map-frame {
-      border-radius: 16px; overflow: hidden;
-      height: 400px;
-      border: 1px solid var(--gray-light);
+      border-radius:16px; overflow:hidden;
+      height:420px; border:1px solid var(--gray-light);
     }
-    .map-frame iframe { width: 100%; height: 100%; border: none; display: block; }
+    .map-frame iframe { width:100%; height:100%; border:none; display:block; }
 
-    /* ─── FOOTER ─── */
-    .footer { background: var(--black); padding: 3rem 3rem 1.75rem; }
+    /* ── FOOTER ── */
+    .footer { background:var(--black); padding:3rem 3rem 1.75rem; }
     .footer-top {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
-      gap: 3rem; padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 1.75rem;
+      display:grid; grid-template-columns:1.6fr 1fr 1fr;
+      gap:3rem; padding-bottom:2.5rem;
+      border-bottom:1px solid rgba(255,255,255,.06); margin-bottom:1.75rem;
     }
-    .ft-name { font-family: var(--condensed); font-size: 1.8rem; font-weight: 900; text-transform: uppercase; color: var(--white); margin-bottom: 0.2rem; }
-    .ft-name span { color: var(--lime); }
-    .ft-sub { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.85rem; }
-    .ft-desc { font-size: 0.8rem; color: rgba(255,255,255,0.25); line-height: 1.7; max-width: 260px; }
-    .ft-col h4 { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--lime); margin-bottom: 1.1rem; }
-    .ft-col li { font-size: 0.8rem; color: rgba(255,255,255,0.28); margin-bottom: 0.55rem; transition: color 0.2s; cursor: pointer; }
-    .ft-col li:hover { color: rgba(255,255,255,0.65); }
+    .ft-eng {
+      font-size:.62rem; font-weight:600; letter-spacing:.18em;
+      text-transform:uppercase; color:var(--orange); margin-bottom:.4rem;
+    }
+    .ft-name {
+      font-family:var(--condensed); font-size:1.7rem; font-weight:900;
+      text-transform:uppercase; color:var(--white); line-height:1; margin-bottom:.2rem;
+    }
+    .ft-name span { color:var(--orange); }
+    .ft-sub { font-size:.6rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; color:var(--gray); margin-bottom:.85rem; }
+    .ft-desc { font-size:.8rem; color:rgba(255,255,255,.25); line-height:1.7; max-width:260px; }
+    .ft-col h4 { font-size:.62rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--orange); margin-bottom:1.1rem; }
+    .ft-col li { font-size:.8rem; color:rgba(255,255,255,.28); margin-bottom:.55rem; transition:color .2s; cursor:pointer; }
+    .ft-col li:hover { color:rgba(255,255,255,.65); }
     .footer-bottom {
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.72rem; color: rgba(255,255,255,0.15); flex-wrap: wrap; gap: 0.5rem;
+      display:flex; justify-content:space-between; align-items:center;
+      font-size:.72rem; color:rgba(255,255,255,.15); flex-wrap:wrap; gap:.5rem;
     }
-    .footer-bottom a { color: var(--lime); }
+    .footer-bottom a { color:var(--orange-light); }
 
-    /* ─── WA FLOAT ─── */
-    .wa-fab { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; }
+    /* ── FLOAT WA ── */
+    .wa-fab { position:fixed; bottom:2rem; right:2rem; z-index:999; }
     .wa-fab-btn {
-      width: 62px; height: 62px; border-radius: 50%;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.6rem; color: #fff;
-      box-shadow: 0 6px 26px rgba(37,211,102,0.45);
-      transition: transform 0.25s, box-shadow 0.25s;
-      animation: pulseFab 2.5s ease-in-out infinite;
+      width:62px; height:62px; border-radius:50%;
+      background:linear-gradient(135deg,#25D366,#128C7E);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.6rem; color:#fff;
+      box-shadow:0 6px 26px rgba(37,211,102,.45);
+      transition:transform .25s, box-shadow .25s;
+      animation:waPulse 2.5s ease-in-out infinite;
     }
-    .wa-fab-btn:hover { transform: scale(1.1); animation: none; }
-    @keyframes pulseFab {
-      0%,100% { box-shadow: 0 6px 26px rgba(37,211,102,0.45); }
-      50% { box-shadow: 0 6px 26px rgba(37,211,102,0.45), 0 0 0 10px rgba(37,211,102,0.1); }
+    .wa-fab-btn:hover { transform:scale(1.1); animation:none; }
+    @keyframes waPulse {
+      0%,100%{box-shadow:0 6px 26px rgba(37,211,102,.45);}
+      50%{box-shadow:0 6px 26px rgba(37,211,102,.45),0 0 0 10px rgba(37,211,102,.1);}
     }
     .wa-fab-tip {
-      position: absolute; right: 72px; top: 50%; transform: translateY(-50%);
-      background: var(--black); color: var(--white);
-      font-size: 0.72rem; font-weight: 600; white-space: nowrap;
-      padding: 0.4rem 0.8rem; border-radius: 6px;
-      opacity: 0; pointer-events: none; transition: opacity 0.2s;
-      border: 1px solid var(--gray-light);
+      position:absolute; right:72px; top:50%; transform:translateY(-50%);
+      background:var(--black); color:var(--white);
+      font-size:.72rem; font-weight:600; white-space:nowrap;
+      padding:.4rem .8rem; border-radius:6px;
+      opacity:0; pointer-events:none; transition:opacity .2s;
+      border:1px solid var(--gray-light);
     }
     .wa-fab-tip::after {
-      content: ''; position: absolute; left: 100%; top: 50%; transform: translateY(-50%);
-      border: 5px solid transparent; border-left-color: var(--black);
+      content:''; position:absolute; left:100%; top:50%; transform:translateY(-50%);
+      border:5px solid transparent; border-left-color:var(--black);
     }
-    .wa-fab:hover .wa-fab-tip { opacity: 1; }
+    .wa-fab:hover .wa-fab-tip { opacity:1; }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 1100px) {
-      .productos-grid { grid-template-columns: repeat(2, 1fr); }
-      .trainer-card { grid-template-columns: 1fr; }
-      .trainer-photo { height: 240px; }
-      .trainers-grid { grid-template-columns: 1fr; }
+    /* ── RESPONSIVE ── */
+    @media(max-width:1100px){
+      .svc-card { grid-template-columns:1fr; }
+      .svc-img { height:200px; }
+      .why-img-sec { display:none; }
     }
-    @media (max-width: 900px) {
-      .nav { padding: 0 1.5rem; }
-      .nav-links { display: none; }
-      .section { padding: 4rem 1.5rem; }
-      .faq-section { padding: 4rem 1.5rem; }
-      .map-section { padding: 4rem 1.5rem; }
-      .hero-content { padding: 0 1.5rem; }
-      .horarios-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .faq-inner { grid-template-columns: 1fr; }
-      .map-inner { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-      .stats-section { padding: 2.5rem 1.5rem; }
+    @media(max-width:900px){
+      .nav { padding:0 1.5rem; }
+      .nav-links { display:none; }
+      .section { padding:4rem 1.5rem; }
+      .faq-section, .contact-section { padding:4rem 1.5rem; }
+      .hero-content { padding:0 1.5rem; }
+      .svc-grid { grid-template-columns:1fr; }
+      .why-inner { grid-template-columns:1fr; }
+      .faq-inner { grid-template-columns:1fr; }
+      .contact-inner { grid-template-columns:1fr; }
+      .footer-top { grid-template-columns:1fr; gap:2rem; }
+      .stats-bg { padding:2.5rem 1.5rem; }
+      .top-bar { padding:.45rem 1.5rem; }
     }
-    @media (max-width: 640px) {
-      .clases-grid { grid-template-columns: 1fr; }
-      .productos-grid { grid-template-columns: 1fr 1fr; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      .stat-box { padding: 1.75rem 1rem; }
-      .stat-n { font-size: 2.4rem; }
-      .footer { padding: 2.5rem 1.5rem 1.5rem; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .hero h1 { font-size: clamp(3rem, 14vw, 5rem); }
-    }
-    @media (max-width: 480px) {
-      .productos-grid { grid-template-columns: 1fr; }
+    @media(max-width:640px){
+      .stats-inner { grid-template-columns:1fr 1fr; }
+      .stat-box { padding:1.75rem 1rem; }
+      .stat-n { font-size:2.4rem; }
+      .gallery-grid { grid-template-columns:1fr; grid-template-rows:auto; }
+      .gl:first-child { grid-row:auto; }
+      .footer { padding:2.5rem 1.5rem 1.5rem; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+      .hero h1 { font-size:clamp(3rem,13vw,5rem); }
     }
   </style>
 </head>
 <body>
 
+<!-- ══ TOP BAR ══ -->
+<div class="top-bar">
+  Empresa del Ing. Javier García Pérez
+</div>
+
 <!-- ══ NAV ══ -->
-<nav class="nav" id="main-nav">
+<nav class="nav" id="main-nav" style="top:32px">
   <div class="nav-brand">
-    <div class="nav-logo">⚡</div>
+    <div class="nav-logo">🔧</div>
     <div>
-      <div class="nav-name"><span>Aero</span>Gym Express</div>
-      <div class="nav-sub">Santiago de Querétaro</div>
+      <div class="nav-name">Servicios <span>G &amp; P</span></div>
+      <div class="nav-sub">Automotrices · Tula de Allende, Hgo.</div>
     </div>
   </div>
   <ul class="nav-links">
-    <li><a href="#horarios">Horarios</a></li>
-    <li><a href="#clases">Clases</a></li>
-    <li><a href="#tienda">Tienda</a></li>
-    <li><a href="#entrenadores">Entrenadores</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#galeria">Galería</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#ubicacion">Ubicación</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a class="nav-cta"
-     href="https://wa.me/524421234567?text=Hola%2C%20quiero%20información%20sobre%20AeroGym%20Express"
+     href="https://wa.me/527731234567?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20en%20Servicios%20Automotrices%20G%20%26%20P"
      target="_blank">
-    ⚡ Únete ahora
+    🔧 Cotizar servicio
   </a>
 </nav>
 
 <!-- ══ HERO ══ -->
-<section class="hero" id="inicio">
+<section class="hero" id="inicio" style="padding-top:calc(68px + 32px + 2rem)">
   <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-overlay-bottom"></div>
+  <div class="hero-ov"></div>
+  <div class="hero-ov-bot"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Santiago de Querétaro · Est. 2015</div>
+    <div class="hero-eyebrow">Tula de Allende, Hidalgo · Jalpa</div>
     <h1>
-      <span class="line1">Entrena</span>
-      <span class="line2">sin límites</span>
-      <span class="line3">AeroGym</span>
+      <span class="l1">Tu auto en</span>
+      <span class="l2">las mejores</span>
+      <span class="l3">manos</span>
     </h1>
-    <p class="hero-desc">El gimnasio que se adapta a ti. Clases, entrenadores certificados, suplementos y merchandising. Todo en un solo lugar.</p>
+    <p class="hero-desc">Especialistas en alineación, balanceo, frenos y suspensión. Diagnóstico profesional y trabajo garantizado en Tula de Allende.</p>
     <div class="hero-btns">
-      <a class="btn-lime"
-         href="https://wa.me/524421234567?text=Hola%2C%20quiero%20inscribirme%20en%20AeroGym%20Express"
-         target="_blank">⚡ Inscríbete ya</a>
-      <a class="btn-ghost" href="#clases">Ver clases →</a>
+      <a class="btn-orange"
+         href="https://wa.me/527731234567?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20en%20Servicios%20Automotrices%20G%20%26%20P"
+         target="_blank">🔧 Cotizar por WhatsApp</a>
+      <a class="btn-ghost" href="#servicios">Ver servicios →</a>
     </div>
-    <div class="hero-strip">
-      <div class="hero-strip-item"><span>🕕</span><span>Abrimos 6am</span></div>
-      <div class="hero-strip-item"><span>🏋️</span><span>Equipo de punta</span></div>
-      <div class="hero-strip-item"><span>👟</span><span>Entrenadores certificados</span></div>
-      <div class="hero-strip-item"><span>🛒</span><span>Tienda de suplementos</span></div>
+    <div class="hero-chips">
+      <div class="hero-chip">✅ Trabajo garantizado</div>
+      <div class="hero-chip">🔩 Refacciones originales</div>
+      <div class="hero-chip">⚡ Servicio rápido</div>
+      <div class="hero-chip">📋 Diagnóstico gratis</div>
     </div>
   </div>
 </section>
@@ -708,454 +680,296 @@
 <!-- ══ TICKER ══ -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-text">AeroGym Express</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Fuerza · Cardio · Disciplina</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Querétaro</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Suplementos Premium</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Entrenadores Certificados</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Lun – Sáb · 6am – 9pm</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">AeroGym Express</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Fuerza · Cardio · Disciplina</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Querétaro</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Suplementos Premium</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Entrenadores Certificados</span><span class="ticker-dot">✦</span>
-    <span class="ticker-text">Lun – Sáb · 6am – 9pm</span><span class="ticker-dot">✦</span>
+    <span class="tick-txt">Servicios Automotrices G &amp; P</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Alineación</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Balanceo</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Frenos</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Suspensión</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Tula de Allende, Hgo.</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Servicios Automotrices G &amp; P</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Alineación</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Balanceo</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Frenos</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Suspensión</span><span class="tick-txt">✦</span>
+    <span class="tick-txt">Tula de Allende, Hgo.</span><span class="tick-txt">✦</span>
   </div>
 </div>
 
-<!-- ══ HORARIOS ══ -->
-<section class="section horarios-section" id="horarios">
-  <div class="horarios-inner">
-    <div>
-      <div class="stag">Horarios</div>
-      <h2 class="stitle">Abierto cuando<br><em>tú lo necesitas</em></h2>
-      <p class="ssub">Lunes a sábado estamos para ti. Planifica tu semana y no pierdas ningún entrenamiento.</p>
-      <div class="horarios-info">
-        <div class="hor-item">
-          <div class="hor-icon">🕕</div>
-          <div>
-            <strong>Apertura temprana</strong>
-            <span>Desde las 6:00 am, sin excusas para no entrenar</span>
-          </div>
-        </div>
-        <div class="hor-item">
-          <div class="hor-icon">🌙</div>
-          <div>
-            <strong>Cierre a las 9pm</strong>
-            <span>Tiempo suficiente para entrenar después del trabajo</span>
-          </div>
-        </div>
-        <div class="hor-item">
-          <div class="hor-icon">📅</div>
-          <div>
-            <strong>Domingos cerrado</strong>
-            <span>Descansamos para volver más fuertes el lunes</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="open-badge"><div class="open-dot"></div> Abierto ahora</div>
-      <table class="schedule-table">
-        <tr>
-          <td>Lunes</td>
-          <td>6:00 am – 9:00 pm</td>
-        </tr>
-        <tr>
-          <td>Martes</td>
-          <td>6:00 am – 9:00 pm</td>
-        </tr>
-        <tr>
-          <td>Miércoles</td>
-          <td>6:00 am – 9:00 pm</td>
-        </tr>
-        <tr>
-          <td>Jueves</td>
-          <td>6:00 am – 9:00 pm</td>
-        </tr>
-        <tr>
-          <td>Viernes</td>
-          <td>6:00 am – 9:00 pm</td>
-        </tr>
-        <tr>
-          <td>Sábado</td>
-          <td>6:00 am – 9:00 pm</td>
-        </tr>
-        <tr>
-          <td>Domingo</td>
-          <td class="schedule-closed">Cerrado</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CLASES ══ -->
-<section class="section clases-section" id="clases">
+<!-- ══ SERVICIOS ══ -->
+<section class="section svc-section" id="servicios">
   <div class="sh">
-    <div class="stag">Clases y entrenamientos</div>
-    <h2 class="stitle">Encuentra tu<br><em>disciplina</em></h2>
-    <p class="ssub">Cardio, fuerza, funcional y más. Clases para todos los niveles guiadas por nuestros entrenadores.</p>
+    <div class="stag">Nuestros servicios</div>
+    <h2 class="stitle">Lo que hacemos<br><em>mejor</em></h2>
+    <p class="ssub">Servicios especializados para mantener tu vehículo en óptimas condiciones. Diagnóstico preciso y mano de obra garantizada.</p>
   </div>
-  <div class="clases-grid">
-    <div class="clase-card">
-      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Gym" loading="lazy">
-      <div class="clase-overlay"></div>
-      <div class="clase-body">
-        <div class="clase-tag">Fuerza</div>
-        <div class="clase-name">Pesas & Musculación</div>
-        <div class="clase-desc">Zona de pesas libre y máquinas. Para todos los niveles.</div>
+  <div class="svc-grid">
+
+    <div class="svc-card">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=80" alt="Alineación" loading="lazy">
+      </div>
+      <div class="svc-body">
+        <div class="svc-num">01</div>
+        <div class="svc-icon">🎯</div>
+        <div class="svc-name">Alineación</div>
+        <div class="svc-desc">Corrección del ángulo de las ruedas para garantizar manejo recto y uniforme. Evita desgaste irregular de llantas y mejora el control del vehículo.</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Alineación 2D</span>
+          <span class="svc-tag">Alineación 4 ruedas</span>
+          <span class="svc-tag">Camionetas</span>
+          <span class="svc-tag">Autos</span>
+        </div>
       </div>
     </div>
-    <div class="clase-card">
-      <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80" alt="Cardio" loading="lazy">
-      <div class="clase-overlay"></div>
-      <div class="clase-body">
-        <div class="clase-tag">Cardio</div>
-        <div class="clase-name">Cardio Extremo</div>
-        <div class="clase-desc">Quema calorías con nuestras clases de cardio de alta intensidad.</div>
+
+    <div class="svc-card">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Balanceo" loading="lazy">
+      </div>
+      <div class="svc-body">
+        <div class="svc-num">02</div>
+        <div class="svc-icon">⚖️</div>
+        <div class="svc-name">Balanceo</div>
+        <div class="svc-desc">Equilibrio perfecto de ruedas y llantas para eliminar vibraciones al manejar. Prolonga la vida útil de neumáticos y mejora la comodidad en carretera.</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Balanceo estático</span>
+          <span class="svc-tag">Balanceo dinámico</span>
+          <span class="svc-tag">Todo tipo de llantas</span>
+        </div>
       </div>
     </div>
-    <div class="clase-card">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Funcional" loading="lazy">
-      <div class="clase-overlay"></div>
-      <div class="clase-body">
-        <div class="clase-tag">Funcional</div>
-        <div class="clase-name">Entrenamiento Funcional</div>
-        <div class="clase-desc">Movimientos completos, coordinación y resistencia para el día a día.</div>
+
+    <div class="svc-card">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80" alt="Frenos" loading="lazy">
+      </div>
+      <div class="svc-body">
+        <div class="svc-num">03</div>
+        <div class="svc-icon">🛑</div>
+        <div class="svc-name">Frenos</div>
+        <div class="svc-desc">Revisión, ajuste y sustitución de sistema de frenos. Pastillas, discos, tambores, balatas y líquido de frenos. Tu seguridad es lo primero.</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Pastillas y balatas</span>
+          <span class="svc-tag">Discos</span>
+          <span class="svc-tag">Tambores</span>
+          <span class="svc-tag">Freno de mano</span>
+        </div>
       </div>
     </div>
-    <div class="clase-card">
-      <img src="https://images.unsplash.com/photo-1470468969717-61d5d54fd036?w=800&q=80" alt="Spinning" loading="lazy">
-      <div class="clase-overlay"></div>
-      <div class="clase-body">
-        <div class="clase-tag">Ciclismo</div>
-        <div class="clase-name">Spinning Indoor</div>
-        <div class="clase-desc">Bicicletas de alta resistencia, música y motivación a tope.</div>
+
+    <div class="svc-card">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Suspensión" loading="lazy">
+      </div>
+      <div class="svc-body">
+        <div class="svc-num">04</div>
+        <div class="svc-icon">🔩</div>
+        <div class="svc-name">Suspensión</div>
+        <div class="svc-desc">Diagnóstico y reparación completa del sistema de suspensión. Amortiguadores, resortes, rotulas, bujes y terminales para una conducción suave y segura.</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Amortiguadores</span>
+          <span class="svc-tag">Resortes</span>
+          <span class="svc-tag">Rótulas</span>
+          <span class="svc-tag">Bujes</span>
+        </div>
       </div>
     </div>
-    <div class="clase-card">
-      <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=800&q=80" alt="Boxeo" loading="lazy">
-      <div class="clase-overlay"></div>
-      <div class="clase-body">
-        <div class="clase-tag">Combate</div>
-        <div class="clase-name">Box Fitness</div>
-        <div class="clase-desc">Técnica, resistencia y quema de grasa. La clase más popular del gym.</div>
-      </div>
-    </div>
-    <div class="clase-card">
-      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" alt="Yoga" loading="lazy">
-      <div class="clase-overlay"></div>
-      <div class="clase-body">
-        <div class="clase-tag">Mente y cuerpo</div>
-        <div class="clase-name">Stretching & Yoga</div>
-        <div class="clase-desc">Flexibilidad, relajación y recuperación muscular después del entrenamiento.</div>
-      </div>
-    </div>
+
   </div>
 </section>
 
 <!-- ══ STATS ══ -->
-<div class="stats-section">
+<div class="stats-bg">
   <div class="stats-inner">
     <div class="stat-box">
-      <div class="stat-n">+500</div>
-      <div class="stat-l">Miembros activos</div>
+      <div class="stat-n">+10</div>
+      <div class="stat-l">Años de experiencia</div>
     </div>
     <div class="stat-box">
-      <div class="stat-n">9+</div>
-      <div class="stat-l">Años en Querétaro</div>
+      <div class="stat-n">+2,000</div>
+      <div class="stat-l">Vehículos atendidos</div>
     </div>
     <div class="stat-box">
-      <div class="stat-n">6</div>
-      <div class="stat-l">Disciplinas</div>
+      <div class="stat-n">4</div>
+      <div class="stat-l">Servicios especializados</div>
     </div>
     <div class="stat-box">
-      <div class="stat-n">15h</div>
-      <div class="stat-l">Horas de apertura</div>
+      <div class="stat-n">100%</div>
+      <div class="stat-l">Trabajo garantizado</div>
     </div>
   </div>
 </div>
 
-<!-- ══ TIENDA ══ -->
-<section class="section tienda-section" id="tienda">
-  <div class="sh">
-    <div class="stag" style="color:var(--black)">Tienda AeroGym</div>
-    <h2 class="stitle dark-txt">Tu equipamiento,<br><em>nuestra tienda</em></h2>
-    <p class="ssub dark-txt">Playeras, suplementos, proteínas y accesorios. Todo lo que necesitas para rendir al máximo.</p>
-  </div>
-
-  <div class="tienda-tabs">
-    <button class="tienda-tab active" onclick="filterTienda('all', this)">Todo</button>
-    <button class="tienda-tab" onclick="filterTienda('merch', this)">👕 Merchandising</button>
-    <button class="tienda-tab" onclick="filterTienda('proteina', this)">💪 Proteínas</button>
-    <button class="tienda-tab" onclick="filterTienda('suplemento', this)">⚡ Suplementos</button>
-  </div>
-
-  <div class="productos-grid" id="productos-grid">
-
-    <div class="prod-card" data-cat="merch">
-      <div class="prod-img">
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80" alt="Playera" loading="lazy">
-        <div class="prod-badge">Merch</div>
+<!-- ══ POR QUÉ NOSOTROS ══ -->
+<section class="section why-section" id="nosotros">
+  <div class="why-inner">
+    <div class="why-img-wrap">
+      <div class="why-img-main">
+        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=900&q=85" alt="Taller mecánico" loading="lazy">
       </div>
-      <div class="prod-body">
-        <div class="prod-cat">Merchandising</div>
-        <div class="prod-name">Playera AeroGym Classic</div>
-        <div class="prod-desc">100% algodón, corte oversize. Logo bordado. Disponible en S, M, L, XL.</div>
-        <div class="prod-footer">
-          <div class="prod-price">$280</div>
-          <button class="prod-btn" onclick="wappProduct('Playera AeroGym Classic $280')">Pedir</button>
-        </div>
+      <div class="why-img-sec">
+        <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=500&q=85" alt="Mecánico trabajando" loading="lazy">
+      </div>
+      <div class="why-badge">
+        <strong>G&amp;P</strong>
+        <span>Calidad</span>
       </div>
     </div>
-
-    <div class="prod-card" data-cat="merch">
-      <div class="prod-img">
-        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80" alt="Short" loading="lazy">
-        <div class="prod-badge">Merch</div>
-      </div>
-      <div class="prod-body">
-        <div class="prod-cat">Merchandising</div>
-        <div class="prod-name">Short AeroGym Training</div>
-        <div class="prod-desc">Short deportivo con logo. Tela transpirable. Cinturilla ajustable.</div>
-        <div class="prod-footer">
-          <div class="prod-price">$320</div>
-          <button class="prod-btn" onclick="wappProduct('Short AeroGym Training $320')">Pedir</button>
+    <div>
+      <div class="stag">¿Por qué elegirnos?</div>
+      <h2 class="stitle">Experiencia y<br><em>confianza</em></h2>
+      <p class="ssub">Más de 10 años al servicio de Tula de Allende. El Ing. Javier García Pérez y su equipo te garantizan el mejor trabajo.</p>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-ico">🎯</div>
+          <div>
+            <strong>Diagnóstico preciso</strong>
+            <span>Identificamos el problema real de tu vehículo antes de cualquier trabajo. Sin cobros innecesarios.</span>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-ico">🔩</div>
+          <div>
+            <strong>Refacciones de calidad</strong>
+            <span>Usamos refacciones originales o de primera calidad. Garantía en piezas y mano de obra.</span>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-ico">⚡</div>
+          <div>
+            <strong>Servicio rápido</strong>
+            <span>Entendemos que necesitas tu vehículo. Trabajamos con agilidad sin sacrificar calidad.</span>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-ico">💬</div>
+          <div>
+            <strong>Atención personalizada</strong>
+            <span>Te explicamos cada paso del servicio. Sin sorpresas en la factura final.</span>
+          </div>
         </div>
       </div>
+      <a class="btn-orange"
+         href="https://wa.me/527731234567?text=Hola%2C%20quiero%20información%20sobre%20Servicios%20Automotrices%20G%20%26%20P"
+         target="_blank"
+         style="display:inline-flex;margin-top:.5rem">
+        Contáctanos →
+      </a>
     </div>
-
-    <div class="prod-card" data-cat="merch">
-      <div class="prod-img">
-        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80" alt="Gorra" loading="lazy">
-        <div class="prod-badge">Merch</div>
-      </div>
-      <div class="prod-body">
-        <div class="prod-cat">Merchandising</div>
-        <div class="prod-name">Gorra AeroGym</div>
-        <div class="prod-desc">Gorra deportiva con cierre ajustable. Logo frontal bordado en negro/lima.</div>
-        <div class="prod-footer">
-          <div class="prod-price">$180</div>
-          <button class="prod-btn" onclick="wappProduct('Gorra AeroGym $180')">Pedir</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card" data-cat="merch">
-      <div class="prod-img">
-        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80" alt="Mochila" loading="lazy">
-        <div class="prod-badge">Merch</div>
-      </div>
-      <div class="prod-body">
-        <div class="prod-cat">Merchandising</div>
-        <div class="prod-name">Mochila AeroGym</div>
-        <div class="prod-desc">Mochila de lona con compartimento para zapatos. Varios bolsillos. 25 litros.</div>
-        <div class="prod-footer">
-          <div class="prod-price">$450</div>
-          <button class="prod-btn" onclick="wappProduct('Mochila AeroGym $450')">Pedir</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card" data-cat="proteina">
-      <div class="prod-img">
-        <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=500&q=80" alt="Proteína Whey" loading="lazy">
-        <div class="prod-badge">Proteína</div>
-      </div>
-      <div class="prod-body">
-        <div class="prod-cat">Proteínas</div>
-        <div class="prod-name">Whey Protein 2kg</div>
-        <div class="prod-desc">25g de proteína por servicio. Sabores: chocolate, vainilla, fresa. Sin azúcar añadida.</div>
-        <div class="prod-footer">
-          <div class="prod-price">$850</div>
-          <button class="prod-btn" onclick="wappProduct('Whey Protein 2kg $850')">Pedir</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card" data-cat="proteina">
-      <div class="prod-img">
-        <img src="https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=500&q=80" alt="Caseína" loading="lazy">
-        <div class="prod-badge">Proteína</div>
-      </div>
-      <div class="prod-body">
-        <div class="prod-cat">Proteínas</div>
-        <div class="prod-name">Caseína Nocturna 1.5kg</div>
-        <div class="prod-desc">Liberación lenta ideal para tomar antes de dormir. Máxima recuperación muscular.</div>
-        <div class="prod-footer">
-          <div class="prod-price">$780</div>
-          <button class="prod-btn" onclick="wappProduct('Caseína Nocturna 1.5kg $780')">Pedir</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card" data-cat="suplemento">
-      <div class="prod-img">
-        <img src="https://images.unsplash.com/photo-1616279969862-de8af8cb8fd5?w=500&q=80" alt="Creatina" loading="lazy">
-        <div class="prod-badge">Suplemento</div>
-      </div>
-      <div class="prod-body">
-        <div class="prod-cat">Suplementos</div>
-        <div class="prod-name">Creatina Monohidrato 300g</div>
-        <div class="prod-desc">Creatina micronizada de grado farmacéutico. 60 porciones. Aumenta fuerza y resistencia.</div>
-        <div class="prod-footer">
-          <div class="prod-price">$380</div>
-          <button class="prod-btn" onclick="wappProduct('Creatina Monohidrato 300g $380')">Pedir</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prod-card" data-cat="suplemento">
-      <div class="prod-img">
-        <img src="https://images.unsplash.com/photo-1544991875-5dc1b05f1571?w=500&q=80" alt="Pre-workout" loading="lazy">
-        <div class="prod-badge">Suplemento</div>
-      </div>
-      <div class="prod-body">
-        <div class="prod-cat">Suplementos</div>
-        <div class="prod-name">Pre-Workout Explosion</div>
-        <div class="prod-desc">Máxima energía, enfoque y bombeo muscular. Con cafeína, beta-alanina y citrulina.</div>
-        <div class="prod-footer">
-          <div class="prod-price">$420</div>
-          <button class="prod-btn" onclick="wappProduct('Pre-Workout Explosion $420')">Pedir</button>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ══ ENTRENADORES ══ -->
-<section class="section trainers-section" id="entrenadores">
+<!-- ══ GALERÍA ══ -->
+<section class="section gallery-section" id="galeria">
   <div class="sh">
-    <div class="stag">Nuestros entrenadores</div>
-    <h2 class="stitle">Los mejores te<br><em>guían</em></h2>
-    <p class="ssub">Certificados, apasionados y comprometidos con tu progreso. Lucya y Giovanni están aquí para llevarte al siguiente nivel.</p>
+    <div class="stag">Nuestro taller</div>
+    <h2 class="stitle">Instalaciones y<br><em>trabajos</em></h2>
   </div>
-  <div class="trainers-grid">
-
-    <div class="trainer-card">
-      <div class="trainer-photo">
-        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=85" alt="Lucya" loading="lazy">
-      </div>
-      <div class="trainer-body">
-        <div class="trainer-number">01</div>
-        <div class="trainer-role">Entrenadora Personal · Cardio</div>
-        <div class="trainer-name">Lucya</div>
-        <div class="trainer-bio">Especialista en cardio HIIT, transformación corporal y nutrición deportiva. Con más de 5 años de experiencia entrenando a mujeres y hombres a alcanzar sus metas. Certificada por NASM.</div>
-        <div class="trainer-tags">
-          <span class="trainer-tag">HIIT</span>
-          <span class="trainer-tag">Fat Burn</span>
-          <span class="trainer-tag">Nutrición</span>
-          <span class="trainer-tag">NASM Cert.</span>
-        </div>
-      </div>
+  <div class="gallery-grid">
+    <div class="gl">
+      <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=900&q=85" alt="Taller" loading="lazy">
+      <div class="gl-lbl">Nuestro taller</div>
     </div>
-
-    <div class="trainer-card">
-      <div class="trainer-photo">
-        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=85" alt="Giovanni" loading="lazy">
-      </div>
-      <div class="trainer-body">
-        <div class="trainer-number">02</div>
-        <div class="trainer-role">Entrenador Personal · Fuerza</div>
-        <div class="trainer-name">Giovanni</div>
-        <div class="trainer-bio">Especialista en musculación, fuerza y powerlifting. 7 años formando atletas en Querétaro. Campeón regional de powerlifting 2022. Certificado IFBB y CrossFit Level 2.</div>
-        <div class="trainer-tags">
-          <span class="trainer-tag">Powerlifting</span>
-          <span class="trainer-tag">Hipertrofia</span>
-          <span class="trainer-tag">Fuerza</span>
-          <span class="trainer-tag">CrossFit L2</span>
-        </div>
-      </div>
+    <div class="gl">
+      <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=80" alt="Alineación" loading="lazy">
+      <div class="gl-lbl">Alineación</div>
     </div>
-
+    <div class="gl">
+      <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80" alt="Frenos" loading="lazy">
+      <div class="gl-lbl">Sistema de frenos</div>
+    </div>
+    <div class="gl">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Balanceo" loading="lazy">
+      <div class="gl-lbl">Balanceo de ruedas</div>
+    </div>
+    <div class="gl">
+      <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=600&q=80" alt="Suspensión" loading="lazy">
+      <div class="gl-lbl">Suspensión</div>
+    </div>
   </div>
 </section>
 
-<!-- ══ FAQ CHATBOT ══ -->
+<!-- ══ FAQ + CHATBOT ══ -->
 <section class="faq-section" id="faq">
   <div class="faq-inner">
 
-    <!-- Bot -->
     <div>
-      <div class="stag">Asistente AeroGym</div>
+      <div class="stag">Asistente virtual</div>
       <h2 class="stitle" style="margin-bottom:1rem">Preguntas<br><em>frecuentes</em></h2>
-      <p class="ssub" style="margin-bottom:2rem">Chatea con nuestro asistente virtual o revisa las preguntas más comunes del lado derecho.</p>
+      <p class="ssub" style="margin-bottom:2rem">Chatea con nuestro asistente o consulta las respuestas rápidas.</p>
       <div class="bot-shell">
         <div class="bot-hdr">
-          <div class="bot-av">⚡</div>
+          <div class="bot-av">🔧</div>
           <div>
-            <strong>AeroBot — AeroGym Express</strong>
-            <span>🟢 Siempre disponible</span>
+            <strong>Asistente G &amp; P</strong>
+            <span>🟠 Siempre disponible</span>
           </div>
         </div>
         <div class="bot-msgs" id="bot-msgs">
           <div class="bm">
-            ¡Hola! ⚡ Soy <b>AeroBot</b>, el asistente de <b>AeroGym Express</b>. ¿En qué te ayudo?
+            ¡Hola! 🔧 Bienvenido a <b>Servicios Automotrices G &amp; P</b>. ¿En qué te puedo ayudar?
             <div class="bts">Ahora</div>
-            <div class="bopts" id="opts-init">
-              <button class="bopt" onclick="botStep('precio')">💰 ¿Cuánto cuesta la membresía?</button>
-              <button class="bopt" onclick="botStep('horario')">🕕 ¿Cuál es el horario?</button>
-              <button class="bopt" onclick="botStep('clases')">🏋️ ¿Qué clases tienen?</button>
-              <button class="bopt" onclick="botStep('prueba')">🎟️ ¿Tienen clase de prueba?</button>
-              <button class="bopt" onclick="botStep('ubicacion')">📍 ¿Dónde están ubicados?</button>
+            <div class="bopts">
+              <button class="bopt" onclick="botStep('precios')">💰 ¿Cuánto cobran los servicios?</button>
+              <button class="bopt" onclick="botStep('horario')">🕗 ¿Cuál es el horario?</button>
+              <button class="bopt" onclick="botStep('tiempo')">⏱️ ¿Cuánto tarda el servicio?</button>
+              <button class="bopt" onclick="botStep('cita')">📅 ¿Necesito cita previa?</button>
+              <button class="bopt" onclick="botStep('ubicacion')">📍 ¿Dónde están?</button>
             </div>
           </div>
         </div>
         <div class="bot-ft">
-          <input class="bot-inp" placeholder="Selecciona una opción..." readonly>
+          <input class="bot-inp" placeholder="Selecciona una pregunta..." readonly>
           <button class="bot-sb">→</button>
         </div>
       </div>
     </div>
 
-    <!-- FAQ estático -->
     <div>
       <div class="stag">Respuestas rápidas</div>
       <h2 class="stitle" style="margin-bottom:2rem">Lo más<br><em>preguntado</em></h2>
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            💰 ¿Cuánto cuesta la membresía?
-            <span class="faq-icon">+</span>
+            💰 ¿Cuánto cuestan los servicios?
+            <span class="faq-ic">+</span>
           </div>
-          <div class="faq-a">Tenemos planes semanales, quincenales y mensuales. Contáctanos por WhatsApp para precios actualizados y promociones especiales para nuevos miembros.</div>
+          <div class="faq-a">Los precios varían según el vehículo y el servicio requerido. Contáctanos por WhatsApp con el modelo y año de tu auto para darte una cotización exacta sin compromiso.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            🕕 ¿Cuáles son los horarios?
-            <span class="faq-icon">+</span>
+            🕗 ¿Cuál es el horario de atención?
+            <span class="faq-ic">+</span>
           </div>
-          <div class="faq-a">Lunes a Sábado de 6:00 am a 9:00 pm. Los domingos permanecemos cerrados. Aprovecha los horarios de menor afluencia: temprano en la mañana o después de las 7pm.</div>
+          <div class="faq-a">Atendemos de Lunes a Sábado. Contáctanos por WhatsApp para confirmar disponibilidad y evitar tiempos de espera.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            🎟️ ¿Tienen clase de prueba gratis?
-            <span class="faq-icon">+</span>
+            ⏱️ ¿Cuánto tiempo tarda la alineación y balanceo?
+            <span class="faq-ic">+</span>
           </div>
-          <div class="faq-a">¡Sí! Ofrecemos una clase de prueba gratuita para nuevos visitantes. Solo escríbenos por WhatsApp para agendar tu visita sin compromiso.</div>
+          <div class="faq-a">La alineación y balanceo generalmente se realiza en 30–60 minutos dependiendo del vehículo. El servicio de frenos o suspensión puede tomar más tiempo según el trabajo requerido.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            🏋️ ¿Necesito experiencia previa?
-            <span class="faq-icon">+</span>
+            📅 ¿Necesito hacer cita previa?
+            <span class="faq-ic">+</span>
           </div>
-          <div class="faq-a">Para nada. Nuestros entrenadores Lucya y Giovanni te hacen una evaluación inicial y diseñan un plan personalizado según tu nivel, ya seas principiante o avanzado.</div>
+          <div class="faq-a">Se recomienda llamar o escribir por WhatsApp antes de llegar para garantizar tu lugar y reducir el tiempo de espera. En ocasiones podemos atenderte de inmediato.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            🛒 ¿Puedo comprar suplementos aquí?
-            <span class="faq-icon">+</span>
+            🔩 ¿Trabajan con todo tipo de vehículos?
+            <span class="faq-ic">+</span>
           </div>
-          <div class="faq-a">Sí, contamos con tienda dentro del gimnasio con proteínas, creatina, pre-workouts, BCAA y más. También vendemos merchandising oficial de AeroGym.</div>
+          <div class="faq-a">Sí, atendemos autos, camionetas, SUVs y vehículos de trabajo. Contáctanos para confirmar disponibilidad según tu tipo de vehículo.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="toggleFaq(this)">
-            📍 ¿Dónde están ubicados?
-            <span class="faq-icon">+</span>
+            ✅ ¿Dan garantía en el servicio?
+            <span class="faq-ic">+</span>
           </div>
-          <div class="faq-a">Estamos en Av. Circunvalación 46, La Santa Cruz, Centro, 76020 Santiago de Querétaro, Qro. Fácil acceso en transporte público y con estacionamiento cerca.</div>
+          <div class="faq-a">Sí. Todos nuestros trabajos cuentan con garantía en mano de obra y en las refacciones instaladas. Si tienes algún inconveniente, regresa y lo resolvemos sin costo.</div>
         </div>
       </div>
     </div>
@@ -1163,53 +977,52 @@
   </div>
 </section>
 
-<!-- ══ UBICACIÓN ══ -->
-<section class="section map-section" id="ubicacion">
-  <div class="map-inner">
+<!-- ══ CONTACTO ══ -->
+<section class="section contact-section" id="contacto">
+  <div class="contact-inner">
     <div>
-      <div class="stag">Ubicación</div>
-      <h2 class="stitle">Encuéntranos en<br><em>Querétaro</em></h2>
-      <p class="ssub">Estamos en el Centro de Santiago de Querétaro, fácil acceso en transporte público.</p>
+      <div class="stag">Ubicación y contacto</div>
+      <h2 class="stitle">Visítanos en<br><em>Tula de Allende</em></h2>
+      <p class="ssub">Estamos en Jalpa, a unos minutos del centro de Tula de Allende, Hidalgo.</p>
       <div class="loc-items">
         <div class="loc-item">
           <div class="loc-ico">📍</div>
           <div>
             <strong>Dirección</strong>
-            <span>Av Circunvalación 46, La Santa Cruz<br>Centro, 76020 Santiago de Querétaro, Qro.</span>
+            <span>Jalpa, 42804 Tula de Allende, Hgo.</span>
           </div>
         </div>
         <div class="loc-item">
-          <div class="loc-ico">🕕</div>
+          <div class="loc-ico">🕗</div>
           <div>
             <strong>Horario</strong>
-            <span>Lunes – Sábado: 6:00 am – 9:00 pm<br>Domingo: Cerrado</span>
+            <span>Lunes – Sábado · Llámanos para confirmar horario</span>
           </div>
         </div>
         <div class="loc-item">
           <div class="loc-ico">📞</div>
           <div>
             <strong>Teléfono y WhatsApp</strong>
-            <span>442 123 4567</span>
+            <span>773 123 4567</span>
           </div>
         </div>
         <div class="loc-item">
-          <div class="loc-ico">📧</div>
+          <div class="loc-ico">👤</div>
           <div>
-            <strong>Correo</strong>
-            <span>hola@aerogymexpress.mx</span>
+            <strong>Responsable</strong>
+            <span>Ing. Javier García Pérez</span>
           </div>
         </div>
       </div>
-      <a class="btn-wapp-loc"
-         href="https://wa.me/524421234567?text=Hola%2C%20quiero%20información%20sobre%20AeroGym%20Express"
+      <a class="btn-wapp"
+         href="https://wa.me/527731234567?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20en%20Servicios%20Automotrices%20G%20%26%20P"
          target="_blank">
-        💬 Escríbenos por WhatsApp
+        💬 Cotizar por WhatsApp
       </a>
     </div>
-
     <div class="map-frame">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.5!2d-100.3899!3d20.5885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d345b01a09a5e9%3A0x5b3b4d5c2a1b3e4!2sAv.%20Circunvalaci%C3%B3n%2C%20La%20Santa%20Cruz%2C%2076020%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1ses-419!2smx!4v1680000000003"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3737!2d-99.3411!3d20.0491!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d25f8f8e2f7f2b%3A0x1a2b3c4d5e6f7g8h!2sJalpa%2C%2042804%20Tula%20de%20Allende%2C%20Hgo.!5e0!3m2!1ses-419!2smx!4v1680000000004"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
@@ -1220,81 +1033,60 @@
 <footer class="footer">
   <div class="footer-top">
     <div>
-      <div class="ft-name">⚡ <span>Aero</span>Gym Express</div>
-      <div class="ft-sub">Santiago de Querétaro · Est. 2015</div>
-      <p class="ft-desc">El gimnasio que te impulsa a superar tus límites. Entrenadores certificados, equipos de punta y una comunidad que te motiva cada día.</p>
+      <div class="ft-eng">Empresa del Ing. Javier García Pérez</div>
+      <div class="ft-name">Servicios <span>G &amp; P</span></div>
+      <div class="ft-sub">Automotrices · Tula de Allende, Hgo.</div>
+      <p class="ft-desc">Especialistas en alineación, balanceo, frenos y suspensión. Calidad y confianza al servicio de Tula de Allende por más de 10 años.</p>
     </div>
     <div class="ft-col">
       <h4>Servicios</h4>
       <ul>
-        <li>Pesas y Musculación</li>
-        <li>Cardio Extremo</li>
-        <li>Funcional</li>
-        <li>Spinning Indoor</li>
-        <li>Box Fitness</li>
-        <li>Stretching & Yoga</li>
+        <li>Alineación</li>
+        <li>Balanceo de ruedas</li>
+        <li>Sistema de frenos</li>
+        <li>Suspensión completa</li>
+        <li>Diagnóstico general</li>
       </ul>
     </div>
     <div class="ft-col">
       <h4>Contacto</h4>
       <ul>
-        <li>📍 Av Circunvalación 46, Qro.</li>
-        <li>📞 442 123 4567</li>
+        <li>📍 Jalpa, Tula de Allende, Hgo.</li>
+        <li>📞 773 123 4567</li>
         <li>💬 WhatsApp disponible</li>
-        <li>Lun–Sáb: 6 am – 9 pm</li>
-        <li>Domingo: Cerrado</li>
+        <li>Lun – Sáb: Llamar para horario</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 AeroGym Express — Santiago de Querétaro. Todos los derechos reservados.</span>
-    <a href="https://wa.me/524421234567" target="_blank">💬 WhatsApp: 442 123 4567</a>
+    <span>© 2026 Servicios Automotrices G &amp; P — Tula de Allende, Hgo. Empresa del Ing. Javier García Pérez.</span>
+    <a href="https://wa.me/527731234567" target="_blank">💬 WhatsApp: 773 123 4567</a>
   </div>
 </footer>
 
-<!-- ══ WA FLOAT ══ -->
+<!-- ══ FLOAT WA ══ -->
 <div class="wa-fab">
-  <div class="wa-fab-tip">¡Únete a AeroGym! 💬</div>
+  <div class="wa-fab-tip">¡Cotiza tu servicio! 🔧</div>
   <a class="wa-fab-btn"
-     href="https://wa.me/524421234567?text=Hola%2C%20quiero%20información%20sobre%20AeroGym%20Express"
-     target="_blank" aria-label="WhatsApp">
-    💬
-  </a>
+     href="https://wa.me/527731234567?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20en%20Servicios%20Automotrices%20G%20%26%20P"
+     target="_blank" aria-label="WhatsApp">💬</a>
 </div>
 
 <!-- ══ JS ══ -->
 <script>
-  const WA = '524421234567';
+  const WA = '527731234567';
 
-  /* nav scroll */
-  window.addEventListener('scroll', () =>
-    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 30)
-  );
-
-  /* highlight today's schedule */
-  window.addEventListener('DOMContentLoaded', () => {
-    const days = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
-    const today = days[new Date().getDay()];
-    document.querySelectorAll('.schedule-table tr').forEach(tr => {
-      if (tr.cells[0] && tr.cells[0].textContent.trim() === today)
-        tr.classList.add('schedule-today');
-    });
+  /* nav position ajustada por top-bar */
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('main-nav');
+    if (window.scrollY > 40) {
+      nav.style.top = '0';
+      nav.classList.add('scrolled');
+    } else {
+      nav.style.top = '32px';
+      nav.classList.remove('scrolled');
+    }
   });
-
-  /* tienda filter */
-  function filterTienda(cat, btn) {
-    document.querySelectorAll('.tienda-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.prod-card').forEach(card => {
-      if (cat === 'all' || card.dataset.cat === cat) card.classList.remove('prod-hidden');
-      else card.classList.add('prod-hidden');
-    });
-  }
-
-  /* wapp product */
-  function wappProduct(name) {
-    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(`Hola, quiero información sobre el producto: ${name} en AeroGym Express 🛒`)}`, '_blank');
-  }
 
   /* FAQ accordion */
   function toggleFaq(el) {
@@ -1304,68 +1096,63 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  /* FAQ Bot */
-  const FAQ_ANSWERS = {
-    precio: {
-      q: '💰 ¿Cuánto cuesta la membresía?',
-      a: 'Tenemos planes semanales, quincenales y mensuales con precios muy accesibles. 💪 ¿Quieres que te enviemos los precios actualizados por WhatsApp?',
-      opts: [{ l: '✅ Sí, envíame precios', a: 'wa_precio' }, { l: '🔙 Ver más preguntas', a: 'reset' }]
+  /* Chatbot */
+  const ANSWERS = {
+    precios: {
+      q: '💰 ¿Cuánto cobran los servicios?',
+      a: 'Los precios dependen del tipo de vehículo y servicio. Te recomendamos cotizar directo por WhatsApp con el modelo y año de tu auto para darte un precio exacto. 🚗',
+      opts: [{ l: '💬 Ir a cotizar por WhatsApp', a: 'wa_cotizar' }, { l: '🔙 Más preguntas', a: 'reset' }]
     },
     horario: {
-      q: '🕕 ¿Cuál es el horario?',
-      a: '🟢 Lunes a Sábado de 6:00 am a 9:00 pm.\n🔴 Domingo: Cerrado.\n\n¡15 horas al día para que entrenes cuando quieras!',
-      opts: [{ l: '🔙 Ver más preguntas', a: 'reset' }]
+      q: '🕗 ¿Cuál es el horario?',
+      a: '📅 Atendemos Lunes a Sábado. Te recomendamos llamar o escribir por WhatsApp antes de llegar para confirmar disponibilidad y evitar espera.',
+      opts: [{ l: '🔙 Más preguntas', a: 'reset' }]
     },
-    clases: {
-      q: '🏋️ ¿Qué clases tienen?',
-      a: 'Tenemos: Pesas, Cardio Extremo, Funcional, Spinning Indoor, Box Fitness y Stretching. Guiadas por nuestros entrenadores Lucya y Giovanni. 🔥',
-      opts: [{ l: '👟 Conocer entrenadores', a: 'entrenadores' }, { l: '🔙 Ver más preguntas', a: 'reset' }]
+    tiempo: {
+      q: '⏱️ ¿Cuánto tarda el servicio?',
+      a: '⏱️ Alineación y balanceo: 30–60 min.\n🛑 Frenos: 1–2 horas.\n🔩 Suspensión: según el trabajo.\n\nSiempre trabajamos lo más rápido posible sin sacrificar calidad.',
+      opts: [{ l: '📅 Agendar cita', a: 'wa_cita' }, { l: '🔙 Más preguntas', a: 'reset' }]
     },
-    prueba: {
-      q: '🎟️ ¿Tienen clase de prueba?',
-      a: '¡Sí! 🎉 Te damos una clase de prueba GRATIS. Solo coordina con nosotros por WhatsApp y ven a conocer el gym sin compromiso.',
-      opts: [{ l: '💬 Agendar clase gratis', a: 'wa_prueba' }, { l: '🔙 Ver más preguntas', a: 'reset' }]
+    cita: {
+      q: '📅 ¿Necesito cita previa?',
+      a: 'Se recomienda llamar o escribirnos por WhatsApp antes de llegar para garantizar atención inmediata. En algunos casos podemos recibirte sin cita. 👍',
+      opts: [{ l: '💬 Agendar por WhatsApp', a: 'wa_cita' }, { l: '🔙 Más preguntas', a: 'reset' }]
     },
     ubicacion: {
       q: '📍 ¿Dónde están ubicados?',
-      a: '📍 Av Circunvalación 46, La Santa Cruz, Centro, 76020 Santiago de Querétaro, Qro.\n\nFácil acceso en transporte público.',
-      opts: [{ l: '🗺️ Ver en mapa', a: 'mapa' }, { l: '🔙 Ver más preguntas', a: 'reset' }]
+      a: '📍 Estamos en Jalpa, 42804 Tula de Allende, Hgo.\n\nPuedes ver la ubicación exacta en el mapa que está más abajo en esta página 👇',
+      opts: [{ l: '🗺️ Ver en el mapa', a: 'mapa' }, { l: '🔙 Más preguntas', a: 'reset' }]
     },
-    entrenadores: {
-      q: '👟 ¿Quiénes son los entrenadores?',
-      a: '¡Los mejores! 💪\n\n👩 Lucya — especialista en cardio HIIT y transformación corporal. Cert. NASM.\n\n👨 Giovanni — especialista en fuerza, musculación y powerlifting. Cert. IFBB.',
-      opts: [{ l: '🔙 Ver más preguntas', a: 'reset' }]
-    },
-    reset: null,
-    wa_precio:  { wapp: 'Hola%2C%20quiero%20saber%20los%20precios%20de%20membresía%20en%20AeroGym%20Express' },
-    wa_prueba:  { wapp: 'Hola%2C%20quiero%20agendar%20mi%20clase%20de%20prueba%20gratis%20en%20AeroGym%20Express' },
+    wa_cotizar: { wapp: 'Hola%2C%20quiero%20cotizar%20un%20servicio%20en%20Servicios%20Automotrices%20G%20%26%20P.%20Mi%20vehículo%20es%3A%20' },
+    wa_cita:    { wapp: 'Hola%2C%20quiero%20agendar%20una%20cita%20en%20Servicios%20Automotrices%20G%20%26%20P' },
     mapa: null,
+    reset: null,
   };
 
   function botStep(action) {
     document.querySelectorAll('.bopts').forEach(e => e.remove());
 
     if (action === 'reset') {
-      addBotMsg('¿En qué más te ayudo? 😊', false, [
-        { l: '💰 ¿Cuánto cuesta la membresía?', a: 'precio' },
-        { l: '🕕 ¿Cuál es el horario?', a: 'horario' },
-        { l: '🏋️ ¿Qué clases tienen?', a: 'clases' },
-        { l: '🎟️ ¿Tienen clase de prueba?', a: 'prueba' },
-        { l: '📍 ¿Dónde están ubicados?', a: 'ubicacion' },
+      addBotMsg('¿En qué más te ayudo? 🔧', false, [
+        { l: '💰 ¿Cuánto cobran los servicios?', a: 'precios' },
+        { l: '🕗 ¿Cuál es el horario?', a: 'horario' },
+        { l: '⏱️ ¿Cuánto tarda el servicio?', a: 'tiempo' },
+        { l: '📅 ¿Necesito cita previa?', a: 'cita' },
+        { l: '📍 ¿Dónde están?', a: 'ubicacion' },
       ]);
       return;
     }
 
     if (action === 'mapa') {
-      addBotMsg('🗺️ Ver en mapa', true);
+      addBotMsg('🗺️ Ver en el mapa', true);
       setTimeout(() => {
-        addBotMsg('Puedes ver nuestra ubicación en el mapa más abajo en la página 👇');
-        document.getElementById('ubicacion').scrollIntoView({ behavior: 'smooth' });
+        addBotMsg('Aquí puedes ver nuestra ubicación en el mapa 👇');
+        document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
       }, 500);
       return;
     }
 
-    const d = FAQ_ANSWERS[action];
+    const d = ANSWERS[action];
     if (!d) return;
 
     if (d.wapp) {
@@ -1374,20 +1161,17 @@
     }
 
     addBotMsg(d.q, true);
-    setTimeout(() => {
-      addBotMsg(d.a, false, d.opts);
-    }, 500);
+    setTimeout(() => addBotMsg(d.a, false, d.opts), 500);
   }
 
   function addBotMsg(text, isUser = false, opts = null) {
     const body = document.getElementById('bot-msgs');
     const m = document.createElement('div');
-    m.className = 'bm' + (isUser ? ' user' : '');
+    m.className = 'bm' + (isUser ? ' u' : '');
     const t = new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
     m.innerHTML = text.replace(/\n/g, '<br>') + `<div class="bts">${t}</div>`;
     if (opts) {
-      const w = document.createElement('div');
-      w.className = 'bopts';
+      const w = document.createElement('div'); w.className = 'bopts';
       opts.forEach(o => {
         const b = document.createElement('button');
         b.className = 'bopt'; b.textContent = o.l;
